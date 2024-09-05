@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity"
-    android:layout_margin="10dp"
+    android:padding="10dp"
     android:theme="@style/Theme.LinkageLab">
 
 
@@ -23,5 +23,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id = "@+id/testBtn2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/base_roundsquare"
+        android:contentDescription="테스트2"
+        android:text="테스트2"
+        android:textColor="@color/kakao_black"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/testBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
