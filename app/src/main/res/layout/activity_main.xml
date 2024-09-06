@@ -10,7 +10,6 @@
     android:padding="10dp"
     android:theme="@style/Theme.LinkageLab">
 
-
     <Button
         android:id = "@+id/testBtn"
         android:layout_width="match_parent"
