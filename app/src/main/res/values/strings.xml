@@ -3,4 +3,6 @@
 
 
     <!-- 대체 텍스트 -->
+    <string name="fab_content_desc"></string>
+    <string name="extended_fab_content_desc"></string>
 </resources>

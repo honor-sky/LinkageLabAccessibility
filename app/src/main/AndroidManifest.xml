@@ -16,12 +16,49 @@
         tools:targetApi="31">
         <activity
             android:name=".presentation.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
 
+        </activity>
+
+        <activity
+            android:name=".presentation.TextActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.ButtonActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.PickerActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.NavigationActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.ScrollActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.SheetActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.ChipActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
         </activity>
 
         <service

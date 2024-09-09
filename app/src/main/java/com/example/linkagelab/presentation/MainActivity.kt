@@ -1,6 +1,7 @@
 package com.example.linkagelab.presentation
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
@@ -20,6 +21,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        initListener()
+
         // 시스템바 설정
         /* ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -28,10 +31,11 @@ class MainActivity : AppCompatActivity() {
        }*/
 
 
-        binding.testBtn.setOnClickListener {
+       /* binding.basicBtn.setOnClickListener {
             sendAccessibilityEvent("테스트 입니다!!")
-        }
+        }*/
 
+        /*
         // contentDescription 커스터마이징
         binding.testBtn2.accessibilityDelegate = object : View.AccessibilityDelegate() {
             override fun onInitializeAccessibilityNodeInfo(
@@ -54,6 +58,40 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+         */
+    }
+
+    fun initListener() {
+        binding.textTestBtn.setOnClickListener {
+            startActivity(Intent(this, TextActivity::class.java))
+        }
+
+        binding.buttonTextBtn.setOnClickListener {
+            startActivity(Intent(this, ButtonActivity::class.java))
+        }
+
+        binding.chipTestBtn.setOnClickListener {
+            startActivity(Intent(this, ChipActivity::class.java))
+        }
+
+        binding.pickerTestBtn.setOnClickListener {
+            startActivity(Intent(this, PickerActivity::class.java))
+        }
+
+        binding.sheetTestBtn.setOnClickListener {
+            startActivity(Intent(this, SheetActivity::class.java))
+        }
+
+        binding.naviTestBtn.setOnClickListener {
+            startActivity(Intent(this, NavigationActivity::class.java))
+        }
+
+        binding.scrollTestBtn.setOnClickListener {
+            startActivity(Intent(this, ScrollActivity::class.java))
+        }
+
+
     }
 
 

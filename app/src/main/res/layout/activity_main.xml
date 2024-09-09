@@ -10,31 +10,148 @@
     android:padding="10dp"
     android:theme="@style/Theme.LinkageLab">
 
-    <Button
-        android:id = "@+id/testBtn"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/base_roundsquare"
-        android:contentDescription="테스트"
-        android:text="테스트"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+
+    <Button
+        android:id = "@+id/textTestBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:contentDescription="TextView 와 EditTextView 테스트"
+        android:text="TextView / EditTextView"
         android:textColor="@color/kakao_black"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id = "@+id/testBtn2"
+        android:id = "@+id/buttonTextBtn"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/base_roundsquare"
-        android:contentDescription="테스트2"
-        android:text="테스트2"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:contentDescription="기본, Image, Toggle, Segmented, FAB, Radio 버튼 테스트"
+        android:text="Basic / Image / Toggle / Segmented / FAB / Radio"
         android:textColor="@color/kakao_black"
-        android:textSize="24sp"
-        android:layout_marginTop="10dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/testBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/btn1" />
+
+    <Button
+        android:id = "@+id/chipTestBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:contentDescription="ImageView, Card, Chip, Switch, CheckBox 테스트 "
+        android:text="ImageView / Card / Chip / Switch / CheckBox"
+        android:textColor="@color/kakao_black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn2"  />
+
+    <Button
+        android:id = "@+id/pickerTestBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:contentDescription="Date Picker 와 Time Picker 테스트"
+        android:text="Date Picker / Time Picker"
+        android:textColor="@color/kakao_black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn3" />
+
+        <Button
+            android:id = "@+id/naviTestBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:contentDescription="3가지 Navigation 테스트"
+            android:text="Navigation"
+            android:textColor="@color/kakao_black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn4" />
+
+        <Button
+            android:id = "@+id/sheetTestBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:contentDescription="2가지 Sheet 테스트"
+            android:text="Sheet"
+            android:textColor="@color/kakao_black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn5" />
+
+
+        <Button
+            android:id = "@+id/scrollTestBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:contentDescription="가로, 세로 스크롤 테스트"
+            android:text="Scroll"
+            android:textColor="@color/kakao_black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn6" />
+
+    <Button
+        android:id = "@+id/barTestBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:contentDescription="Progress, Rating, Snack,Slider 테스트"
+        android:text="Progress / Rating / Slider"
+        android:textColor="@color/kakao_black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn7" />
+
+    <Button
+        android:id = "@+id/btn9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/kakao_black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn8" />
+
+    <Button
+        android:id = "@+id/btn10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/kakao_black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn9" />
+
+       </LinearLayout>
+
+   </ScrollView>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
