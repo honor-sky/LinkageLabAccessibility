@@ -13,5 +13,19 @@ class ButtonActivity : AppCompatActivity() {
 
         binding = ActivityButtonBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initListener()
+
+    }
+
+
+    fun initListener() {
+
+        binding.extendedFab.setOnClickListener {
+            when (binding.extendedFab.isExtended) {
+                true -> binding.extendedFab.shrink()
+                false -> binding.extendedFab.extend()
+            }
+        }
     }
 }

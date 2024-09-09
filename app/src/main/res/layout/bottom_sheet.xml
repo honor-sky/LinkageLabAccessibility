@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/restaurantInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="78dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    <LinearLayout
+        android:id="@+id/veganTypeIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:background="@drawable/box_bread_all"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical">
+
+   <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:text="칙피스"/>
+
+    <TextView
+        android:id="@+id/typeTextView_step1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:text="식당  모든 메뉴가 비건"
+        android:textSize="17dp" />
+
+    <TextView
+        android:id="@+id/locTxtView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="15dp"
+        android:text="성동구 성수대로 어쩌구길"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/restaurantInfo"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="바텀시트 화면" />
+
+    </LinearLayout>
+</LinearLayout>

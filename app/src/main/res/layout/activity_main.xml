@@ -13,13 +13,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
        <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:orientation="vertical">
-
 
     <Button
         android:id = "@+id/textTestBtn"
@@ -29,10 +31,7 @@
         android:contentDescription="TextView 와 EditTextView 테스트"
         android:text="TextView / EditTextView"
         android:textColor="@color/kakao_black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="20sp" />
 
     <Button
         android:id = "@+id/buttonTextBtn"
@@ -42,10 +41,7 @@
         android:contentDescription="기본, Image, Toggle, Segmented, FAB, Radio 버튼 테스트"
         android:text="Basic / Image / Toggle / Segmented / FAB / Radio"
         android:textColor="@color/kakao_black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn1" />
+        android:textSize="20sp" />
 
     <Button
         android:id = "@+id/chipTestBtn"
@@ -55,10 +51,7 @@
         android:contentDescription="ImageView, Card, Chip, Switch, CheckBox 테스트 "
         android:text="ImageView / Card / Chip / Switch / CheckBox"
         android:textColor="@color/kakao_black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn2"  />
+        android:textSize="20sp" />
 
     <Button
         android:id = "@+id/pickerTestBtn"
@@ -68,23 +61,8 @@
         android:contentDescription="Date Picker 와 Time Picker 테스트"
         android:text="Date Picker / Time Picker"
         android:textColor="@color/kakao_black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn3" />
+        android:textSize="20sp" />
 
-        <Button
-            android:id = "@+id/naviTestBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:contentDescription="3가지 Navigation 테스트"
-            android:text="Navigation"
-            android:textColor="@color/kakao_black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn4" />
 
         <Button
             android:id = "@+id/sheetTestBtn"
@@ -99,6 +77,47 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn5" />
 
+           <Button
+               android:id = "@+id/barTestBtn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:contentDescription="Progress, Rating, Snack,Slider 테스트"
+               android:text="Progress / Rating / Slider"
+               android:textColor="@color/kakao_black"
+               android:textSize="20sp" />
+
+           <Button
+               android:id = "@+id/appBarTestBtn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:textColor="@color/kakao_black"
+               android:textSize="20sp"
+               android:contentDescription="AppBar, ToolBar 테스트"
+               android:text="AppBar / ToolBar" />
+
+           <Button
+               android:id = "@+id/ToastTestBtn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:textColor="@color/kakao_black"
+               android:textSize="20sp"
+               android:contentDescription="Toast, SnackBar 테스트"
+               android:text="Toast / SnackBar" />
+
+
+           <Button
+               android:id = "@+id/naviTestBtn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:contentDescription="3가지 Navigation 테스트"
+               android:text="Navigation"
+               android:textColor="@color/kakao_black"
+               android:textSize="20sp" />
+
 
         <Button
             android:id = "@+id/scrollTestBtn"
@@ -108,48 +127,9 @@
             android:contentDescription="가로, 세로 스크롤 테스트"
             android:text="Scroll"
             android:textColor="@color/kakao_black"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn6" />
-
-    <Button
-        android:id = "@+id/barTestBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:contentDescription="Progress, Rating, Snack,Slider 테스트"
-        android:text="Progress / Rating / Slider"
-        android:textColor="@color/kakao_black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn7" />
-
-    <Button
-        android:id = "@+id/btn9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/kakao_black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn8" />
-
-    <Button
-        android:id = "@+id/btn10"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/kakao_black"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn9" />
+            android:textSize="20sp" />
 
        </LinearLayout>
-
    </ScrollView>
 
 

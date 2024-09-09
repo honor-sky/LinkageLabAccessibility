@@ -4,21 +4,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp">
+    android:layout_height="match_parent">
+
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_arrow_back"
+            android:orientation="horizontal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="기본 컴포넌트 테스트"
+            android:textSize="18dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.appcompat.widget.Toolbar>
+
 
     <Button
         android:id = "@+id/basicBtn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
         android:contentDescription="기본"
         android:text="기본"
         android:textColor="@color/kakao_black"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <ImageButton
         android:id = "@+id/imageBtn"
@@ -65,8 +93,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:contentDescription="ToggleButton"
-        android:text="ToggleButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
@@ -84,22 +110,22 @@
         android:id="@+id/radioButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Radio1"
-        android:text="RadioButton1" />
+        android:contentDescription="첫번째"
+        android:text="첫번째" />
 
     <RadioButton
         android:id="@+id/radioButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Radio2"
-        android:text="RadioButton2" />
+        android:contentDescription="두번째"
+        android:text="두번째" />
 
     <RadioButton
         android:id="@+id/radioButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:contentDescription="Radio3"
-        android:text="RadioButton3" />
+        android:contentDescription="세번째"
+        android:text="세번째" />
     </RadioGroup>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -110,7 +136,7 @@
         android:layout_marginStart="80dp"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
-        android:contentDescription="기본 floatng"
+        android:contentDescription="기본 플로팅"
         app:icon="@drawable/ic_add"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"/>
@@ -122,7 +148,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginStart="20dp"
         android:layout_marginTop="60dp"
-        android:contentDescription="확장 floatng"
+        android:text="확장 플로팅 버튼"
+        android:contentDescription="확장 플로팅"
         android:gravity="center"
         app:icon="@drawable/ic_add"
         app:layout_constraintEnd_toEndOf="parent"
