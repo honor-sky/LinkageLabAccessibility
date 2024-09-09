@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.linkagelab.databinding.ActivityNavigationBinding
 import com.example.linkagelab.databinding.ActivitySheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HALF_EXPANDED
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_HIDDEN
 
@@ -28,7 +29,7 @@ class SheetActivity : AppCompatActivity() {
 
 
         binding.expandBtn.setOnClickListener {
-            persistenetBottomSheet.state = STATE_HALF_EXPANDED
+            persistenetBottomSheet.state = STATE_COLLAPSED
         }
 
         binding.shrinkBtn.setOnClickListener {

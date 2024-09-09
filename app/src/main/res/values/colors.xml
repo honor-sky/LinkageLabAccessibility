@@ -11,6 +11,7 @@
 
     <color name="kakao_yellow">#FEE500</color>
     <color name="kakao_black">#191919</color>
+    <color name="kakao_gray">#AEB7C2</color>
     <!--<color name="kakao_brown">#FF3700B3</color>-->
 
 </resources>

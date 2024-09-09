@@ -28,11 +28,7 @@
             android:contentDescription="확장"
             android:textColor="@color/kakao_black"
             android:textSize="24sp"/>
-
-
     </LinearLayout>
-
-
 
     <LinearLayout
         android:id="@+id/bottom_sheet_layout"
@@ -40,8 +36,10 @@
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:orientation="vertical"
+        android:background="@drawable/base_top_roundsquare_white_20"
+        android:contentDescription="두 손가락으로 위아래 스와이프 하세요"
         app:behavior_hideable="true"
-        app:behavior_draggable="false"
+        app:behavior_draggable="true"
         app:behavior_peekHeight="160dp"
         app:behavior_halfExpandedRatio="0.75"
         app:layout_insetEdge="bottom">
