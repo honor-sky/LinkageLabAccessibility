@@ -24,10 +24,10 @@
             android:id="@+id/shrinkBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="축소"
             android:contentDescription="확장"
+            android:text="축소"
             android:textColor="@color/kakao_black"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
     </LinearLayout>
 
     <LinearLayout
