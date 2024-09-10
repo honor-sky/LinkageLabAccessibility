@@ -6,9 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/ic_arrow_back"
+            android:orientation="horizontal" />
+    </androidx.appcompat.widget.Toolbar>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
         android:orientation="vertical">
 
         <Button
@@ -25,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="축소"
-            android:contentDescription="확장"
+            android:contentDescription="축소"
             android:textColor="@color/kakao_black"
             android:textSize="24sp"/>
     </LinearLayout>
@@ -37,35 +54,17 @@
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:orientation="vertical"
         android:background="@drawable/base_top_roundsquare_white_20"
-        android:contentDescription="두 손가락으로 위아래 스와이프 하세요"
         app:behavior_hideable="true"
         app:behavior_draggable="true"
         app:behavior_peekHeight="160dp"
         app:behavior_halfExpandedRatio="0.75"
         app:layout_insetEdge="bottom">
+        <!-- android:contentDescription="두 손가락으로 위아래 스와이프 하면"-->
 
         <include
             android:id="@+id/bottom_sheet"
             layout="@layout/bottom_sheet"/>
     </LinearLayout>
-
-
-    <!--    <LinearLayout
-            android:id="@+id/side_sheet_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-            android:orientation="vertical"
-            app:behavior_hideable="true"
-            app:behavior_draggable="false"
-            app:behavior_peekHeight="50dp"
-            app:behavior_halfExpandedRatio="0.75"
-            app:layout_insetEdge="left">
-
-            <include
-                android:id="@+id/bottom_sheet"
-                layout="@layout/bottom_sheet"/>
-        </LinearLayout>-->
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
