@@ -14,5 +14,23 @@ class ChipActivity : AppCompatActivity() {
 
         binding = ActivityChipBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        initListener()
+    }
+
+    fun initListener() {
+
+        binding.switchBtn.setOnClickListener {
+            // 클릭시 스위치 on, off 변화
+            when(binding.switchBtn.isChecked) {
+                true -> binding.switchBtn.text = "ON"
+                false -> binding.switchBtn.text = "OFF"
+            }
+
+        }
+
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
     }
 }

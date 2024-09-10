@@ -27,5 +27,9 @@ class ButtonActivity : AppCompatActivity() {
                 false -> binding.extendedFab.extend()
             }
         }
+
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
     }
 }

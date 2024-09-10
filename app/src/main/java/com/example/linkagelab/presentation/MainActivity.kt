@@ -79,8 +79,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PickerActivity::class.java))
         }
 
-        binding.sheetTestBtn.setOnClickListener {
+        binding.bottomSheetTestBtn.setOnClickListener {
             startActivity(Intent(this, SheetActivity::class.java))
+        }
+
+        /*binding.sideSheetTestBtn.setOnClickListener {
+
         }
 
         binding.naviTestBtn.setOnClickListener {
@@ -89,6 +93,16 @@ class MainActivity : AppCompatActivity() {
 
         binding.scrollTestBtn.setOnClickListener {
             startActivity(Intent(this, ScrollActivity::class.java))
+        }
+
+         */
+
+        binding.barTestBtn.setOnClickListener {
+            startActivity(Intent(this, ProgressBarActivity::class.java))
+        }
+
+        binding.ToastTestBtn.setOnClickListener {
+            startActivity(Intent(this, ToastActivity::class.java))
         }
 
 

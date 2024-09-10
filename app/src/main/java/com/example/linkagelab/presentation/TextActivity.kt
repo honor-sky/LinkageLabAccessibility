@@ -14,5 +14,9 @@ class TextActivity : AppCompatActivity() {
 
         binding = ActivityTextBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
     }
 }

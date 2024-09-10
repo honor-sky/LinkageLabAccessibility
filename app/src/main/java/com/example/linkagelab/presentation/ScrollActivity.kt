@@ -14,5 +14,9 @@ class ScrollActivity : AppCompatActivity() {
 
         binding = ActivityScrollBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
     }
 }

@@ -60,6 +60,21 @@
             android:exported="true"
             android:theme="@style/Theme.LinkageLab">
         </activity>
+        <activity
+            android:name=".presentation.ProgressBarActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.ToastActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
+        <activity
+            android:name=".presentation.AppBarActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab">
+        </activity>
 
         <service
             android:name=".accessibility.AccessibilityService"
