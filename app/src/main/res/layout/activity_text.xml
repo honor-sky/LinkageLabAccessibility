@@ -39,6 +39,7 @@
                 style="@style/NoticeTextViewStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="다음은 TextView 컴포넌트 입니다"
                 android:text="TextView"
                 android:textColor="@color/kakao_red"
                 android:textSize="20sp" />
@@ -62,8 +63,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-
             android:text="EditText (문자열 입력)"
+            android:contentDescription="다음은 EditText 컴포넌트 입니다"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
 
@@ -83,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:contentDescription="다음은 숫자만 입력 가능한 필수 EditText 컴포넌트 입니다"
             android:text="EditText(전화번호 입력)\n숫자만 입력 가능한 EditText)"
             android:textColor="@color/kakao_red"
             android:textSize="18sp" />
@@ -116,6 +118,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:contentDescription="다음은 SearchView 컴포넌트 입니다"
             android:text="SearchView"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
@@ -126,7 +129,8 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/base_roundsquare_border_gray"
             android:paddingStart="30dp"
-            android:queryHint="검색어를 입력해주세요" />
+            android:queryHint="검색어를 입력해주세요"
+            android:contentDescription="검색어를 입력해주세요"/>
 
     </LinearLayout>
 

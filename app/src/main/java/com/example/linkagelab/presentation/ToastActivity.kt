@@ -35,13 +35,15 @@ class ToastActivity : AppCompatActivity() {
 
         binding.showDialogBtn.setOnClickListener {
             MaterialAlertDialogBuilder(this)
-                .setMessage("기본 알림창")
+                .setTitle("기본 알림창")
+                .setMessage("알림창 내용입니다~~")
                 .setPositiveButton("확인") {  dialog, which ->
                     dialog.dismiss()
                 }
                 .setNegativeButton("취소") { dialog, which ->
                     dialog.dismiss()
                 }
+                .setCancelable(false)
                 .show()
         }
 

@@ -35,8 +35,8 @@
             android:id="@+id/expandBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="확장"
-            android:contentDescription="확장"
+            android:text="바텀시트 나타남"
+            android:contentDescription="바텀시트 나타남"
             android:textColor="@color/kakao_black"
             android:textSize="24sp"/>
 
@@ -44,8 +44,8 @@
             android:id="@+id/shrinkBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="축소"
-            android:contentDescription="축소"
+            android:text="바텀시트 숨김"
+            android:contentDescription="바텀시트 숨김"
             android:textColor="@color/kakao_black"
             android:textSize="24sp" />
     </LinearLayout>
@@ -58,12 +58,14 @@
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:orientation="vertical"
         android:background="@drawable/base_top_roundsquare_white_20"
+        android:clickable="false"
         app:behavior_hideable="true"
         app:behavior_draggable="true"
         app:behavior_peekHeight="160dp"
         app:behavior_halfExpandedRatio="0.75"
         app:layout_insetEdge="bottom"
-        android:contentDescription="두 손가락으로 위아래로 스와이프 하면 화면을 확장, 축소 할 수 있습니다.">
+        android:contentDescription="두 손가락으로 위아래로 스와이프 하면 화면을 확장 및 축소 할 수 있습니다">
+
         <LinearLayout
             android:id="@+id/restaurantInfo"
             android:layout_width="match_parent"
@@ -153,7 +155,7 @@
                     android:gravity="end"
                     android:textSize="13sp"
                     android:textColor="@color/kakao_gray"
-                    android:text="업데이트 20204.05.05" />
+                    android:text="업데이트 2024.05.05" />
             </LinearLayout>
 
             <LinearLayout

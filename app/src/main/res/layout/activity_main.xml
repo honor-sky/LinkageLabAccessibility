@@ -128,7 +128,7 @@
                android:textColor="@color/kakao_black"
                android:textSize="20sp"
                android:contentDescription="Toast, SnackBar 테스트"
-               android:text="Toast / SnackBar" />
+               android:text="Toast / SnackBar / AlertDialog" />
 
            <!--<Button
                android:id = "@+id/naviTestBtn"
