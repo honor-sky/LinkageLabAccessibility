@@ -63,16 +63,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initListener() {
-        binding.textTestBtn.setOnClickListener {
+        binding.editTextTestBtn.setOnClickListener {
             startActivity(Intent(this, TextActivity::class.java))
         }
 
         binding.buttonTextBtn.setOnClickListener {
             startActivity(Intent(this, ButtonActivity::class.java))
-        }
-
-        binding.chipTestBtn.setOnClickListener {
-            startActivity(Intent(this, ChipActivity::class.java))
         }
 
         binding.pickerTestBtn.setOnClickListener {
@@ -83,22 +79,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SheetActivity::class.java))
         }
 
-        /*binding.sideSheetTestBtn.setOnClickListener {
+        binding.sideSheetTestBtn.setOnClickListener {
 
-        }
-
-        binding.naviTestBtn.setOnClickListener {
-            startActivity(Intent(this, NavigationActivity::class.java))
         }
 
         binding.scrollTestBtn.setOnClickListener {
             startActivity(Intent(this, ScrollActivity::class.java))
-        }
-
-         */
-
-        binding.barTestBtn.setOnClickListener {
-            startActivity(Intent(this, ProgressBarActivity::class.java))
         }
 
         binding.ToastTestBtn.setOnClickListener {

@@ -21,13 +21,13 @@ class ButtonActivity : AppCompatActivity() {
 
     fun initListener() {
 
-        binding.extendedFab.setOnClickListener {
+     /*   binding.extendedFab.setOnClickListener {
             when (binding.extendedFab.isExtended) {
                 true -> binding.extendedFab.shrink()
                 false -> binding.extendedFab.extend()
             }
         }
-
+*/
         binding.backBtn.setOnClickListener {
             finish()
         }

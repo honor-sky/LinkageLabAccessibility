@@ -41,33 +41,21 @@
            android:layout_height="match_parent"
            android:orientation="vertical">
 
-    <Button
-        android:id = "@+id/textTestBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:contentDescription="TextView 와 EditTextView 와 SearchView 테스트"
-        android:text="TextView / EditTextView / SearchView"
-        android:textColor="@color/kakao_black"
-        android:textSize="20sp" />
+           <Button
+               android:id = "@+id/editTextTestBtn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="20dp"
+               android:text="EditTextView / SearchView"
+               android:textColor="@color/kakao_black"
+               android:textSize="20sp" />
 
     <Button
         android:id = "@+id/buttonTextBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:contentDescription="기본, Image, Toggle, FAB, Radio 버튼 테스트"
-        android:text="Basic / Image / Toggle / FAB / Radio  (Button)"
-        android:textColor="@color/kakao_black"
-        android:textSize="20sp" />
-
-    <Button
-        android:id = "@+id/chipTestBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:contentDescription="ImageView, CardView, Chip, Switch, CheckBox 테스트 "
-        android:text="ImageView / CardView / Chip / Switch / CheckBox"
+        android:text="Basic / Image / Toggle / FAB / Radio / Switch / Chip / CheckBox / Slider"
         android:textColor="@color/kakao_black"
         android:textSize="20sp" />
 
@@ -76,8 +64,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:contentDescription="Date Picker 와 Time Picker 테스트"
-        android:text="Date Picker / Time Picker"
+        android:text="Date Picker / Time Picker / Calendar / Tab / ViewPager"
         android:textColor="@color/kakao_black"
         android:textSize="20sp" />
 
@@ -87,7 +74,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:contentDescription="2가지 Sheet 테스트"
             android:text="BottomSheet"
             android:textColor="@color/kakao_black"
             android:textSize="20sp"
@@ -96,67 +82,34 @@
             app:layout_constraintTop_toBottomOf="@+id/btn5" />
 
 
-<!--           <Button
+           <Button
                android:id = "@+id/sideSheetTestBtn"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_marginTop="20dp"
-               android:contentDescription="2가지 Sheet 테스트"
-               android:text="SideSheet"
+               android:text="Navigation Drawer"
                android:textColor="@color/kakao_black"
                android:textSize="20sp"
                app:layout_constraintEnd_toEndOf="parent"
                app:layout_constraintStart_toStartOf="parent"
-               app:layout_constraintTop_toBottomOf="@+id/btn5" />-->
+               app:layout_constraintTop_toBottomOf="@+id/btn5" />
 
-           <Button
-               android:id = "@+id/barTestBtn"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:contentDescription="ProgressBar, RatingBar, SliderBar 테스트"
-               android:text="ProgressBar / RatingBar / SliderBar"
-               android:textColor="@color/kakao_black"
-               android:textSize="20sp" />
-
-           <Button
+        <Button
                android:id = "@+id/ToastTestBtn"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_marginTop="20dp"
                android:textColor="@color/kakao_black"
                android:textSize="20sp"
-               android:contentDescription="Toast, SnackBar 테스트"
-               android:text="Toast / SnackBar / AlertDialog" />
+               android:text="ProgressBar / RatingBar / SnackBar / AlertDialog" />
 
-           <!--<Button
-               android:id = "@+id/naviTestBtn"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_marginTop="20dp"
-               android:contentDescription="3가지 Navigation 테스트"
-               android:text="Navigation"
-               android:textColor="@color/kakao_black"
-               android:textSize="20sp" />
-
-
-        <Button
-            android:id = "@+id/scrollTestBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:contentDescription="가로, 세로 스크롤과 리스트 테스트"
-            android:text="ScrollView, ListView"
-            android:textColor="@color/kakao_black"
-            android:textSize="20sp" />
 
            <Button
-               android:id = "@+id/TabTestBtn"
+               android:id = "@+id/scrollTestBtn"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_marginTop="20dp"
-               android:contentDescription="탭 테스트"
-               android:text="Tab"
+               android:text="ScrollView (가로, 세로) / ListView"
                android:textColor="@color/kakao_black"
                android:textSize="20sp" />
 
@@ -165,10 +118,9 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_marginTop="20dp"
-               android:contentDescription="Menu 와 Spinner 테스트"
-               android:text="Menu / Spinner"
+               android:text="Menu"
                android:textColor="@color/kakao_black"
-               android:textSize="20sp" />-->
+               android:textSize="20sp" />
 
        </LinearLayout>
    </ScrollView>
