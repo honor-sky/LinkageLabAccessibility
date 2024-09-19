@@ -2,17 +2,16 @@ package com.example.linkagelab.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.linkagelab.databinding.ActivityButtonBinding
-import com.example.linkagelab.databinding.ActivityTextBinding
+import com.example.linkagelab.databinding.ActivityEdittextBinding
 
-class TextActivity : AppCompatActivity() {
+class EditTextActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityTextBinding
+    private lateinit var binding: ActivityEdittextBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityTextBinding.inflate(layoutInflater)
+        binding = ActivityEdittextBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.backBtn.setOnClickListener {

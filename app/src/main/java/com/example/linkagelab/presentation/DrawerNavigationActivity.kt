@@ -4,10 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.linkagelab.R
-import com.example.linkagelab.databinding.ActivityChipBinding
 import com.example.linkagelab.databinding.ActivityNavigationBinding
 
-class NavigationActivity : AppCompatActivity() {
+class DrawerNavigationActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNavigationBinding
 
@@ -34,14 +33,14 @@ class NavigationActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.navView.setOnItemSelectedListener { item ->
+      /*  binding.navView.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.home_fragment -> setFragment(Companion.TAG_HOME, HomeFragment())
                 R.id.register_fragment -> setFragment(TAG_REGISTER, RegisterFragment())
                 R.id.mypage_fragment -> setFragment(TAG_MYPAGE, MypageFragment())
             }
             true
-        }
+        }*/
     }
 
     fun setFragment(tag : String, fragment : Fragment) {

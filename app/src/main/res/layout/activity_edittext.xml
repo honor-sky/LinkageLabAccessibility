@@ -19,7 +19,6 @@
             android:id="@+id/backBtn"
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:contentDescription="뒤로가기 버튼"
             android:background="@drawable/ic_arrow_back"
             android:orientation="horizontal" />
     </androidx.appcompat.widget.Toolbar>
@@ -39,9 +38,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
             android:text="EditText (문자열 입력)"
-            android:contentDescription="다음은 EditText 컴포넌트 입니다"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
 
@@ -51,63 +49,95 @@
             android:layout_height="60dp"
             android:ems="10"
             android:hint="문자열을 입력해주세요"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            android:inputType="text" />
 
         <!-- 전화번호만 입력 가능 -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:contentDescription="다음은 숫자만 입력 가능한 필수 EditText 컴포넌트 입니다"
-            android:text="EditText(전화번호 입력)\n숫자만 입력 가능한 EditText)"
+            android:text="EditText(전화번호 입력)"
             android:textColor="@color/kakao_red"
             android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/requiredText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="*필수"
-            android:textColor="@color/kakao_black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
 
         <EditText
             android:id="@+id/editPhoneText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:hint="(*필수) 전화번호를 입력해주세요"
+            android:hint="전화번호를 입력해주세요"
             android:inputType="phone"
-            android:paddingStart="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/requiredText" />
-        <!-- hint를 사용해서 어떤 텍스트를 입력해야 하는지 안내하거나 예시를 보여줌 -->
-        <!-- 시각적으로는 hint가 필요한데, '필수' 같은 말을 읽어주려면 labelFor 까지 사용 -->
+            android:paddingStart="30dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:contentDescription="다음은 SearchView 컴포넌트 입니다"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/kakao_red"
+            android:text="EditText 글자수 10자 제한 "
+            android:textSize="18sp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems = "10"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/kakao_red"
+            android:text="EditText(여러줄 입력)"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/editTextTextMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start|top"
+            android:inputType="textMultiLine" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/kakao_red"
+            android:text="EditText(시간)"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/editTextTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/kakao_red"
+            android:text="EditText(날짜)"
+            android:textSize="18sp" />
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:text="SearchView"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
-
         <androidx.appcompat.widget.SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/base_roundsquare_border_gray"
             android:paddingStart="30dp"
-            android:queryHint="검색어를 입력해주세요"
-            android:contentDescription="검색어를 입력해주세요"/>
+            android:queryHint="검색어를 입력해주세요" />
 
     </LinearLayout>
 

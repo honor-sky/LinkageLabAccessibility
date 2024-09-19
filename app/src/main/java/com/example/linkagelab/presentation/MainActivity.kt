@@ -3,10 +3,9 @@ package com.example.linkagelab.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.view.Menu
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
-import android.view.accessibility.AccessibilityNodeInfo
 import androidx.appcompat.app.AppCompatActivity
 import com.example.linkagelab.databinding.ActivityMainBinding
 
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
     fun initListener() {
         binding.editTextTestBtn.setOnClickListener {
-            startActivity(Intent(this, TextActivity::class.java))
+            startActivity(Intent(this, EditTextActivity::class.java))
         }
 
         binding.buttonTextBtn.setOnClickListener {
@@ -75,11 +74,16 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, PickerActivity::class.java))
         }
 
+        binding.ToastTestBtn.setOnClickListener {
+            startActivity(Intent(this, ProgressBarActivity::class.java))
+        }
+
         binding.bottomSheetTestBtn.setOnClickListener {
             startActivity(Intent(this, SheetActivity::class.java))
         }
 
         binding.sideSheetTestBtn.setOnClickListener {
+            startActivity(Intent(this, DrawerNavigationActivity::class.java))
 
         }
 
@@ -87,9 +91,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ScrollActivity::class.java))
         }
 
-        binding.ToastTestBtn.setOnClickListener {
-            startActivity(Intent(this, ToastActivity::class.java))
+        binding.MenuTestBtn.setOnClickListener {
+            startActivity(Intent(this, MenuActivity::class.java))
         }
+
 
 
     }

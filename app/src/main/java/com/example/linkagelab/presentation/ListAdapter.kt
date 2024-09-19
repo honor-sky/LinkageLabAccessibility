@@ -3,20 +3,21 @@ package com.example.linkagelab.presentation
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.linkagelab.databinding.ListItemBinding
+import com.example.linkagelab.databinding.VerticalItemBinding
 
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyReviewViewHolder>() {
 
     var stringList: MutableList<String>? = null
 
-    inner class MyReviewViewHolder (val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyReviewViewHolder (val binding: VerticalItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: String) {
+            binding.item.text = item
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyReviewViewHolder {
-        return MyReviewViewHolder(ListItemBinding.inflate(LayoutInflater.from(parent.context),parent, false))
+        return MyReviewViewHolder(VerticalItemBinding.inflate(LayoutInflater.from(parent.context),parent, false))
     }
 
     override fun onBindViewHolder(holder: MyReviewViewHolder, position: Int) {

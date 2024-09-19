@@ -26,7 +26,7 @@
         </activity>
 
         <activity
-            android:name=".presentation.TextActivity"
+            android:name=".presentation.EditTextActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab">
         </activity>
@@ -41,7 +41,7 @@
             android:theme="@style/Theme.LinkageLab">
         </activity>
         <activity
-            android:name=".presentation.NavigationActivity"
+            android:name=".presentation.DrawerNavigationActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab">
         </activity>
@@ -55,26 +55,19 @@
             android:exported="true"
             android:theme="@style/Theme.LinkageLab">
         </activity>
-        <activity
-            android:name=".presentation.ChipActivity"
-            android:exported="true"
-            android:theme="@style/Theme.LinkageLab">
-        </activity>
+
         <activity
             android:name=".presentation.ProgressBarActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab">
         </activity>
+
         <activity
-            android:name=".presentation.ToastActivity"
+            android:name=".presentation.MenuActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab">
         </activity>
-        <activity
-            android:name=".presentation.AppBarActivity"
-            android:exported="true"
-            android:theme="@style/Theme.LinkageLab">
-        </activity>
+
 
         <service
             android:name=".accessibility.AccessibilityService"

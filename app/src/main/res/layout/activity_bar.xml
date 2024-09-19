@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -114,30 +115,29 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/kakao_black"
         android:textSize="20sp"
-        android:contentDescription="SnackBar 출력"
         android:text="SnackBar 출력" />
 
     <Button
-        android:id = "@+id/showDialogBtn1"
+        android:id = "@+id/oneDialogBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:textColor="@color/kakao_black"
         android:textSize="20sp"
-        android:text="기본 Alert Dialog 출력" />
+        android:text="버튼 1개인 Alert Dialog 출력" />
 
 
         <Button
-            android:id = "@+id/showDialogBtn2"
+            android:id = "@+id/twoDialogBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="@color/kakao_black"
             android:textSize="20sp"
-            android:text="버튼 3개인 Alert Dialog 출력" />
+            android:text="버튼 2개인 Alert Dialog 출력" />
 
         <Button
-            android:id = "@+id/showDialogBtn3"
+            android:id = "@+id/listDialogBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
