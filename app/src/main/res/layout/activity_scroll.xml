@@ -8,7 +8,8 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
+        android:layout_height="60dp"
+        android:background="@color/kakao_yellow">
 
         <LinearLayout
             android:id="@+id/backBtn"
@@ -16,35 +17,44 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ic_arrow_back"
             android:orientation="horizontal" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="18dp" />
+            android:paddingStart="10dp"
+            android:text="ScrollView, RecyclerView 테스트"
+            android:textSize="20sp"/>
     </androidx.appcompat.widget.Toolbar>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="15dp"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:text="여러 아이템을 표시하기 RecyclerView를 사용합니다.\nRecyclerView는 아이템이 많은 경우\n자동으로 스크롤이 적용됩니다."
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
-        android:text="가로 ScrollView"
+        android:text="가로 스크롤 (RecyclerView 사용)"
         android:textColor="@color/kakao_red"
         android:textSize="20sp" />
 
-<!--    <HorizontalScrollView
-        android:id="@+id/HorizontalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginStart="10dp">
-
-        <ListView
-            android:id="@+id/horizontalListView"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal" />
-    </HorizontalScrollView>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/horizontalRecyclerView"
@@ -57,13 +67,12 @@
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
 
-
-    <TextView
+            <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginStart="10dp"
-        android:text="세로 ScrollView"
+        android:text="세로 스크롤 (RecyclerView 사용)"
         android:textColor="@color/kakao_red"
         android:textSize="20sp" />
 
@@ -77,5 +86,6 @@
          android:orientation="vertical"
          app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

@@ -11,6 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/kakao_yellow"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <LinearLayout
@@ -20,6 +21,13 @@
             android:background="@drawable/ic_arrow_back"
             android:contentDescription="뒤로가기 버튼"
             android:orientation="horizontal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:text="ProgressBar, RatingBar 테스트"
+            android:textSize="20sp"/>
+
     </androidx.appcompat.widget.Toolbar>
 
 
@@ -43,6 +51,15 @@
         android:textColor="@color/kakao_red"
         android:textSize="20sp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="로딩중을 표시합니다.\n진행률은 표시하지 않고 돌아가기만 합니다."
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
@@ -61,6 +78,14 @@
             android:text="ProgressBar (바)"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="진행률을 표시하면서 로딩됩니다."
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
     <ProgressBar
         android:id="@+id/progressBar2"
@@ -85,6 +110,14 @@
             android:text="RatingBar"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="별점을 매길 수 있습니다."
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
         <RatingBar
         android:id="@+id/ratingBar"

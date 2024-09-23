@@ -5,7 +5,6 @@ import android.view.View
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.example.linkagelab.databinding.ActivityNavigationBinding
 import com.example.linkagelab.databinding.ActivitySheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_COLLAPSED

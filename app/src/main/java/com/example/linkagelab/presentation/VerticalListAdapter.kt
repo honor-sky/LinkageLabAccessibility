@@ -6,21 +6,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.linkagelab.databinding.VerticalItemBinding
 
 
-class ListAdapter : RecyclerView.Adapter<ListAdapter.MyReviewViewHolder>() {
+class VerticalListAdapter : RecyclerView.Adapter<VerticalListAdapter.MyListViewHolder>() {
 
     var stringList: MutableList<String>? = null
 
-    inner class MyReviewViewHolder (val binding: VerticalItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyListViewHolder (val binding: VerticalItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: String) {
             binding.item.text = item
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyReviewViewHolder {
-        return MyReviewViewHolder(VerticalItemBinding.inflate(LayoutInflater.from(parent.context),parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyListViewHolder {
+        return MyListViewHolder(VerticalItemBinding.inflate(LayoutInflater.from(parent.context),parent, false))
     }
 
-    override fun onBindViewHolder(holder: MyReviewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyListViewHolder, position: Int) {
         if (stringList != null) {
             holder.bind(stringList!![position])
         }
@@ -32,7 +32,5 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyReviewViewHolder>() {
         this.stringList= reviewList
         notifyDataSetChanged()
     }
-
-
 
 }

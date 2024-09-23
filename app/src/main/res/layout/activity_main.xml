@@ -55,7 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Basic / Image / Toggle / FAB / Radio / Switch / Chip / CheckBox / Slider"
+        android:text="Button / ImageButton / Toggle / FAB / RadioButton / Switch / Chip / CheckBox / Slider"
         android:textColor="@color/kakao_black"
         android:textSize="20sp" />
 
@@ -109,7 +109,7 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_marginTop="20dp"
-               android:text="ScrollView (가로, 세로) / ListView"
+               android:text="ScrollView / ListView"
                android:textColor="@color/kakao_black"
                android:textSize="20sp" />
 

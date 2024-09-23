@@ -5,4 +5,15 @@
     <!-- 대체 텍스트 -->
     <string name="fab_content_desc"></string>
     <string name="extended_fab_content_desc"></string>
+    <string name="navigation_drawer_open">Navigation drawer is open</string>
+    <string name="navigation_drawer_close">Navigation drawer is closed</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 </resources>

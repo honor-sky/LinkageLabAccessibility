@@ -11,6 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:background="@color/kakao_yellow"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -20,6 +21,13 @@
             android:layout_height="38dp"
             android:background="@drawable/ic_arrow_back"
             android:orientation="horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:text="여러가지 Button 테스트"
+            android:textSize="20sp"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -43,7 +51,16 @@
         android:layout_height="wrap_content"
         android:text="Button"
         android:textColor="@color/kakao_red"
-        android:textSize="30sp" />
+        android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="가장 기본적인 버튼입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id = "@+id/basicBtn"
@@ -55,13 +72,24 @@
                 android:textSize="24sp" />
 
 
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="ImageButton"
             android:textColor="@color/kakao_red"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="이미지 형태의 버튼입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
     <ImageButton
         android:id = "@+id/imageBtn"
@@ -74,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:text="ToggleButton"
             android:textColor="@color/kakao_red" />
 
@@ -91,9 +119,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:text="RadioButton"
             android:textColor="@color/kakao_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="상태 전환(on/off)이 가능한 버튼입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -135,16 +173,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:textSize="30sp"
-            android:text="Basic FAB"
+            android:textSize="20sp"
+            android:text="FAB(Floating Action Button)"
             android:textColor="@color/kakao_red" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="공중에 떠 있는 느낌을 주는 버튼 입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textSize="30sp"
         android:src="@drawable/ic_add"
         app:layout_constraintStart_toStartOf="parent"
@@ -154,9 +200,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:text="Extended FAB"
             android:textColor="@color/kakao_red" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="클릭시 여러개의 버튼으로 확장되는 형태의 FAB 입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:id="@+id/extended_fab1"
@@ -250,7 +305,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="확장 플로팅 버튼"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:gravity="center"
         app:icon="@drawable/ic_add" />
@@ -262,7 +317,16 @@
                     android:layout_marginTop="30dp"
                     android:text="Chip"
                     android:textColor="@color/kakao_red"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="여러 항목을 선택할 수 있습니다.\n태그와 유사한 UI입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipGroup"
@@ -307,7 +371,15 @@
                     android:layout_marginTop="30dp"
                     android:text="CheckBox"
                     android:textColor="@color/kakao_red"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="여러 항목을 선택할 수 있습니다. "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -318,7 +390,6 @@
                     android:id="@+id/checkBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
                     android:background="@color/white"
                     android:padding="10dp"
                     android:text="1번"
@@ -356,7 +427,16 @@
                     android:layout_marginTop="30dp"
                     android:text="Switch"
                     android:textColor="@color/kakao_red"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="상태 전환(on/off)이 가능한 버튼입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
                 <Switch
                     android:id="@+id/switchBtn"
@@ -374,7 +454,16 @@
                 android:layout_marginTop="30dp"
                 android:text="Slider"
                 android:textColor="@color/kakao_red"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="슬라이더로 값을 조절할 수 있습니다. "
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/seekBar"

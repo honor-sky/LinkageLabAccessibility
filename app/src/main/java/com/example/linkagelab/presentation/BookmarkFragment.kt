@@ -5,17 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.linkagelab.databinding.FragmentHomeBinding
-
-class HomeFragment : Fragment() {
+import com.example.linkagelab.databinding.FragmentBookmarkBinding
 
 
-    private var _binding: FragmentHomeBinding? = null
+
+class BookmarkFragment  : Fragment() {
+
+    private var _binding: FragmentBookmarkBinding? = null
     private val binding get() = _binding!!
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentBookmarkBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
 
@@ -26,5 +26,4 @@ class HomeFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

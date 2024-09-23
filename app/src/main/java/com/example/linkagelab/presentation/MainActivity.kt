@@ -3,7 +3,6 @@ package com.example.linkagelab.presentation
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import androidx.appcompat.app.AppCompatActivity
@@ -83,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.sideSheetTestBtn.setOnClickListener {
-            startActivity(Intent(this, DrawerNavigationActivity::class.java))
+            startActivity(Intent(this, DrawerActivity::class.java))
 
         }
 
@@ -94,7 +93,6 @@ class MainActivity : AppCompatActivity() {
         binding.MenuTestBtn.setOnClickListener {
             startActivity(Intent(this, MenuActivity::class.java))
         }
-
 
 
     }

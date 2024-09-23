@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <!--andoid:theme="@style/Theme.LinkageLab"-->
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -34,12 +33,22 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:textAlignment="center"
+            android:text="사용자에게 값을 입력 받는 컴포넌트 입니다.\n(TextInput과 동일)"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:text="EditText (문자열 입력)"
+            android:text="EditText (문자열)"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
 
@@ -56,9 +65,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="EditText(전화번호 입력)"
+            android:text="EditText (전화번호)"
             android:textColor="@color/kakao_red"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/editPhoneText"
@@ -66,20 +75,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:hint="전화번호를 입력해주세요"
-            android:inputType="phone"
-            android:paddingStart="30dp" />
+            android:inputType="phone"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
-            android:text="EditText 글자수 10자 제한 "
-            android:textSize="18sp" />
+            android:text="EditText (글자수 10자 제한)"
+            android:textSize="20sp" />
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems = "10"/>
+            android:hint="문자열을 입력하세요.(최대 10자)"
+            android:ems = "10"
+            android:maxLength="10"/>
 
 
         <TextView
@@ -87,27 +97,29 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
-            android:text="EditText(여러줄 입력)"
-            android:textSize="18sp" />
+            android:text="EditText (여러줄 입력)"
+            android:textSize="20sp" />
+
         <EditText
             android:id="@+id/editTextTextMultiLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="문자열을 입력하세요.(여러줄 입력 가능)"
             android:gravity="start|top"
             android:inputType="textMultiLine" />
-
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
-            android:text="EditText(시간)"
-            android:textSize="18sp" />
+            android:text="EditText (시간)"
+            android:textSize="20sp" />
         <EditText
             android:id="@+id/editTextTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="시간을 입력하세요."
             android:inputType="time" />
 
         <TextView
@@ -115,14 +127,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
-            android:text="EditText(날짜)"
-            android:textSize="18sp" />
+            android:text="EditText (날짜)"
+            android:textSize="20sp" />
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="날짜를 입력하세요."
             android:inputType="date" />
 
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/kakao_red"
+            android:text="EditText (보안문자)"
+            android:textSize="20sp" />
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="날짜를 입력하세요."
+            android:inputType="textPassword"
+            android:password="true"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -131,6 +160,7 @@
             android:text="SearchView"
             android:textColor="@color/kakao_red"
             android:textSize="20sp" />
+
         <androidx.appcompat.widget.SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -19,21 +19,36 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:menu="@menu/bottom_nav_menu"
+            app:menu="@menu/nav_menu"
             app:title="Menu 컴포넌트 테스트" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/layout_description_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="앱바에 존재하는 메뉴 입니다.\n앱 전체에 대한 설정이나 조작을 다룰 떄 사용합니다."
+        android:textAlignment="center"
+        android:textColor="@color/kakao_black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar" />
+
 
     <TextView
         android:id="@+id/option_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:text="Option 메뉴"
         android:textColor="@color/kakao_red"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar"/>
+        app:layout_constraintTop_toBottomOf="@+id/layout_description_text"/>
 
     <TextView
         android:id="@+id/option_menu_sub_text"
@@ -41,9 +56,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="10dp"
-        android:text="앱바에 존재하는 메뉴, 앱 전체에 대한 메뉴"
+        android:text="앱바에 존재하는 메뉴 입니다.\n앱 전체에 대한 설정이나 조작을 다룰 떄 사용합니다."
         android:textColor="@color/kakao_black"
         android:textSize="15sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@+id/option_menu_text"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -65,9 +82,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="특정 콘텐츠에 대한 메뉴, 길게 누르면 나옴"
+        android:text="콘텐츠를 길게 누르면 나오는 메뉴입니다.\n특정 콘텐트에 메뉴를 넣고 싶을 때 주로 사용합니다"
         android:textColor="@color/kakao_black"
         android:textSize="15sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/context_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -102,9 +121,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="단순 클릭시 나오는 메뉴"
+        android:text="클릭하면 나타나는 메뉴 입니다."
         android:textColor="@color/kakao_black"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/popup_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
