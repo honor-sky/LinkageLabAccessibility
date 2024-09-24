@@ -38,20 +38,39 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/expandBtn"
+            android:id="@+id/textSheetexpandBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="바텀시트 나타남"
-            android:textColor="@color/kakao_black"
-            android:textSize="24sp"/>
-
-        <Button
-            android:id="@+id/shrinkBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="바텀시트 숨김"
+            android:text="텍스트 바텀시트 나타남"
             android:textColor="@color/kakao_black"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/textSheetShrinkBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="텍스트 바텀시트 숨김"
+            android:textColor="@color/kakao_black"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonSheetexpandBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            android:text="버튼 바텀시트 나타남"
+            android:textColor="@color/kakao_black"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonSheetShrinkBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="버튼 바텀시트 숨김"
+            android:textColor="@color/kakao_black"
+            android:textSize="24sp" />
+
+
     </LinearLayout>
 
     <!-- 기본 확장 상태에서 안 보이는 부분에 대해 읽어주지를 않음 -->
@@ -69,7 +88,14 @@
         app:behavior_halfExpandedRatio="0.75"
         app:layout_insetEdge="bottom">
 
-        <LinearLayout
+        <include
+            android:id="@+id/bottom_sheet1"
+            layout="@layout/text_bottom_sheet"/>
+        <include
+            android:id="@+id/bottom_sheet2"
+            layout="@layout/button_bottom_sheet"/>
+
+       <!-- <LinearLayout
             android:id="@+id/restaurantInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -214,10 +240,13 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </LinearLayout>
+        </LinearLayout>-->
        <!-- <include
             android:id="@+id/bottom_sheet"
             layout="@layout/bottom_sheet"/>-->
+
+
+
     </LinearLayout>
 
 

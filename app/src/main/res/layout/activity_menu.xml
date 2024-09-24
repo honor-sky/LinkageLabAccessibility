@@ -23,20 +23,17 @@
             app:title="Menu 컴포넌트 테스트" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:id="@+id/layout_description_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="앱바에 존재하는 메뉴 입니다.\n앱 전체에 대한 설정이나 조작을 다룰 떄 사용합니다."
-        android:textAlignment="center"
-        android:textColor="@color/kakao_black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <TextView
         android:id="@+id/option_menu_text"
@@ -44,11 +41,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
+        android:layout_gravity="end"
         android:text="Option 메뉴"
         android:textColor="@color/kakao_red"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_description_text"/>
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/option_menu_sub_text"
@@ -56,13 +52,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_marginEnd="10dp"
+        android:layout_gravity="end"
         android:text="앱바에 존재하는 메뉴 입니다.\n앱 전체에 대한 설정이나 조작을 다룰 떄 사용합니다."
         android:textColor="@color/kakao_black"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/option_menu_text"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textAlignment="textEnd" />
 
 
     <TextView
@@ -70,9 +65,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="50dp"
         android:text="Context 메뉴"
         android:textColor="@color/kakao_red"
         android:textSize="25sp"
+        android:layout_gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/context_menu_sub_text"/>
@@ -86,6 +83,7 @@
         android:textColor="@color/kakao_black"
         android:textSize="15sp"
         android:textStyle="bold"
+        android:layout_gravity="center"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/context_menu"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +94,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="300dp"
         android:text="Context 메뉴"
         android:textColor="@color/kakao_black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -109,6 +106,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
         android:text="PopUp 메뉴 "
         android:textColor="@color/kakao_red"
         android:textSize="25sp"
@@ -121,6 +120,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:layout_gravity="center"
         android:text="클릭하면 나타나는 메뉴 입니다."
         android:textColor="@color/kakao_black"
         android:textSize="15sp"
@@ -134,15 +134,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="250dp"
+
         android:text="PopUp 메뉴"
         android:textColor="@color/kakao_black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/context_menu"/>
 
-
-
+        </LinearLayout>
+    </ScrollView>
 
 
 

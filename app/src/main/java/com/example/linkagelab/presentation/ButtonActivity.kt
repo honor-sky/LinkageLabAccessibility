@@ -64,7 +64,7 @@ class ButtonActivity : AppCompatActivity() {
         }
 
         binding.floatingActionButton.setOnClickListener {
-
+            Toast.makeText(this, "FAB 버튼 클릭", Toast.LENGTH_SHORT).show()
         }
 
         binding.callBtn.setOnClickListener {

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.linkagelab.databinding.ActivitySheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -26,10 +27,12 @@ class SheetActivity : AppCompatActivity() {
         persistenetBottomSheet = BottomSheetBehavior.from(binding.bottomSheetLayout)
         persistenetBottomSheet.state = STATE_HIDDEN
 
+        initListener()
+
         // 맵화면에 바텀시트 동작 달음
         //binding.mainContent.setBottomSheetBehavior(persistenetBottomSheet)
 
-        binding.bottomSheetLayout.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
+   /*     binding.bottomSheetLayout.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             override fun onInitializeAccessibilityNodeInfo(
                 host: View,
                 info: AccessibilityNodeInfo
@@ -42,14 +45,31 @@ class SheetActivity : AppCompatActivity() {
                 }
 
             }
-        })
+        })*/
+
+    }
 
 
-        binding.expandBtn.setOnClickListener {
+    fun initListener() {
+        binding.textSheetexpandBtn.setOnClickListener {
+            binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.GONE
+            binding.bottomSheet1.textBottomSheetLayoutRoot.visibility = View.VISIBLE
             persistenetBottomSheet.state = STATE_COLLAPSED
         }
 
-        binding.shrinkBtn.setOnClickListener {
+        binding.textSheetShrinkBtn.setOnClickListener {
+            binding.bottomSheet1.textBottomSheetLayoutRoot.visibility = View.GONE
+            persistenetBottomSheet.state = STATE_HIDDEN
+        }
+
+        binding.buttonSheetexpandBtn.setOnClickListener {
+            binding.bottomSheet1.textBottomSheetLayoutRoot.visibility = View.GONE
+            binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.VISIBLE
+            persistenetBottomSheet.state = STATE_COLLAPSED
+        }
+
+        binding.buttonSheetShrinkBtn.setOnClickListener {
+            binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.GONE
             persistenetBottomSheet.state = STATE_HIDDEN
         }
 
@@ -57,5 +77,31 @@ class SheetActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.bottomSheet2.shareBtn.setOnClickListener {
+            Toast.makeText(this, "공유하기 버튼 클릭", Toast.LENGTH_LONG).show()
+
+        }
+
+        binding.bottomSheet2.copyLinkBtn.setOnClickListener {
+            Toast.makeText(this, "링크 복사 버튼 클릭", Toast.LENGTH_LONG).show()
+        }
+
+        binding.bottomSheet2.bookmarkBtn.setOnClickListener {
+            Toast.makeText(this, "북마크 버튼 클릭", Toast.LENGTH_LONG).show()
+        }
+
+        binding.bottomSheet2.callBtn.setOnClickListener {
+            Toast.makeText(this, "전화걸기 버튼 클릭", Toast.LENGTH_LONG).show()
+        }
+
+        binding.bottomSheet2.mailBtn.setOnClickListener {
+            Toast.makeText(this, "메일 보내기 버튼 클릭", Toast.LENGTH_LONG).show()
+        }
+
+        binding.bottomSheet2.deleteBtn.setOnClickListener {
+            Toast.makeText(this, "삭제하기 버튼 클릭", Toast.LENGTH_LONG).show()
+        }
     }
+
+
 }

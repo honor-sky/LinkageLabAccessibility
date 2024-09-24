@@ -127,7 +127,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="상태 전환(on/off)이 가능한 버튼입니다."
+                android:text="한가지 항목만 선택이 가능합니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"/>
@@ -137,6 +137,7 @@
         android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:padding="10dp"
         android:background="@color/kakao_gray"
         app:layout_constraintEnd_toEndOf="parent"

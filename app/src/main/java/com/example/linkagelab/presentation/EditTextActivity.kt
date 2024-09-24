@@ -2,6 +2,7 @@ package com.example.linkagelab.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import com.example.linkagelab.databinding.ActivityEdittextBinding
 
 class EditTextActivity : AppCompatActivity() {
@@ -17,5 +18,9 @@ class EditTextActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener {
             finish()
         }
+
+       /* binding.ellipEditText.doAfterTextChanged { it ->
+            binding.ellipText.text = binding.ellipEditText.text.toString()
+        }*/
     }
 }
