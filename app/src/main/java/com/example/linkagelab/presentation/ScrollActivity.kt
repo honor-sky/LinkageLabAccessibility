@@ -27,7 +27,7 @@ class ScrollActivity : AppCompatActivity() {
         horizontalNumberAdapter.setData(number)
 
         binding.verticalRecyclerView.adapter = verticalAdapter
-        binding.horizontalRecyclerView.adapter = horizontalNumberAdapter
+        binding.horizontalRecyclerViewBasic.adapter = horizontalNumberAdapter
 
         binding.backBtn.setOnClickListener {
             finish()

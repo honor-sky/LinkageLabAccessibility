@@ -12,7 +12,18 @@
         android:layout_height="wrap_content"
         android:text="Calendar"
         android:textColor="@color/kakao_red"
-        android:textSize="20sp" />
+        android:textSize="30sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:text="기본 컴포넌트 입니다."
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
 
     <CalendarView
         android:id="@+id/calendarView"
@@ -21,5 +32,26 @@
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
         android:timePickerMode="spinner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:text="커스텀 컴포넌트 입니다.\n년도를 선택할 수 있고, 선택된 날짜를 년월일요일 순으로 읽어줍니다."
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textAlignment="center"/>
+
+    <CalendarView
+        android:id="@+id/calendarViewCustom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner"
+        android:timePickerMode="spinner" />
+
+
 
 </LinearLayout>

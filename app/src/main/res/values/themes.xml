@@ -11,13 +11,13 @@
         <item name="colorOnSecondary">@color/black</item>
 
         <!-- Customize your theme here. -->
-        <item name="materialButtonStyle">@style/CustomButtonStyle</item>
+    <item name="materialButtonStyle">@style/CustomButtonStyle</item>
 
     </style>
 
     <!-- 버튼에 커스텀 스타일 적용 -->
     <style name="CustomButtonStyle" parent="Widget.Material3.Button">
-        <item name="backgroundTint">@color/kakao_yellow</item>
+        <item name="backgroundTint">@drawable/button_background_selector</item>
         <item name="android:textColor">@color/white</item>
     </style>
 

@@ -3,7 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -13,6 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
@@ -23,17 +26,18 @@
             app:title="Menu 컴포넌트 테스트" />
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBar">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+
 
     <TextView
         android:id="@+id/option_menu_text"
@@ -59,8 +63,15 @@
         android:textStyle="bold"
         android:textAlignment="textEnd" />
 
+   <!--     <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:orientation="vertical"
+            android:background="@color/kakao_gray"/>
+-->
 
-    <TextView
+
+        <TextView
         android:id="@+id/context_menu_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,8 +100,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="기본 컴포넌트 입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
     <Button
-        android:id="@+id/context_menu"
+        android:id="@+id/context_menu_basic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -99,6 +121,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appBar"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:text="커스텀 컴포넌트 입니다.\n길게 눌러 메뉴를 띄우는 동작에 접근할 수 있어야 합니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/context_menu_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Context 메뉴"
+                android:textColor="@color/kakao_black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBar"/>
 
 
     <TextView
@@ -141,9 +185,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/context_menu"/>
 
-        </LinearLayout>
+    </LinearLayout>
     </ScrollView>
-
 
 
 

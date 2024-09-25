@@ -14,19 +14,20 @@
         android:background="@color/kakao_yellow"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-        <LinearLayout
+        <ImageButton
             android:id="@+id/backBtn"
             android:layout_width="38dp"
             android:layout_height="38dp"
             android:background="@drawable/ic_arrow_back"
-            android:contentDescription="뒤로가기 버튼"
-            android:orientation="horizontal" />
+            android:orientation="horizontal"
+            android:contentDescription="뒤로가기"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="10dp"
             android:text="ProgressBar, RatingBar 테스트"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
 
     </androidx.appcompat.widget.Toolbar>
 

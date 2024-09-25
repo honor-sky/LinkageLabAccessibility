@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityButtonBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ButtonActivity : AppCompatActivity() {
 
@@ -29,14 +30,7 @@ class ButtonActivity : AppCompatActivity() {
 
     fun initListener() {
 
-        binding.switchBtn.setOnClickListener {
-            // 클릭시 스위치 on, off 변화
-            when(binding.switchBtn.isChecked) {
-                true -> binding.switchBtn.text = "ON"
-                false -> binding.switchBtn.text = "OFF"
-            }
 
-        }
 
         binding.extendedMainFab.setOnClickListener {
             when (binding.extendedMainFab.isExtended) {
@@ -64,7 +58,14 @@ class ButtonActivity : AppCompatActivity() {
         }
 
         binding.floatingActionButton.setOnClickListener {
-            Toast.makeText(this, "FAB 버튼 클릭", Toast.LENGTH_SHORT).show()
+            MaterialAlertDialogBuilder(this)
+                .setTitle("FAB 클릭")
+                .setMessage("FAB가 클릭되어 활성화 된 알림창 입니다.")
+                .setPositiveButton("확인") {  dialog, which ->
+                    dialog.dismiss()
+                }
+                .setCancelable(false)
+                .show()
         }
 
         binding.callBtn.setOnClickListener {

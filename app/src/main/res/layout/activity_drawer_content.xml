@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+    <Button
+        android:id = "@+id/showToastBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/kakao_black"
+        android:textSize="20sp"
+        android:text="접근성이 지켜지지 않은 예시" />
+
+    <Button
+        android:id = "@+id/showSnackBarBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/kakao_black"
+        android:textSize="20sp"
+        android:text="접근성이 지켜진 예시" />
+
+
+</LinearLayout>

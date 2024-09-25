@@ -25,10 +25,17 @@ class MenuActivity : AppCompatActivity() {
         binding.topAppBar.setNavigationOnClickListener {
             onBackPressedDispatcher.onBackPressed() // 뒤로가기 처리
         }
-        registerForContextMenu(binding.contextMenu)
 
+        registerForContextMenu(binding.contextMenuBasic)
+
+        setAccessibility()
         initListener()
 
+    }
+
+    fun setAccessibility() {
+        binding.topAppBar.setNavigationContentDescription("뒤로가기")
+        binding.topAppBar.isAccessibilityHeading = true
     }
 
     fun initListener() {
