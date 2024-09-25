@@ -479,7 +479,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/chipGroup" />
 
                 <CheckBox
-                    android:id="@+id/checkBox2"
+                    android:id="@+id/checkBox2Custom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -490,7 +490,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
                 <CheckBox
-                    android:id="@+id/checkBox3"
+                    android:id="@+id/checkBox3Custom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -583,6 +583,9 @@
                 android:id="@+id/seekBarCustom"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
+                android:valueFrom="0"
+                android:valueTo="100"
+                android:stepSize="1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar2"/>
