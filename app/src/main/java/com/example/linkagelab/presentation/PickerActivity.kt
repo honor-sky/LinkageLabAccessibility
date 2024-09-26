@@ -41,7 +41,6 @@ class PickerActivity : AppCompatActivity() {
             }
         }.attach()
 
-
         binding.tabLayout.addOnTabSelectedListener( object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: Tab?) {
                 binding.viewpager.currentItem = tab!!.position

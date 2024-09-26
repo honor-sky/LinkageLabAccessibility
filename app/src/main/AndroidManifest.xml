@@ -57,9 +57,17 @@
             android:name=".presentation.MenuActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab"></activity>
+        <activity
+            android:name=".presentation.CustomSheetActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab"></activity>
+        <activity
+            android:name=".presentation.ViewpagerActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab"></activity>
 
         <service
-            android:name=".accessibility.AccessibilityService"
+            android:name=".accessibility.MenuAccessibilityService"
             android:exported="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

@@ -9,6 +9,26 @@
     tools:context=".presentation.MainActivity"
     android:theme="@style/Theme.LinkageLab">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/kakao_yellow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:text="기본 컴포넌트 테스트"
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+<!--
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -24,8 +44,10 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:title="기본 컴포넌트 테스트" />
+        &lt;!&ndash;  android:accessibilityHeading="true"&ndash;&gt;
 
     </com.google.android.material.appbar.AppBarLayout>
+-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -65,7 +87,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Date Picker / Time Picker / Calendar / Tab / ViewPager"
+                android:text="Date Picker / Time Picker / Calendar / Tab "
+                android:textColor="@color/kakao_black"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:id="@+id/viewPagerTestBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="ViewPager"
                 android:textColor="@color/kakao_black"
                 android:textSize="20sp" />
 
@@ -76,6 +108,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="BottomSheet"
+                android:textColor="@color/kakao_black"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn5" />
+
+
+            <Button
+                android:id="@+id/customBottomSheetTestBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="CustomBottomSheet"
                 android:textColor="@color/kakao_black"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"

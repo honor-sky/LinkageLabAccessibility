@@ -1,11 +1,16 @@
 package com.example.linkagelab.presentation
 
+import android.accessibilityservice.AccessibilityService
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
+import android.text.TextUtils
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import androidx.appcompat.app.AppCompatActivity
+import com.example.linkagelab.accessibility.MenuAccessibilityService
 import com.example.linkagelab.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -78,6 +83,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SheetActivity::class.java))
         }
 
+        binding.customBottomSheetTestBtn.setOnClickListener {
+            startActivity(Intent(this, CustomSheetActivity::class.java))
+        }
+
         binding.sideSheetTestBtn.setOnClickListener {
             startActivity(Intent(this, DrawerActivity::class.java))
 
@@ -91,24 +100,32 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, MenuActivity::class.java))
         }
 
-
-    }
-
-
-
-
-    fun sendAccessibilityEvent(message: String) {
-        val event = AccessibilityEvent.obtain()
-        event.eventType = AccessibilityEvent.TYPE_ANNOUNCEMENT
-        event.className = this.javaClass.name
-        event.packageName = this.packageName
-        event.text.add(message)
-
-        try {
-            val manager: AccessibilityManager = getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
-            manager.sendAccessibilityEvent(event)
-        } catch (e: Exception) {
-
+        binding.viewPagerTestBtn.setOnClickListener {
+            startActivity(Intent(this, ViewpagerActivity::class.java))
         }
+
+
     }
+
+    private fun isAccessibilityServiceEnabled(context: Context, service: Class<out AccessibilityService>): Boolean {
+        val expectedComponentName = ComponentName(context, service)
+
+        val enabledServicesSetting = Settings.Secure.getString(
+            context.contentResolver,
+            Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
+        ) ?: return false
+
+        val colonSplitter = TextUtils.SimpleStringSplitter(':')
+        colonSplitter.setString(enabledServicesSetting)
+
+        while (colonSplitter.hasNext()) {
+            val componentNameString = colonSplitter.next()
+            val enabledComponentName = ComponentName.unflattenFromString(componentNameString)
+            if (enabledComponentName != null && enabledComponentName == expectedComponentName)
+                return true
+        }
+
+        return false
+    }
+
 }

@@ -1,12 +1,21 @@
 package com.example.linkagelab.presentation
 
+import android.accessibilityservice.AccessibilityService
+import android.content.ComponentName
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
+import android.text.TextUtils
+import android.util.Log
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityMenuBinding
@@ -21,11 +30,6 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.topAppBar)
-        binding.topAppBar.setNavigationOnClickListener {
-            onBackPressedDispatcher.onBackPressed() // 뒤로가기 처리
-        }
-
         registerForContextMenu(binding.contextMenuBasic)
 
         setAccessibility()
@@ -34,11 +38,31 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun setAccessibility() {
-        binding.topAppBar.setNavigationContentDescription("뒤로가기")
-        binding.topAppBar.isAccessibilityHeading = true
+
+
+        binding.contextMenuCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
+            @RequiresApi(Build.VERSION_CODES.R)
+            override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
+                return when (action) {
+
+                    AccessibilityNodeInfo.ACTION_CLICK -> {
+                       // context menu 열기
+                        Log.d("setAccessibility","ACTION_LONG_CLICK")
+
+                        return false
+                    }
+
+                    else -> super.performAccessibilityAction(host, action, args)
+                }
+            }
+        })
     }
 
     fun initListener() {
+
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
 
         binding.popupMenu.setOnClickListener { it ->
             val popupMenu = PopupMenu(this, it)
@@ -96,6 +120,7 @@ class MenuActivity : AppCompatActivity() {
             else -> super.onContextItemSelected(item)
         }
     }
+
 
 
 

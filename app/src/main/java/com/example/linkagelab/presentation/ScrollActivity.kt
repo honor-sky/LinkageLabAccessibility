@@ -1,9 +1,11 @@
 package com.example.linkagelab.presentation
 
 import android.os.Bundle
+import android.view.accessibility.AccessibilityEvent
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.helper.widget.Carousel.Adapter
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityScrollBinding
 
@@ -28,9 +30,46 @@ class ScrollActivity : AppCompatActivity() {
 
         binding.verticalRecyclerView.adapter = verticalAdapter
         binding.horizontalRecyclerViewBasic.adapter = horizontalNumberAdapter
+        binding.horizontalRecyclerViewCustom.adapter = horizontalNumberAdapter
 
+        initListener()
+
+    }
+
+
+    fun initListener() {
         binding.backBtn.setOnClickListener {
             finish()
+        }
+
+        binding.leftBtn.setOnClickListener {
+            scrollRecyclerView(-1)
+            binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 왼쪽으로 이동했습니다"
+            binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+        }
+
+        binding.rightBtn.setOnClickListener {
+            scrollRecyclerView(1)
+            binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 오른쪽으로 이동했습니다"
+            binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+        }
+    }
+
+    private fun scrollRecyclerView(direction: Int) {
+        // 현재 스크롤 위치를 가져온다
+        val layoutManager = binding.horizontalRecyclerViewCustom.layoutManager as LinearLayoutManager
+        val currentPosition = layoutManager.findFirstVisibleItemPosition()
+
+        // 이동할 위치 계산 (5개 항목 단위로 이동)
+        val targetPosition = currentPosition + direction * 5
+
+        // 스크롤 이동
+        if (targetPosition in 0 until binding.horizontalRecyclerViewCustom.adapter!!.itemCount) {
+            binding.horizontalRecyclerViewCustom.smoothScrollToPosition(targetPosition)
+        } else if(targetPosition < 0) {
+            binding.horizontalRecyclerViewCustom.smoothScrollToPosition(0)
+        } else if(targetPosition > binding.horizontalRecyclerViewCustom.adapter!!.itemCount) {
+            binding.horizontalRecyclerViewCustom.smoothScrollToPosition(binding.horizontalRecyclerViewCustom.adapter!!.itemCount)
         }
     }
 }

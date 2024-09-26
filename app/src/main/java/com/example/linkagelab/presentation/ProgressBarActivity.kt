@@ -1,11 +1,19 @@
 package com.example.linkagelab.presentation
 
 import android.os.Bundle
+import android.view.accessibility.AccessibilityEvent
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.linkagelab.databinding.ActivityBarBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ProgressBarActivity : AppCompatActivity() {
 
@@ -23,6 +31,27 @@ class ProgressBarActivity : AppCompatActivity() {
     }
 
    fun initListener() {
+       binding.startProgressBtn1.setOnClickListener {
+
+          CoroutineScope(Dispatchers.Main).launch {
+               binding.progressBar.visibility = ProgressBar.VISIBLE
+               binding.progressBar.isIndeterminate = true
+               binding.progressBar.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+
+               delay(5000)
+
+               binding.progressBar.contentDescription = "새로고침 완료"
+               binding.progressBar.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+               //binding.progressBar.visibility = ProgressBar.GONE
+           }
+
+       }
+
+       binding.startProgressBtn2.setOnClickListener {
+           startProgressingBar()
+
+       }
+
        binding.toolbar.setOnClickListener {
            finish()
        }
@@ -61,8 +90,6 @@ class ProgressBarActivity : AppCompatActivity() {
                .show()
        }
 
-
-
        binding.listDialogBtn.setOnClickListener {
            MaterialAlertDialogBuilder(this)
                .setTitle("리스트 알림창")
@@ -71,5 +98,17 @@ class ProgressBarActivity : AppCompatActivity() {
                    myToast.show()
                }.show()
        }
+    }
+
+    fun startProgressingBar() {
+        var progress = 0
+        CoroutineScope(Dispatchers.IO).launch {
+            binding.progressBar2.performAccessibilityAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS, null)
+            for (i in 0 until 10) {
+                delay(2000) // 2초 지연
+                progress += 20
+                binding.progressBar2.progress = progress
+            }
+        }
     }
 }

@@ -75,7 +75,7 @@
             android:textColor="@color/kakao_black"
             android:textSize="24sp" />
 
-        <TextView
+       <!-- <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -99,7 +99,7 @@
             android:layout_height="wrap_content"
             android:text="텍스트 바텀시트 숨김"
             android:textColor="@color/kakao_black"
-            android:textSize="24sp" />
+            android:textSize="24sp" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -149,6 +149,7 @@
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:orientation="vertical"
         android:background="@drawable/base_top_roundsquare_white_20"
+        android:importantForAccessibility="no"
         android:clickable="false"
         app:behavior_hideable="true"
         app:behavior_draggable="true"
@@ -159,6 +160,9 @@
         <include
             android:id="@+id/bottom_sheet1"
             layout="@layout/text_bottom_sheet"/>
+        <include
+            android:id="@+id/bottom_sheet1_custom"
+            layout="@layout/text_bottom_sheet_custom"/>
         <include
             android:id="@+id/bottom_sheet2"
             layout="@layout/button_bottom_sheet"/>

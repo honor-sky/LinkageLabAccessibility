@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:clickable="false">
+
+    <LinearLayout
+        android:id="@+id/main_parent_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/kakao_yellow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/ic_arrow_back"
+            android:orientation="horizontal"
+            android:contentDescription="뒤로가기"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:text="Bottom Sheet 테스트"
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:text="커스텀 컴포넌트 입니다."
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/textSheetexpandBtnCustom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="텍스트 바텀시트 나타남"
+            android:textColor="@color/kakao_black"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/textSheetShrinkBtnCustom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="텍스트 바텀시트 숨김"
+            android:textColor="@color/kakao_black"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/kakao_gray"/>
+
+
+    </LinearLayout>
+
+    <!-- 기본 확장 상태에서 안 보이는 부분에 대해 읽어주지를 않음 -->
+    <LinearLayout
+        android:id="@+id/bottom_sheet_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:orientation="vertical"
+        android:background="@drawable/base_top_roundsquare_white_20"
+        android:importantForAccessibility="no"
+        android:clickable="false"
+        app:behavior_hideable="true"
+        app:behavior_draggable="true"
+        app:behavior_peekHeight="160dp"
+        app:behavior_halfExpandedRatio="0.75"
+        app:layout_insetEdge="bottom">
+
+        <include
+            android:id="@+id/bottom_sheet1_custom"
+            layout="@layout/text_bottom_sheet_custom"/>
+
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

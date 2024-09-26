@@ -2,6 +2,7 @@ package com.example.linkagelab.presentation
 
 import android.os.Bundle
 import android.view.View
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.LinearLayout
 import android.widget.Toast
@@ -51,9 +52,11 @@ class SheetActivity : AppCompatActivity() {
 
 
     fun initListener() {
+        // 텍스트 시트
         binding.textSheetexpandBtn.setOnClickListener {
             binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.GONE
             binding.bottomSheet1.textBottomSheetLayoutRoot.visibility = View.VISIBLE
+
             persistenetBottomSheet.state = STATE_COLLAPSED
         }
 
@@ -62,6 +65,9 @@ class SheetActivity : AppCompatActivity() {
             persistenetBottomSheet.state = STATE_HIDDEN
         }
 
+
+
+        // 버튼 시트
         binding.buttonSheetexpandBtn.setOnClickListener {
             binding.bottomSheet1.textBottomSheetLayoutRoot.visibility = View.GONE
             binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.VISIBLE
@@ -72,6 +78,8 @@ class SheetActivity : AppCompatActivity() {
             binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.GONE
             persistenetBottomSheet.state = STATE_HIDDEN
         }
+
+
 
         binding.backBtn.setOnClickListener {
             finish()
@@ -101,6 +109,7 @@ class SheetActivity : AppCompatActivity() {
         binding.bottomSheet2.deleteBtn.setOnClickListener {
             Toast.makeText(this, "삭제하기 버튼 클릭", Toast.LENGTH_LONG).show()
         }
+
     }
 
 
