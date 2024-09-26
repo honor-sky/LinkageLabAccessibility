@@ -32,33 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setAccessibility() {
-        binding.topAppBar.isAccessibilityHeading = true
 
-        /*
-     // contentDescription 커스터마이징
-     binding.testBtn2.accessibilityDelegate = object : View.AccessibilityDelegate() {
-         override fun onInitializeAccessibilityNodeInfo(
-             host: View,
-             info: AccessibilityNodeInfo
-         ) {
-             super.onInitializeAccessibilityNodeInfo(host, info)
-             // 접근성 노드 정보 커스터마이즈
-             //info.contentDescription = "커스터마이즈된 설명"
-         }
-
-         override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
-             // 접근성 액션 커스터마이즈
-             return when (action) {
-                 AccessibilityNodeInfo.ACTION_CLICK -> {
-                     // 버튼 클릭 시의 커스터마이즈된 행동 정의
-                     true
-                 }
-                 else -> super.performAccessibilityAction(host, action, args)
-             }
-         }
-     }
-
-      */
     }
 
 

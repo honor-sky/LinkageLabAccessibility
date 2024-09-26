@@ -28,26 +28,6 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-<!--
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/kakao_yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:title="기본 컴포넌트 테스트" />
-        &lt;!&ndash;  android:accessibilityHeading="true"&ndash;&gt;
-
-    </com.google.android.material.appbar.AppBarLayout>
--->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -57,7 +37,8 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
 
         <LinearLayout
             android:layout_width="match_parent"

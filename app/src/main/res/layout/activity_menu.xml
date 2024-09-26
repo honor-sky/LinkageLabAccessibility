@@ -42,7 +42,6 @@
             android:orientation="horizontal"
             android:contentDescription="뒤로가기"/>
 
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,6 +49,16 @@
             android:text="Menu 컴포넌트 테스트"
             android:textSize="20sp"
             android:accessibilityHeading="true"/>
+
+        <ImageButton
+            android:id="@+id/option_btn"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/ic_more"
+            android:backgroundTint="@color/black"
+            android:orientation="horizontal"
+            android:layout_gravity="end"
+            android:contentDescription="뒤로가기"/>
 
     </androidx.appcompat.widget.Toolbar>
 

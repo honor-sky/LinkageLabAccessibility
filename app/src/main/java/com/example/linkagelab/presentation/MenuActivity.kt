@@ -1,6 +1,8 @@
 package com.example.linkagelab.presentation
 
 import android.accessibilityservice.AccessibilityService
+import android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_DOWN
+import android.accessibilityservice.AccessibilityService.GESTURE_SWIPE_UP
 import android.content.ComponentName
 import android.content.Context
 import android.os.Build
@@ -12,6 +14,7 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -20,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityMenuBinding
 
-class MenuActivity : AppCompatActivity() {
+class MenuActivity : AppCompatActivity(){
 
     private lateinit var binding: ActivityMenuBinding
 
@@ -45,9 +48,9 @@ class MenuActivity : AppCompatActivity() {
             override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
                 return when (action) {
 
-                    AccessibilityNodeInfo.ACTION_CLICK -> {
+                    AccessibilityNodeInfo.ACTION_LONG_CLICK -> {
                        // context menu 열기
-                        Log.d("setAccessibility","ACTION_LONG_CLICK")
+                        Toast.makeText(this@MenuActivity, "두 손가락으로 두 번 탭 감지됨", Toast.LENGTH_SHORT).show()
 
                         return false
                     }
@@ -62,6 +65,10 @@ class MenuActivity : AppCompatActivity() {
 
         binding.backBtn.setOnClickListener {
             finish()
+        }
+
+        binding.optionBtn.setOnClickListener {
+
         }
 
         binding.popupMenu.setOnClickListener { it ->
@@ -120,6 +127,7 @@ class MenuActivity : AppCompatActivity() {
             else -> super.onContextItemSelected(item)
         }
     }
+
 
 
 

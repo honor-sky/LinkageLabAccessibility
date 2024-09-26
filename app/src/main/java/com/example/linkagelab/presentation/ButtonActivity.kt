@@ -1,15 +1,18 @@
 package com.example.linkagelab.presentation
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.os.Message
 import android.util.Log
+import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
+import android.view.accessibility.AccessibilityNodeInfo.ACTION_ARGUMENT_PROGRESS_VALUE
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Toast
@@ -38,6 +41,7 @@ class ButtonActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("NewApi")
     fun setAccessibility() {
 
         binding.checkBox1Custom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
@@ -138,24 +142,98 @@ class ButtonActivity : AppCompatActivity() {
             }
         })
 
+  /*      binding.seekBarCustom.addOnChangeListener { slider, value, fromUser ->
+            if (fromUser) {
+                // thumb이 사용자의 조작으로 변경된 경우
+                binding.seekBarCustom.contentDescription = "현재 값은 $value 입니다."
+                //binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
 
-/*        binding.seekBarCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
+            }
+        }*/
+
+        binding.seekBarCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
                 super.onInitializeAccessibilityNodeInfo(host, info)
 
-                // 슬라이더의 thumb에 포커스만 주도록 설정
-                info.isFocusable = false
-                info.isClickable = false
+                // 기본 접근성 행동을 유지
+                info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_FORWARD)
+                info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_BACKWARD)
+            }
 
-                if( binding.seekBarCustom.value == binding.seekBarCustom.valueTo) {
-                    info.contentDescription = "최대값입니다, value, ${binding.seekBarCustom.value}"
-                } else if( binding.seekBarCustom.value == binding.seekBarCustom.valueFrom) {
-                    info.contentDescription = "최솟값입니다, value, ${binding.seekBarCustom.value}"
-                } else {
-                    info.contentDescription = "value, ${binding.seekBarCustom.value}"
+            override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
+                return when (action) {
+                    AccessibilityNodeInfo.ACTION_SCROLL_FORWARD -> {
+                        // 슬라이더 값 증가
+                        binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+                        val newValue = (binding.seekBarCustom.value + binding.seekBarCustom.stepSize).coerceAtMost(binding.seekBarCustom.valueTo)
+                        binding.seekBarCustom.value = newValue
+                        true
+                    }
+                    AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD -> {
+                        // 슬라이더 값 감소
+                        binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+                        val newValue = (binding.seekBarCustom.value - binding.seekBarCustom.stepSize).coerceAtLeast(binding.seekBarCustom.valueFrom)
+                        binding.seekBarCustom.value = newValue
+                        true
+                    }
+                    else -> super.performAccessibilityAction(host, action, args)
                 }
             }
-        })*/
+        })
+
+
+ /* binding.seekBarCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
+      override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
+          super.onInitializeAccessibilityNodeInfo(host, info)
+
+          // Slider에 대한 접근성 정보를 커스텀
+          info.contentDescription = "현재 값은 ${binding.seekBarCustom.value} 입니다."
+      }*/
+
+      /*
+            @RequiresApi(Build.VERSION_CODES.R)
+
+            override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
+                val slider = binding.seekBarCustom
+                return when (action) {
+                    AccessibilityNodeInfo.ACTION_SCROLL_FORWARD -> {
+                        // 위로 스와이프했을 때 값 증가
+                        Toast.makeText(this@ButtonActivity, "두 손가락으로 두 번 탭 감지됨", Toast.LENGTH_SHORT).show()
+
+                        val newValue = (slider.value + slider.stepSize).coerceAtMost(slider.valueTo)
+                        slider.value = newValue
+                        handleSliderChange(newValue)  // 값이 변경될 때 처리할 로직*//*
+                        false
+                    }
+                    else -> super.performAccessibilityAction(host, action, args)
+                }
+            }
+
+        })    */
+
+
+/*    val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+        override fun onScroll(
+            e1: MotionEvent?,
+            e2: MotionEvent,
+            distanceX: Float,
+            distanceY: Float
+        ): Boolean {
+            if (distanceY > 0) {
+                // 위로 스와이프
+                Toast.makeText(this@ButtonActivity, "위로 스와이프 감지됨", Toast.LENGTH_SHORT).show()
+            } else {
+                // 아래로 스와이프
+                Toast.makeText(this@ButtonActivity, "아래로 스와이프 감지됨", Toast.LENGTH_SHORT).show()
+            }
+            return true
+        }
+    })
+
+    binding.seekBarCustom.setOnTouchListener { _, event ->
+        gestureDetector.onTouchEvent(event)
+        true
+    }*/
     }
 
 
