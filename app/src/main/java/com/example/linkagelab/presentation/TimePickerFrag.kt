@@ -1,12 +1,16 @@
 package com.example.linkagelab.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
-import com.example.linkagelab.databinding.FragmentDatePickerBinding
 import com.example.linkagelab.databinding.FragmentTimePickerBinding
+import java.lang.reflect.Field
 
 class TimePickerFrag : Fragment() {
 
@@ -18,8 +22,11 @@ class TimePickerFrag : Fragment() {
         val root: View = binding.root
 
 
+
         return root
     }
+
+
 
     override fun onDestroy() {
         super.onDestroy()

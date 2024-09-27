@@ -33,6 +33,8 @@ class MenuActivity : AppCompatActivity(){
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         registerForContextMenu(binding.contextMenuBasic)
 
         setAccessibility()
@@ -40,9 +42,9 @@ class MenuActivity : AppCompatActivity(){
 
     }
 
+
     fun setAccessibility() {
-
-
+        binding.topAppBar.navigationContentDescription = "뒤로가기"
         binding.contextMenuCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             @RequiresApi(Build.VERSION_CODES.R)
             override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
@@ -63,14 +65,9 @@ class MenuActivity : AppCompatActivity(){
 
     fun initListener() {
 
-        binding.backBtn.setOnClickListener {
+        binding.topAppBar.setNavigationOnClickListener {
             finish()
         }
-
-        binding.optionBtn.setOnClickListener {
-
-        }
-
         binding.popupMenu.setOnClickListener { it ->
             val popupMenu = PopupMenu(this, it)
             popupMenu.inflate(R.menu.nav_menu)

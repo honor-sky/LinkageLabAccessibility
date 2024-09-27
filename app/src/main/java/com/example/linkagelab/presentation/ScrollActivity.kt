@@ -53,6 +53,8 @@ class ScrollActivity : AppCompatActivity() {
             binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 오른쪽으로 이동했습니다"
             binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
         }
+
+        // 스크롤뷰 전체에 초점 줌 -> 순차 탐색하려면 옆으로 스와이프 or 전체적으로 탐색하면 뫄뫄 하세요~
     }
 
     private fun scrollRecyclerView(direction: Int) {

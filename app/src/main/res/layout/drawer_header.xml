@@ -6,7 +6,8 @@
     android:background="@drawable/side_nav_bar"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:screenReaderFocusable="false">
 
     <TextView
         android:layout_width="wrap_content"
@@ -16,7 +17,9 @@
         android:layout_marginEnd="24dp"
         android:textSize="30sp"
         android:text="환영합니다."
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:importantForAccessibility="yes"
+        android:focusable="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,7 +29,9 @@
         android:layout_marginBottom="24dp"
         android:text="김경민님"
         android:textSize="20sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:importantForAccessibility="yes"
+        android:focusable="true"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,6 +40,8 @@
         android:layout_marginBottom="24dp"
         android:text="olly.45@linkage.co.kr"
         android:textSize="20sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:importantForAccessibility="yes"
+        android:focusable="true"/>
 
 </LinearLayout>

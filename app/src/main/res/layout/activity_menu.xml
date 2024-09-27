@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
 
-<!--    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,17 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:menu="@menu/nav_menu"
-            app:title="Menu 컴포넌트 테스트" />
-    </com.google.android.material.appbar.AppBarLayout>-->
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                app:menu="@menu/nav_menu"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:title="Menu 컴포넌트 테스트" />
 
-    <androidx.appcompat.widget.Toolbar
+    </com.google.android.material.appbar.AppBarLayout>
+
+<!--    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -50,17 +51,18 @@
             android:textSize="20sp"
             android:accessibilityHeading="true"/>
 
-        <ImageButton
+        <ActionMenuView
             android:id="@+id/option_btn"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:background="@drawable/ic_more"
-            android:backgroundTint="@color/black"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="10dp"
+
             android:orientation="horizontal"
             android:layout_gravity="end"
-            android:contentDescription="뒤로가기"/>
+            android:contentDescription="옵션"
+            app:menu="@menu/nav_menu"/>
 
-    </androidx.appcompat.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>-->
 
 
     <ScrollView
@@ -68,7 +70,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/appBar">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -215,7 +217,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-
         android:text="PopUp 메뉴"
         android:textColor="@color/kakao_black"
         app:layout_constraintEnd_toEndOf="parent"

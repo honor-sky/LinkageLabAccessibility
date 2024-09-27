@@ -52,7 +52,7 @@ class ProgressBarActivity : AppCompatActivity() {
 
        }
 
-       binding.toolbar.setOnClickListener {
+       binding.backBtn.setOnClickListener {
            finish()
        }
 

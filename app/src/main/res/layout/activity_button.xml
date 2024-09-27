@@ -237,6 +237,15 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="기본 컴포넌트 입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:id="@+id/extended_fab1"
                 android:layout_width="match_parent"
@@ -333,7 +342,120 @@
                 android:textSize="18sp"
                 app:icon="@drawable/ic_add" />
 
+            <!-- 확장형 FAB 커스텀 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="커스텀 컴포넌트 입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
+            <LinearLayout
+                android:id="@+id/extended_fab1_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/call_btn_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    android:contentDescription="전화하기"
+                    android:src="@drawable/ic_call"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:text="전화하기"
+                    android:importantForAccessibility="no"
+                    android:textColor="@color/kakao_black"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/extended_fab2_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/mail_btn_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    android:contentDescription="메신저"
+                    android:src="@drawable/ic_mail"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:text="메신저"
+                    android:importantForAccessibility="no"
+                    android:textColor="@color/kakao_black"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/extended_fab3_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/bookmark_btn_custom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:elevation="0dp"
+                    android:src="@drawable/ic_bookmark"
+                    android:textSize="30sp"
+                    android:contentDescription="즐겨찾기"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="20dp"
+                    android:text="즐겨찾기"
+                    android:importantForAccessibility="no"
+                    android:textColor="@color/kakao_black"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/extended_main_fab_custom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="확장 플로팅"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_add" />
+
+
+            <!-- Chip -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -584,6 +706,7 @@
                 android:stepSize="1"
                 android:valueFrom="0"
                 android:valueTo="100"
+                android:contentDescription="볼륨 조절(최소 0, 최대100)"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
@@ -598,7 +721,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/plus_minus_button"
-                    android:contentDescription="감소"
+                    android:contentDescription="-1 감소"
                     android:src="@drawable/ic_minus" />
 
                 <View
@@ -611,11 +734,34 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/plus_minus_button"
-                    android:contentDescription="증가"
+                    android:contentDescription="+1 증가"
                     android:src="@drawable/ic_add" />
 
             </LinearLayout>
 
+            <!-- 버튼이 2개인 슬라이더 -->
+      <!--      <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="커스텀 컴포넌트 입니다.\n버튼이 두개인 형태입니다."
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.slider.RangeSlider
+                android:id="@+id/rangeSeekBarCustom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="1"
+                android:valueFrom="1"
+                android:valueTo="10"
+                android:contentDescription="거리 범위 지정(최소 1KM, 최대10KM)"
+                app:values="@array/rangeslider_default_values"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
+-->
         </LinearLayout>
     </ScrollView>
 

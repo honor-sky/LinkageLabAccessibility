@@ -26,12 +26,11 @@
 
 
     <DatePicker
-        android:id="@+id/datePickerCustom"
+        android:id="@+id/datePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        android:timePickerMode="spinner" />
+        android:datePickerMode="spinner" />
 
 
     <TextView
@@ -45,13 +44,11 @@
 
 
     <DatePicker
-        android:id="@+id/datePicker"
+        android:id="@+id/datePickerCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:calendarViewShown="false"
-        android:datePickerMode="spinner"
-        android:timePickerMode="spinner" />
-
+        android:datePickerMode="spinner" />
 
 
 </LinearLayout>

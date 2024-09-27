@@ -6,16 +6,8 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@color/kakao_yellow">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="앱바의 버튼을 누르면 측면에서 네비게이션이 열립니다."
-        android:textSize="15sp"
-        android:textStyle="bold"/>
+    android:background="@color/kakao_yellow"
+    android:importantForAccessibility="no">
 
 
     <TextView
@@ -23,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="마이페이지 화면"
-
+        android:contentDescription="마이페이지 화면"
         android:textSize="30sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

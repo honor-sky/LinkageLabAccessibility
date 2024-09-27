@@ -4,25 +4,17 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
-import android.os.Message
 import android.util.Log
-import android.view.GestureDetector
-import android.view.MotionEvent
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
-import android.view.accessibility.AccessibilityNodeInfo.ACTION_ARGUMENT_PROGRESS_VALUE
-import android.view.animation.Animation
-import android.view.animation.AnimationUtils
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityButtonBinding
-import com.google.android.material.animation.AnimatableView.Listener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.slider.Slider
+import com.google.android.material.slider.RangeSlider
+
 
 class ButtonActivity : AppCompatActivity() {
 
@@ -164,16 +156,26 @@ class ButtonActivity : AppCompatActivity() {
                 return when (action) {
                     AccessibilityNodeInfo.ACTION_SCROLL_FORWARD -> {
                         // 슬라이더 값 증가
+                        if(binding.seekBarCustom.value +  (binding.seekBarCustom.stepSize * 5) > binding.seekBarCustom.valueTo) {
+                            binding.seekBarCustom.value = binding.seekBarCustom.valueTo
+                        } else {
+                            binding.seekBarCustom.value = binding.seekBarCustom.value +  (binding.seekBarCustom.stepSize * 5)
+                        }
+                        binding.seekBarCustom.contentDescription =  "값, ${binding.seekBarCustom.value}"
                         binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
-                        val newValue = (binding.seekBarCustom.value + binding.seekBarCustom.stepSize).coerceAtMost(binding.seekBarCustom.valueTo)
-                        binding.seekBarCustom.value = newValue
+
                         true
                     }
                     AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD -> {
                         // 슬라이더 값 감소
+                        if(binding.seekBarCustom.value - (binding.seekBarCustom.stepSize * 5) > binding.seekBarCustom.valueFrom) {
+                            binding.seekBarCustom.value = binding.seekBarCustom.valueFrom
+                        } else {
+                            binding.seekBarCustom.value = binding.seekBarCustom.value - (binding.seekBarCustom.stepSize * 5)
+                        }
+                        binding.seekBarCustom.contentDescription =  "값, ${binding.seekBarCustom.value}"
                         binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
-                        val newValue = (binding.seekBarCustom.value - binding.seekBarCustom.stepSize).coerceAtLeast(binding.seekBarCustom.valueFrom)
-                        binding.seekBarCustom.value = newValue
+
                         true
                     }
                     else -> super.performAccessibilityAction(host, action, args)
@@ -182,58 +184,7 @@ class ButtonActivity : AppCompatActivity() {
         })
 
 
- /* binding.seekBarCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
-      override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
-          super.onInitializeAccessibilityNodeInfo(host, info)
 
-          // Slider에 대한 접근성 정보를 커스텀
-          info.contentDescription = "현재 값은 ${binding.seekBarCustom.value} 입니다."
-      }*/
-
-      /*
-            @RequiresApi(Build.VERSION_CODES.R)
-
-            override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
-                val slider = binding.seekBarCustom
-                return when (action) {
-                    AccessibilityNodeInfo.ACTION_SCROLL_FORWARD -> {
-                        // 위로 스와이프했을 때 값 증가
-                        Toast.makeText(this@ButtonActivity, "두 손가락으로 두 번 탭 감지됨", Toast.LENGTH_SHORT).show()
-
-                        val newValue = (slider.value + slider.stepSize).coerceAtMost(slider.valueTo)
-                        slider.value = newValue
-                        handleSliderChange(newValue)  // 값이 변경될 때 처리할 로직*//*
-                        false
-                    }
-                    else -> super.performAccessibilityAction(host, action, args)
-                }
-            }
-
-        })    */
-
-
-/*    val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
-        override fun onScroll(
-            e1: MotionEvent?,
-            e2: MotionEvent,
-            distanceX: Float,
-            distanceY: Float
-        ): Boolean {
-            if (distanceY > 0) {
-                // 위로 스와이프
-                Toast.makeText(this@ButtonActivity, "위로 스와이프 감지됨", Toast.LENGTH_SHORT).show()
-            } else {
-                // 아래로 스와이프
-                Toast.makeText(this@ButtonActivity, "아래로 스와이프 감지됨", Toast.LENGTH_SHORT).show()
-            }
-            return true
-        }
-    })
-
-    binding.seekBarCustom.setOnTouchListener { _, event ->
-        gestureDetector.onTouchEvent(event)
-        true
-    }*/
     }
 
 
@@ -243,12 +194,12 @@ class ButtonActivity : AppCompatActivity() {
 
         binding.plusBtn.setOnClickListener {
             if( binding.seekBarCustom.value == binding.seekBarCustom.valueTo) {
-                binding.seekBarCustom.contentDescription = "현재 최댓값입니다, value, ${binding.seekBarCustom.value}"
+                binding.seekBarCustom.contentDescription = "현재 최댓값입니다, 값, ${binding.seekBarCustom.value}"
                 binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
             } else {
                 binding.seekBarCustom.value += 1
 
-                binding.seekBarCustom.contentDescription = "${binding.seekBarCustom.value}"
+                binding.seekBarCustom.contentDescription = "값, ${binding.seekBarCustom.value}"
                 binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
             }
 
@@ -256,12 +207,12 @@ class ButtonActivity : AppCompatActivity() {
 
         binding.minusBtn.setOnClickListener {
             if( binding.seekBarCustom.value == binding.seekBarCustom.valueFrom) {
-                binding.seekBarCustom.contentDescription = "현재 최솟값입니다, value, ${binding.seekBarCustom.value}"
+                binding.seekBarCustom.contentDescription = "현재 최솟값입니다, 값, ${binding.seekBarCustom.value}"
                 binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
             } else {
                 binding.seekBarCustom.value -= 1
 
-                binding.seekBarCustom.contentDescription = "${binding.seekBarCustom.value}"
+                binding.seekBarCustom.contentDescription = "값, ${binding.seekBarCustom.value}"
                 binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
             }
 
@@ -303,6 +254,7 @@ class ButtonActivity : AppCompatActivity() {
                 .setCancelable(false)
                 .show()
         }
+
 
 
     }
