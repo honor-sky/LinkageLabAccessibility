@@ -67,7 +67,7 @@
             android:theme="@style/Theme.LinkageLab"></activity>
 
         <service
-            android:name=".accessibility.MenuAccessibilityService"
+            android:name=".accessibility.MyAccessibilityService"
             android:exported="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

@@ -1,19 +1,32 @@
 package com.example.linkagelab.presentation
 
 import android.content.Context.ACCESSIBILITY_SERVICE
+import android.content.res.Resources
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.InputType
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
+import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
+import android.widget.NumberPicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.content.ContextCompat.getSystemService
+import androidx.core.view.allViews
+import androidx.core.widget.addTextChangedListener
+import androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged
 import androidx.fragment.app.Fragment
+import com.example.linkagelab.R
 import com.example.linkagelab.databinding.FragmentDatePickerBinding
 
 
@@ -22,104 +35,83 @@ class DatePickerFrag : Fragment() {
     private var _binding: FragmentDatePickerBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var accessibilityManager: AccessibilityManager
+    private lateinit var accessibilityManager : AccessibilityManager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDatePickerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        setPickerChild(binding.datePickerCustom)
-        // AccessibilityManager 초기화
-        accessibilityManager = requireContext().getSystemService(AccessibilityManager::class.java)
+        customizeDatePicker(binding.datePickerCustom)
 
-        // 접근성 이벤트 리스너 설정
-        //setupAccessibilityEventListener()
 
         return root
     }
 
 
-    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
-    private fun setupAccessibilityEventListener() {
-        Log.d("DatePickerFrag","메서드 실행")
-        // 접근성 서비스 활성화 여부 확인
-        if (accessibilityManager.isEnabled) {
-            // 접근성 이벤트 리스너 등록
-            Log.d("DatePickerFrag","accessibilityManager isEnabled")
-            accessibilityManager.addAccessibilityServicesStateChangeListener {
-                Log.d("DatePickerFrag","Service isEnabled")
+
+
+    fun customizeDatePicker(datePicker: DatePicker) {
+        try {
+            // DatePicker 내부의 NumberPicker(년, 월, 일)를 찾음
+            val dayPickerId = Resources.getSystem().getIdentifier("day", "id", "android")
+            val monthPickerId = Resources.getSystem().getIdentifier("month", "id", "android")
+            val yearPickerId = Resources.getSystem().getIdentifier("year", "id", "android")
+
+            val dayPicker = datePicker.findViewById<NumberPicker>(dayPickerId)
+            val monthPicker = datePicker.findViewById<NumberPicker>(monthPickerId)
+            val yearPicker = datePicker.findViewById<NumberPicker>(yearPickerId)
+
+            // 숫자 옆에 년, 월, 일 글씨 추가
+            dayPicker?.let {
+                dayPicker.minValue = 1
+                dayPicker.maxValue = 31
+                dayPicker.displayedValues = getDisplayValues(1, 31, "일")
+                dayPicker.value = 1
+                setPickerChild(dayPicker)
             }
-            //setAccessibilityDelegate(binding)
 
-            /*  accessibilityManager.addAccessibilityStateChangeListener { isEnabled ->
-          if (isEnabled) {
-                  Log.d("DatePickerFrag","State isEnabled")
-                  // 탐색 중 발생하는 AccessibilityEvent 처리
-                  requireActivity().window.decorView.accessibilityDelegate = object : View.AccessibilityDelegate() {
-                      override fun sendAccessibilityEvent(host: View, eventType: Int) {
-                          super.sendAccessibilityEvent(host, eventType)
-
-                          if (eventType == AccessibilityEvent.TYPE_VIEW_FOCUSED || eventType == AccessibilityEvent.TYPE_VIEW_HOVER_ENTER) {
-                              // 초점이 맞춰진 뷰 정보 확인
-                              host?.let {
-                                  val viewType = it.javaClass.simpleName
-                                  Log.d("DatePickerFrag","${viewType}")
-                                  Toast.makeText(requireContext(), "현재 탐색된 뷰: $viewType", Toast.LENGTH_SHORT).show()
-                              }
-                          }
-                      }
-                  }
-              }
-          }*/
-
-        }
-    }
-
-    private fun setAccessibilityDelegate(view: View) {
-        view.accessibilityDelegate = object : View.AccessibilityDelegate() {
-            override fun sendAccessibilityEvent(host: View, eventType: Int) {
-                super.sendAccessibilityEvent(host, eventType)
-
-                if (eventType == AccessibilityEvent.TYPE_VIEW_FOCUSED || eventType == AccessibilityEvent.TYPE_VIEW_HOVER_ENTER) {
-                    // 초점이 맞춰진 뷰 정보 확인
-                    host.let {
-                        val viewType = it.javaClass.simpleName
-                        Log.d("DatePickerFrag", "현재 탐색된 뷰: $viewType")
-                        Toast.makeText(requireContext(), "현재 탐색된 뷰: $viewType", Toast.LENGTH_SHORT).show()
-                    }
-                }
+            monthPicker?.let {
+                monthPicker.minValue = 1
+                monthPicker.maxValue = 12
+                monthPicker.displayedValues = getDisplayValues(1, 12, "월")
+                monthPicker.value = 10
+                setPickerChild(monthPicker)
             }
+
+            yearPicker?.let {
+                yearPicker.minValue = 1900
+                yearPicker.maxValue = 2100
+                yearPicker.displayedValues = getDisplayValues(1900, 2100, "년")
+                yearPicker.value = 2024
+                setPickerChild(yearPicker)
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
         }
     }
 
 
-    fun setPickerChild(viewGroup : ViewGroup) { //viewGroup : ViewGroup
-        for (i in 0 until viewGroup.getChildCount()) {
+    private fun getDisplayValues(start: Int, end: Int, suffix: String): Array<String> {
+        val displayValues = mutableListOf<String>()
+
+        for (value in start..end) {
+            displayValues.add("${value}${suffix}")
+        }
+        return displayValues.toTypedArray()
+    }
+
+    fun setPickerChild(viewGroup : ViewGroup) {
+        for (i in 0 until  viewGroup.getChildCount()) {
             val child = viewGroup.getChildAt(i)
             if (child is ViewGroup) {
-                // 하위 ViewGroup도 재귀적으로 탐색
                 setPickerChild(child)
             } else {
-                // 개별 뷰에 접근, 특정 뷰인지 확인하여 리스너 추가
-                if (child is EditText) {
-                    Log.d("DatePicker","EditText")
-                    val editText = child
-                    //addChildrenForAccessibility
-
-                    editText.setOnFocusChangeListener { v, hasFocus ->
-                        v.contentDescription =  "노답"
-                        v.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
-                    }
-
+                if(child is EditText) {
+                    child.inputType = InputType.TYPE_CLASS_NUMBER
                 }
             }
         }
-
-
     }
-    
-
-
 
 
     override fun onDestroy() {

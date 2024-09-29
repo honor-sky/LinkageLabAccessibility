@@ -4,13 +4,16 @@ import android.accessibilityservice.AccessibilityService
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
+import android.util.Log
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.linkagelab.accessibility.MenuAccessibilityService
+import com.example.linkagelab.accessibility.MyAccessibilityService
+
 import com.example.linkagelab.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -19,21 +22,28 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setAccessibility()
+    /*    if(isTalkBackEnabled(this)) {
+            Log.d("AccessibilityService", "isTalkBackEnabled")
+            if(!isAccessibilityServiceEnabled(this, MyAccessibilityService::class.java)) {
+                Log.d("AccessibilityService", "isAccessibilityServiceEnabled")
+                val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+                intent.data = Uri.parse("package:" + "com.example.linkagelab")
+                startActivity(intent)
+            }
+        }
+*/
+
         initListener()
 
 
 
     }
 
-    fun setAccessibility() {
 
-    }
 
 
     fun initListener() {
@@ -101,5 +111,23 @@ class MainActivity : AppCompatActivity() {
 
         return false
     }
+
+    // TalkBack 활성화 여부 확인
+    private fun isTalkBackEnabled(context: Context): Boolean {
+        val am = context.getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
+        val enabledServices = Settings.Secure.getString(context.contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
+        val colonSplitter = TextUtils.SimpleStringSplitter(':')
+        colonSplitter.setString(enabledServices)
+
+        while (colonSplitter.hasNext()) {
+            val componentName = colonSplitter.next()
+            if (componentName.startsWith("com.google.android.marvin.talkback", ignoreCase = true)) {
+                return true
+            }
+        }
+        return false
+    }
+
+
 
 }

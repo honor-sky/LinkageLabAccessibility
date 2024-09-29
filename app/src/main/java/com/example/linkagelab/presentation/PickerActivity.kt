@@ -68,7 +68,4 @@ class PickerActivity : AppCompatActivity() {
         viewPager.adapter = adapter
     }
 
-
-
-
 }

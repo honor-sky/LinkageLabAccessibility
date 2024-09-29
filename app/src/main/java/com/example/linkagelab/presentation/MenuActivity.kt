@@ -37,13 +37,13 @@ class MenuActivity : AppCompatActivity(){
 
         registerForContextMenu(binding.contextMenuBasic)
 
-        setAccessibility()
+        //setAccessibility()
         initListener()
 
     }
 
 
-    fun setAccessibility() {
+/*    fun setAccessibility() {
         binding.topAppBar.navigationContentDescription = "뒤로가기"
         binding.contextMenuCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             @RequiresApi(Build.VERSION_CODES.R)
@@ -61,7 +61,7 @@ class MenuActivity : AppCompatActivity(){
                 }
             }
         })
-    }
+    }*/
 
     fun initListener() {
 

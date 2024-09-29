@@ -134,19 +134,21 @@ class ButtonActivity : AppCompatActivity() {
             }
         })
 
-  /*      binding.seekBarCustom.addOnChangeListener { slider, value, fromUser ->
+
+       /*
+         binding.seekBarCustom.addOnChangeListener { slider, value, fromUser ->
             if (fromUser) {
                 // thumb이 사용자의 조작으로 변경된 경우
                 binding.seekBarCustom.contentDescription = "현재 값은 $value 입니다."
                 //binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
 
             }
-        }*/
+         }
+        */
 
         binding.seekBarCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
                 super.onInitializeAccessibilityNodeInfo(host, info)
-
                 // 기본 접근성 행동을 유지
                 info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_FORWARD)
                 info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_SCROLL_BACKWARD)
