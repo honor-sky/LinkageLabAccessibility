@@ -26,24 +26,34 @@ class PickerActivity : AppCompatActivity() {
         binding = ActivityPickerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupViewPager(binding.viewpager, binding.tabLayout)
+        //setupViewPager(binding.viewpager, binding.tabLayout)
+
+        supportFragmentManager.beginTransaction().replace(R.id.container, frag1).commit()
 
         binding.backBtn.setOnClickListener {
             finish()
         }
 
-        TabLayoutMediator(binding.tabLayout, binding.viewpager) { tab, position ->
+        /*TabLayoutMediator(binding.tabLayout, binding.viewpager) { tab, position ->
 
             when(position) {
                 0 -> tab.text = "TimePicker"
                 1 -> tab.text = "DatePicker"
                 2 -> tab.text = "Calendar"
             }
-        }.attach()
+        }.attach()*/
 
         binding.tabLayout.addOnTabSelectedListener( object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: Tab?) {
-                binding.viewpager.currentItem = tab!!.position
+                //binding.viewpager.currentItem = tab!!.position
+                var selected : Fragment? = null
+                when(tab!!.position) {
+                    0 -> selected = frag1
+                    1 -> selected = frag2
+                    2 -> selected = frag3
+                }
+
+                supportFragmentManager.beginTransaction().replace(R.id.container, selected!!).commit()
             }
 
             override fun onTabUnselected(tab: Tab?) {

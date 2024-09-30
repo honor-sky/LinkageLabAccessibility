@@ -1,12 +1,9 @@
 package com.example.linkagelab.presentation
 
 import android.os.Bundle
-import android.text.InputType
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.linkagelab.databinding.FragmentCalendarBinding
@@ -18,56 +15,76 @@ class CalendarFrag : Fragment() {
     private var _binding: FragmentCalendarBinding? = null
     private val binding get() = _binding!!
 
+    val calendar = Calendar.getInstance()
+    var position = 0
+
+    val dayAdapter =  DayAdapter(2024, 10)
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentCalendarBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-
-        val calendar = Calendar.getInstance()
         calendar.time = Date() //현재 날짜 초기화
-        calendar.set(Calendar.DAY_OF_MONTH, 1) //스크롤시 현재 월의 1일로 이동
+
+        val current_year = calendar.get(Calendar.YEAR)
+        val current_month = calendar.get(Calendar.MONTH) + 1
+        calendar.set(current_year, current_month, 1)
 
         binding.nextMonth.setOnClickListener {
-
+            position += 1
+            initCalendar(current_year, current_month + position, position)
         }
 
         binding.prevMonth.setOnClickListener {
-
+            position -= 1
+            initCalendar(current_year, current_month + position, position)
         }
 
-        //initCalendar()
+        initCalendar(current_year, current_month, position)
 
         return root
     }
 
-    fun initCalendar(year : Int, month : Int) {
-        //binding.calendarViewCustom.adapter = MonthAdapter()
+    fun initCalendar(year : Int, month : Int, position : Int) { // 몇년 후인지, 몇달 후인지 결정
+        calendar.set(year, month, 1)
+        //calendar.add(Calendar.DAY_OF_MONTH, position)
 
-        //calendar.add(Calendar.MONTH, position) //스크롤시 포지션 만큼 달이동
         binding.title.text =
             "${year}년 ${month + 1}월"
 
-        //일 구하기
-        //6주 7일로 날짜를 표시
-        var dayList = MutableList(6 * 7) { Date() }
-       /* for (i in 0..5) { //주
+        val firstDayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
+
+        // 해당 달의 마지막 날 구하기
+        val maxDayOfMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+
+        // 날짜 리스트 초기화
+        var dayList = MutableList<Date?>(5 * 7) { Date() }
+
+
+        var dayCount = 1
+        for (i in 0..4) { //주
             for (k in 0..6) { //요일
                 //각 달의 요일만큼 캘린더에 보여진다
                 //요일 표시
-                calendar.add(
-                    Calendar.DAY_OF_MONTH,
-                    (1 - calendar.get(Calendar.DAY_OF_WEEK)) + k
-                )
-                dayList[i * 7 + k] = calendar.time // 배열 인덱스 만큼 요일 데이터 저장
+                val index = i * 7 + k
+                // 첫 주의 첫 요일부터 시작하도록 조정
+                if (index >= firstDayOfWeek - 1 && dayCount <= maxDayOfMonth) {
+                    // 해당 날짜를 설정
+                    calendar.set(Calendar.DAY_OF_MONTH, dayCount)
+                    dayList[index] = calendar.time // 날짜를 리스트에 추가
+                    dayCount += 1 // 다음 날짜로 이동
+                } else {
+                    dayList[index] = null
+                }
             }
-            //주 표시
-            calendar.add(Calendar.WEEK_OF_MONTH, 1)
+        }
 
+        binding.monthRecycler.layoutManager = GridLayoutManager(binding.root.context, 7)
 
-            binding.monthRecycler.layoutManager = GridLayoutManager(binding.root.context, 7)
-            binding.monthRecycler.adapter = DayAdapter(tempYear, tempMonth, dayList)
+        dayAdapter.setDate(dayList)
+        binding.monthRecycler.adapter = dayAdapter
 
-        }*/
     }
 
 
@@ -75,5 +92,4 @@ class CalendarFrag : Fragment() {
         super.onDestroy()
         _binding = null
     }
-
 }

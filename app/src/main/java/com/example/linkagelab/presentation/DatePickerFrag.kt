@@ -18,13 +18,6 @@ import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.NumberPicker
-import android.widget.Toast
-import androidx.annotation.RequiresApi
-import androidx.appcompat.widget.AppCompatImageButton
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.view.allViews
-import androidx.core.widget.addTextChangedListener
-import androidx.databinding.adapters.TextViewBindingAdapter.OnTextChanged
 import androidx.fragment.app.Fragment
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.FragmentDatePickerBinding
@@ -35,19 +28,16 @@ class DatePickerFrag : Fragment() {
     private var _binding: FragmentDatePickerBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var accessibilityManager : AccessibilityManager
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentDatePickerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        setPickerChild(binding.datePickerCustom)
         customizeDatePicker(binding.datePickerCustom)
-
 
         return root
     }
-
-
 
 
     fun customizeDatePicker(datePicker: DatePicker) {
@@ -67,7 +57,6 @@ class DatePickerFrag : Fragment() {
                 dayPicker.maxValue = 31
                 dayPicker.displayedValues = getDisplayValues(1, 31, "일")
                 dayPicker.value = 1
-                setPickerChild(dayPicker)
             }
 
             monthPicker?.let {
@@ -75,7 +64,11 @@ class DatePickerFrag : Fragment() {
                 monthPicker.maxValue = 12
                 monthPicker.displayedValues = getDisplayValues(1, 12, "월")
                 monthPicker.value = 10
-                setPickerChild(monthPicker)
+
+              /*  monthPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+                    monthPicker.displayedValues = getDisplayValues(1, 12, "월")
+                    monthPicker.announceForAccessibility( "${yearPicker.value}년 ${monthPicker.value}월")
+                }*/
             }
 
             yearPicker?.let {
@@ -83,8 +76,8 @@ class DatePickerFrag : Fragment() {
                 yearPicker.maxValue = 2100
                 yearPicker.displayedValues = getDisplayValues(1900, 2100, "년")
                 yearPicker.value = 2024
-                setPickerChild(yearPicker)
             }
+
         } catch (e: Exception) {
             e.printStackTrace()
         }
@@ -107,6 +100,9 @@ class DatePickerFrag : Fragment() {
                 setPickerChild(child)
             } else {
                 if(child is EditText) {
+                    child.isClickable = false
+                    child.focusable = View.NOT_FOCUSABLE
+
                     child.inputType = InputType.TYPE_CLASS_NUMBER
                 }
             }

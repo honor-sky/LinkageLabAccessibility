@@ -135,16 +135,6 @@ class ButtonActivity : AppCompatActivity() {
         })
 
 
-       /*
-         binding.seekBarCustom.addOnChangeListener { slider, value, fromUser ->
-            if (fromUser) {
-                // thumb이 사용자의 조작으로 변경된 경우
-                binding.seekBarCustom.contentDescription = "현재 값은 $value 입니다."
-                //binding.seekBarCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
-
-            }
-         }
-        */
 
         binding.seekBarCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
@@ -168,6 +158,7 @@ class ButtonActivity : AppCompatActivity() {
 
                         true
                     }
+
                     AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD -> {
                         // 슬라이더 값 감소
                         if(binding.seekBarCustom.value - (binding.seekBarCustom.stepSize * 5) > binding.seekBarCustom.valueFrom) {

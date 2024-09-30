@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginStart="10dp"
-        android:text="커스텀 컴포넌트 입니다.\n년도를 선택할 수 있고, 선택된 날짜를 년월일요일 순으로 읽어줍니다."
+        android:text="커스텀 컴포넌트 입니다."
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textSize="18sp"
@@ -66,6 +66,7 @@
                 android:id="@+id/title_layout"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:layout_marginTop="20dp"
                 android:orientation="horizontal"
                 android:background="@color/kakao_yellow"
 
@@ -111,6 +112,7 @@
                 android:layout_height="40dp"
                 android:background="@color/white"
                 android:orientation="horizontal"
+                android:importantForAccessibility="no"
                 app:layout_constraintTop_toBottomOf="@id/title_layout"
                 android:id="@+id/month_layout">
 
@@ -119,6 +121,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:importantForAccessibility="no"
                     android:text="일"
                     android:textSize="15dp"
                     android:textColor="#FF0000"/>
@@ -128,6 +131,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:importantForAccessibility="no"
                     android:text="월"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -137,6 +141,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:importantForAccessibility="no"
                     android:text="화"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -146,6 +151,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:importantForAccessibility="no"
                     android:text="수"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -155,6 +161,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:importantForAccessibility="no"
                     android:text="목"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -164,6 +171,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:importantForAccessibility="no"
                     android:text="금"
                     android:textColor="@color/black"
                     android:textSize="15dp" />
@@ -173,6 +181,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:importantForAccessibility="no"
                     android:text="토"
                     android:textSize="15dp"
                     android:textColor="#0000FF"/>
@@ -184,6 +193,7 @@
                 android:id="@+id/month_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="550dp"
+                android:importantForAccessibility="no"
                 app:layout_constraintTop_toBottomOf="@id/month_layout">
             </androidx.recyclerview.widget.RecyclerView>
 
