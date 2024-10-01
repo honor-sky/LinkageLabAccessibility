@@ -233,6 +233,34 @@ class ButtonActivity : AppCompatActivity() {
             }
         }
 
+        var isFabExtended = false
+        binding.extendedMainFabCustom.setOnClickListener {
+
+            if(isFabExtended) {
+                    binding.extendedMainFabCustom.shrink()
+                    isFabExtended = false
+
+                    binding.extendedFab1Custom.visibility = View.GONE
+                    binding.extendedFab2Custom.visibility = View.GONE
+                    binding.extendedFab3Custom.visibility = View.GONE
+
+            } else {
+                binding.extendedMainFabCustom.extend()
+                isFabExtended = true
+
+                binding.extendedFab1Custom.visibility = View.VISIBLE
+                binding.extendedFab2Custom.visibility = View.VISIBLE
+                binding.extendedFab3Custom.visibility = View.VISIBLE
+
+                // 접근성 초점 가장 상단 버튼으로 이동
+                binding.extendedFab1Custom.requestFocus()
+
+                // 접근성 서비스에 포커스가 변경되었음을 알림
+                binding.extendedFab1Custom.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+            }
+
+        }
+
         binding.backBtn.setOnClickListener {
             finish()
         }

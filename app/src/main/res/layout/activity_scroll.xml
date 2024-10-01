@@ -65,7 +65,7 @@
                 android:text="기본 컴포넌트 입니다."
                 android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="18sp" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -77,16 +77,54 @@
         android:background="@color/kakao_gray"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                android:text="커스텀 컴포넌트 입니다."
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:text="커스텀 컴포넌트 입니다.\n버튼을 사용해 스크롤을 조절할 수 있어야 합니다."
+                android:text="버튼을 사용해 스크롤을 조절할 수 있어야 합니다."
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/left_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:contentDescription="스크롤 왼쪽 이동"
+                    android:src="@drawable/ic_arrow_back"
+                    android:background="@drawable/base_roundsquare_grey" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+
+                <ImageButton
+                    android:id="@+id/right_btn"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="스크롤 오른쪽 이동"
+                    android:src="@drawable/ic_arrow_right"
+                    android:background="@drawable/base_roundsquare_grey" />
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/horizontalRecyclerViewCustom"
@@ -97,36 +135,35 @@
                 android:background="@color/kakao_gray"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
-            <LinearLayout
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="10dp"
+                android:text="커스텀 컴포넌트 입니다."
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="목록 전체에 초점이 가도록 설정하고\n위아래 스와이프 동작을 통해 목록 세부 순차탐색을 진행합니다."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/horizontalRecyclerViewCustom2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@color/kakao_gray"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-            <ImageButton
-                android:id="@+id/left_btn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="20dp"
-                android:contentDescription="스크롤 왼쪽 이동"
-                android:src="@drawable/ic_arrow_back"
-                android:background="@drawable/base_roundsquare_grey" />
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1" />
-
-
-                <ImageButton
-                android:id="@+id/right_btn"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginEnd="20dp"
-                    android:contentDescription="스크롤 오른쪽 이동"
-                android:src="@drawable/ic_arrow_right"
-                android:background="@drawable/base_roundsquare_grey" />
-            </LinearLayout>
 
 
             <TextView
@@ -163,7 +200,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:text="커스텀 컴포넌트 입니다.\n버튼을 사용해 스크롤을 조절할 수 있어야 합니다."
+                android:text="커스텀 컴포넌트 입니다.\n더보기 버튼을 사용해 목록을 순차적으로 보여줍니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />

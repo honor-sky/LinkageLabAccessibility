@@ -161,9 +161,6 @@
             android:id="@+id/bottom_sheet1"
             layout="@layout/text_bottom_sheet"/>
         <include
-            android:id="@+id/bottom_sheet1_custom"
-            layout="@layout/text_bottom_sheet_custom"/>
-        <include
             android:id="@+id/bottom_sheet2"
             layout="@layout/button_bottom_sheet"/>
 

@@ -116,6 +116,7 @@
                 android:id="@+id/imageBtn"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:contentDescription="닫기"
                 android:background="@drawable/ic_close" />
 
 
@@ -215,7 +216,6 @@
                 android:layout_marginTop="10dp"
                 android:clickable="true"
                 android:src="@drawable/ic_add"
-                android:text="sjsjsj"
                 android:textSize="30sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -338,7 +338,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="확장 플로팅"
                 android:textSize="18sp"
                 app:icon="@drawable/ic_add" />
 
@@ -357,6 +356,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:contentDescription="전화하기"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -366,7 +366,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:elevation="0dp"
-                    android:contentDescription="전화하기"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/ic_call"
                     android:textSize="30sp" />
 
@@ -387,6 +387,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:contentDescription="메신저"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -396,7 +397,7 @@
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:elevation="0dp"
-                    android:contentDescription="메신저"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/ic_mail"
                     android:textSize="30sp" />
 
@@ -416,6 +417,7 @@
                 android:id="@+id/extended_fab3_custom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:contentDescription="즐겨찾기"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
@@ -428,7 +430,7 @@
                     android:elevation="0dp"
                     android:src="@drawable/ic_bookmark"
                     android:textSize="30sp"
-                    android:contentDescription="즐겨찾기"
+                    android:importantForAccessibility="no"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -450,7 +452,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="확장 플로팅"
                 android:textSize="18sp"
                 app:icon="@drawable/ic_add" />
 

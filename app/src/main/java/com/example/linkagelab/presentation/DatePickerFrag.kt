@@ -33,8 +33,39 @@ class DatePickerFrag : Fragment() {
         _binding = FragmentDatePickerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        setPickerChild(binding.datePickerCustom)
-        customizeDatePicker(binding.datePickerCustom)
+        //setPickerChild(binding.datePickerCustom)
+        //customizeDatePicker(binding.datePickerCustom)
+
+        //setAccessibility()
+
+
+        binding.yearPicker.minValue = 1900
+        binding.yearPicker.maxValue = 2100
+        binding.yearPicker.displayedValues = getDisplayValues(1900, 2100, "년")
+        binding.yearPicker.value = 2024
+        binding.yearPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정되었습니다."
+            binding.yearPicker.announceForAccessibility(customMessage)
+        }
+        
+
+        binding.monthPicker.minValue = 1
+        binding.monthPicker.maxValue = 12
+        binding.monthPicker.displayedValues = getDisplayValues(1, 12, "월")
+        binding.monthPicker.value = 10
+        binding.monthPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정되었습니다."
+            binding.monthPicker.announceForAccessibility(customMessage)
+        }
+
+        binding.dayPicker.minValue = 1
+        binding.dayPicker.maxValue = 31
+        binding.dayPicker.displayedValues = getDisplayValues(1, 31, "일")
+        binding.dayPicker.value = 1
+        binding.dayPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정되었습니다."
+            binding.dayPicker.announceForAccessibility(customMessage)
+        }
 
         return root
     }
@@ -51,6 +82,12 @@ class DatePickerFrag : Fragment() {
             val monthPicker = datePicker.findViewById<NumberPicker>(monthPickerId)
             val yearPicker = datePicker.findViewById<NumberPicker>(yearPickerId)
 
+            datePicker.init(2024, 10, 1) { _, year, monthOfYear, dayOfMonth ->
+                // 사용자 정의 접근성 메시지 출력
+                val customMessage = "${year}년 ${monthOfYear + 1}월 ${dayOfMonth}일로 설정되었습니다."
+                datePicker.announceForAccessibility(customMessage)
+            }
+
             // 숫자 옆에 년, 월, 일 글씨 추가
             dayPicker?.let {
                 dayPicker.minValue = 1
@@ -64,11 +101,6 @@ class DatePickerFrag : Fragment() {
                 monthPicker.maxValue = 12
                 monthPicker.displayedValues = getDisplayValues(1, 12, "월")
                 monthPicker.value = 10
-
-              /*  monthPicker.setOnValueChangedListener { numberPicker, i, i2 ->
-                    monthPicker.displayedValues = getDisplayValues(1, 12, "월")
-                    monthPicker.announceForAccessibility( "${yearPicker.value}년 ${monthPicker.value}월")
-                }*/
             }
 
             yearPicker?.let {
@@ -78,10 +110,39 @@ class DatePickerFrag : Fragment() {
                 yearPicker.value = 2024
             }
 
+            disableDefaultAccessibility(dayPicker)
+            disableDefaultAccessibility(monthPicker)
+            disableDefaultAccessibility(yearPicker)
+
+
+
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
+
+    fun disableDefaultAccessibility(numberPicker: NumberPicker?) {
+        numberPicker?.let {
+            it.accessibilityDelegate = object : View.AccessibilityDelegate() {
+                // 접근성 이벤트 무효화
+                override fun sendAccessibilityEvent(host: View, eventType: Int) {
+                    // 기본 접근성 이벤트를 전송하지 않음 (음성 출력 차단)
+                }
+
+                override fun onInitializeAccessibilityNodeInfo(
+                    host: View,
+                    info: AccessibilityNodeInfo
+                ) {
+                    // 기본 접근성 정보 초기화하지 않음
+                }
+
+                override fun onInitializeAccessibilityEvent(host: View, event: AccessibilityEvent) {
+                    // 기본 접근성 이벤트 초기화하지 않음
+                }
+            }
+        }
+    }
+
 
 
     private fun getDisplayValues(start: Int, end: Int, suffix: String): Array<String> {
