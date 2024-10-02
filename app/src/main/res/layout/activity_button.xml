@@ -356,7 +356,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:contentDescription="전화하기"
+                android:contentDescription="전화하기, 버튼"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -387,7 +387,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:contentDescription="메신저"
+                android:contentDescription="메신저, 버튼"
                 android:orientation="horizontal"
                 android:visibility="gone">
 
@@ -417,7 +417,7 @@
                 android:id="@+id/extended_fab3_custom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="즐겨찾기"
+                android:contentDescription="즐겨찾기, 버튼"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal"
                 android:visibility="gone">
@@ -452,6 +452,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:text="메뉴 더보기"
                 android:textSize="18sp"
                 app:icon="@drawable/ic_add" />
 
@@ -695,7 +696,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="커스텀 컴포넌트 입니다.\n값을 세부적으로 조장할 수 있어야 합니다."
+                android:text="커스텀 컴포넌트 입니다.\n값을 세부적으로 조정할 수 있어야 합니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />

@@ -10,14 +10,13 @@ import com.example.linkagelab.databinding.ActivityDrawerBinding
 
 class DrawerActivity : AppCompatActivity() {
 
-    //private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding:ActivityDrawerBinding
 
+    private lateinit var binding:ActivityDrawerBinding
 
 
     companion object {
         private const val TAG_HOME = "home_fragment"
-        private const val TAG_REGISTER = "register_fragment"
+        private const val TAG_BOOKMARK = "bookmark_fragment"
         private const val TAG_MYPAGE = "mypage_fragment"
     }
 
@@ -32,9 +31,6 @@ class DrawerActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
 
-       /* supportFragmentManager.beginTransaction().add(HomeFragment(), TAG_HOME)
-        supportFragmentManager.beginTransaction().add(RegisterFragment(), TAG_REGISTER)
-        supportFragmentManager.beginTransaction().add(MypageFragment(), TAG_MYPAGE)*/
 
         if (savedInstanceState == null) {
             setFragment(TAG_HOME, HomeFragment())
@@ -58,7 +54,7 @@ class DrawerActivity : AppCompatActivity() {
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> setFragment(TAG_HOME, HomeFragment())
-                R.id.nav_register -> setFragment(TAG_REGISTER, RegisterFragment())
+                R.id.nav_bookmark -> setFragment(TAG_BOOKMARK, RegisterFragment())
                 R.id.nav_mypage -> setFragment(TAG_MYPAGE, MypageFragment())
             }
             menuItem.isChecked = true

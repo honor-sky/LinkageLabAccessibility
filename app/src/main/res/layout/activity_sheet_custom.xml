@@ -59,9 +59,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="텍스트 바텀시트 나타남"
+            android:text="가게정보 열기"
+
             android:textColor="@color/kakao_black"
             android:textSize="24sp" />
+        <!--android:contentDescription="화면 하단에 가게정보 페이지가 열림"-->
 
         <Button
             android:id="@+id/textSheetShrinkBtnCustom"
@@ -70,9 +72,11 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="텍스트 바텀시트 숨김"
+            android:text="가게정보 닫기"
+
             android:textColor="@color/kakao_black"
             android:textSize="24sp" />
+        <!--  android:contentDescription="화면 하단에 가게정보 페이지가 닫힘"-->
 
         <LinearLayout
             android:layout_width="match_parent"

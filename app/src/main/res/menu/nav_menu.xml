@@ -4,16 +4,19 @@
     <item
         android:id="@+id/home_fragment"
         android:icon="@drawable/ic_home"
-        android:title="홈" />
+        android:title="홈"
+        android:contentDescription="홈, 버튼"/>
 
     <item
         android:id="@+id/register_fragment"
         android:icon="@drawable/ic_add"
-        android:title="가게 등록하기" />
+        android:title="가게 등록하기"
+        android:contentDescription="가게 등록하기, 버튼"/>/>
 
     <item
         android:id="@+id/mypage_fragment"
         android:icon="@drawable/ic_person"
-        android:title="마이페이지" />
+        android:title="마이페이지"
+        android:contentDescription="마이페이지, 버튼"/>
 
 </menu>

@@ -27,6 +27,7 @@ class ButtonActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.extendedMainFab.shrink()
+        binding.extendedMainFabCustom.shrink()
 
         setAccessibility()
         initListener()
@@ -237,7 +238,9 @@ class ButtonActivity : AppCompatActivity() {
         binding.extendedMainFabCustom.setOnClickListener {
 
             if(isFabExtended) {
+                binding.extendedMainFabCustom.text = "메뉴 더보기"
                     binding.extendedMainFabCustom.shrink()
+
                     isFabExtended = false
 
                     binding.extendedFab1Custom.visibility = View.GONE
@@ -245,7 +248,9 @@ class ButtonActivity : AppCompatActivity() {
                     binding.extendedFab3Custom.visibility = View.GONE
 
             } else {
+                binding.extendedMainFabCustom.text = "메뉴 닫기"
                 binding.extendedMainFabCustom.extend()
+
                 isFabExtended = true
 
                 binding.extendedFab1Custom.visibility = View.VISIBLE

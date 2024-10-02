@@ -7,14 +7,17 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_home"
-            android:title="홈" />
+            android:title="홈"
+            android:contentDescription="홈, 버튼"/>
         <item
-            android:id="@+id/nav_register"
+            android:id="@+id/nav_bookmark"
             android:icon="@drawable/ic_bookmark"
-            android:title="북마크" />
+            android:title="북마크"
+            android:contentDescription="북마크 버튼"/>
         <item
             android:id="@+id/nav_mypage"
             android:icon="@drawable/ic_person"
-            android:title="마이페이지" />
+            android:title="마이페이지"
+            android:contentDescription="마이페이지, 버튼"/>
     </group>
 </menu>

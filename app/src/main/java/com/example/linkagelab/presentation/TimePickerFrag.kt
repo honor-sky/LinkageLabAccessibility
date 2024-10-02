@@ -1,23 +1,24 @@
 package com.example.linkagelab.presentation
 
-import android.annotation.SuppressLint
 import android.content.res.Resources
+import android.os.Build
 import android.os.Bundle
 import android.text.InputType
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
-import android.widget.DatePicker
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.NumberPicker
 import android.widget.TimePicker
+import androidx.annotation.RequiresApi
+import androidx.core.view.AccessibilityDelegateCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.ViewCompat.setAccessibilityDelegate
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.fragment.app.Fragment
 import com.example.linkagelab.databinding.FragmentTimePickerBinding
-import java.lang.reflect.Field
+
 
 class TimePickerFrag : Fragment() {
 
@@ -29,12 +30,12 @@ class TimePickerFrag : Fragment() {
         val root: View = binding.root
 
         customizeDatePicker(binding.timePickerCustom)
-
         setPickerChild(binding.timePickerCustom)
 
 
         return root
     }
+
 
     fun customizeDatePicker(timePicker: TimePicker) {
         try {
@@ -47,7 +48,11 @@ class TimePickerFrag : Fragment() {
             val minutePicker = timePicker.findViewById<NumberPicker>(minutePickerId)
 
             ampmPicker?.let {
-                //setAmPMChild(ampmPicker)
+                ampmPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+                    val customMessage = "${if(ampmPicker.value == 0) "오전" else "오후"} ${hourPicker.value}시 ${binding.timePickerCustom.minute}분으로 설정"
+                    ampmPicker.announceForAccessibility(customMessage)
+                }
+
             }
 
             hourPicker?.let {
@@ -55,7 +60,11 @@ class TimePickerFrag : Fragment() {
                 hourPicker.maxValue = 12
                 hourPicker.displayedValues = getDisplayValues(1, 12, "시")
                 hourPicker.value = 10
-                //setPickerChild(hourPicker)
+                hourPicker.setOnValueChangedListener { numberPicker, i, i2 ->
+                    val customMessage = "${if(ampmPicker.value == 0) "오전" else "오후"} ${hourPicker.value}시 ${binding.timePickerCustom.minute}분으로 설정"
+                    hourPicker.announceForAccessibility(customMessage)
+                }
+
 
             }
 
@@ -64,13 +73,17 @@ class TimePickerFrag : Fragment() {
                 minutePicker.maxValue = 12
                 minutePicker.displayedValues = getDisplayValues(1, 60, "분")
                 minutePicker.value = 10
-                //setPickerChild(minutePicker)
-            }
+                minutePicker.setOnValueChangedListener { numberPicker, i, i2 ->
+                    val customMessage = "${if(ampmPicker.value == 0) "오전" else "오후"} ${hourPicker.value}시 ${binding.timePickerCustom.minute}분으로 설정"
+                    minutePicker.announceForAccessibility(customMessage)
+                }
 
+            }
 
         } catch (e: Exception) {
             e.printStackTrace()
         }
+
     }
     fun setAmPMChild(viewGroup : ViewGroup) {
         for (i in 0 until  viewGroup.getChildCount()) {
@@ -93,12 +106,11 @@ class TimePickerFrag : Fragment() {
             if (child is ViewGroup) {
                 setPickerChild(child)
             } else {
-                Log.d("TimePicker","${child}")
+                //Log.d("TimePicker","${child}")
                 if(child is EditText) {
-                    child.isClickable = false
-                    child.focusable = View.NOT_FOCUSABLE
-                    //child.inputType = InputType.TYPE_CLASS_NUMBER
-
+                   // child.isClickable = false
+                   // child.focusable = View.NOT_FOCUSABLE
+                    //child.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_FLAG_DECIMAL
                 }
             }
         }

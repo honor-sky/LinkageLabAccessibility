@@ -9,13 +9,17 @@
     android:clickable="false"
     android:importantForAccessibility="no">
 
-    <LinearLayout
+    <ImageButton
+        android:id="@+id/handelBar"
         android:layout_width="30dp"
         android:layout_height="8dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:contentDescription="가게정보, 바텀시트, 두손가락으로 위 또는 아래로 스와이프해서 확장, 축소 할 수 있습니다."
-        android:background="@drawable/base_roundsquare_grey"/>
+        android:orientation="vertical"
+        android:background="@drawable/base_roundsquare_grey"
+        android:importantForAccessibility="yes"
+        android:contentDescription="가게정보, 전체 보기"/>
+    <!-- android:contentDescription="가게정보, 두손가락으로 아래에서 위 또는 아래로 스와이프해서 확장, 축소 할 수 있습니다."-->
 
     <LinearLayout
         android:id="@+id/restaurantInfo"

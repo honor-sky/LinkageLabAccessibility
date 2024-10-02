@@ -7,21 +7,6 @@
     android:gravity="center"
     android:background="@color/purple_500">
 
-<!--    <Button
-        android:id="@+id/navigationBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="네비게이션 열기"
-        android:textColor="@color/kakao_black"/>-->
-
-    <!--<TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="30dp"
-       android:gravity="center"
-       android:textSize="15sp"
-       android:textStyle="bold"/>
-       android:text="앱바의 버튼을 누르면 측면에서 네비게이션이 열립니다."-->
 
     <TextView
         android:layout_width="wrap_content"

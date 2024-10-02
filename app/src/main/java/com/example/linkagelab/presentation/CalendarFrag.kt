@@ -28,7 +28,7 @@ class CalendarFrag : Fragment() {
         calendar.time = Date() //현재 날짜 초기화
 
         val current_year = calendar.get(Calendar.YEAR)
-        val current_month = calendar.get(Calendar.MONTH) + 1
+        val current_month = calendar.get(Calendar.MONTH)
         calendar.set(current_year, current_month, 1)
 
         binding.nextMonth.setOnClickListener {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityViewpagerBinding
 import com.google.android.material.tabs.TabLayout
 
@@ -40,6 +41,42 @@ class ViewpagerActivity : AppCompatActivity() {
         binding.rightBtn.setOnClickListener {
             binding.viewpager.currentItem = binding.viewpager.currentItem + 1
         }
+        binding.viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                //val customMessage = "${fragList.size}개의 페이지 중 ${position + 1}번째 페이지"
+                //binding.viewpager.announceForAccessibility(customMessage)
+            }
+
+            override fun onPageSelected(position: Int) {
+                val customMessage = "${fragList.size}개의 페이지 중 ${position + 1}번째 페이지"
+                binding.viewpager.announceForAccessibility(customMessage)
+
+                when(position) {
+                    0 -> {
+                        binding.dot1.setBackgroundResource(R.drawable.base_circle_yellow)
+                        binding.dot2.setBackgroundResource(R.drawable.base_circle_black)
+                        binding.dot3.setBackgroundResource(R.drawable.base_circle_black)
+                    }
+
+                    1 -> {
+                        binding.dot1.setBackgroundResource(R.drawable.base_circle_black)
+                        binding.dot2.setBackgroundResource(R.drawable.base_circle_yellow)
+                        binding.dot3.setBackgroundResource(R.drawable.base_circle_black)
+                    }
+
+                    2 -> {
+                        binding.dot1.setBackgroundResource(R.drawable.base_circle_black)
+                        binding.dot2.setBackgroundResource(R.drawable.base_circle_black)
+                        binding.dot3.setBackgroundResource(R.drawable.base_circle_yellow)
+                    }
+                }
+
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+            }
+        })
+
     }
 
     private fun setupViewPager(viewPager: ViewPager2) {
@@ -49,6 +86,7 @@ class ViewpagerActivity : AppCompatActivity() {
             }
 
             override fun createFragment(position: Int): Fragment {
+
                 return fragList[position]
             }
         }

@@ -44,7 +44,7 @@ class DatePickerFrag : Fragment() {
         binding.yearPicker.displayedValues = getDisplayValues(1900, 2100, "년")
         binding.yearPicker.value = 2024
         binding.yearPicker.setOnValueChangedListener { numberPicker, i, i2 ->
-            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정되었습니다."
+            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정"
             binding.yearPicker.announceForAccessibility(customMessage)
         }
         
@@ -54,7 +54,7 @@ class DatePickerFrag : Fragment() {
         binding.monthPicker.displayedValues = getDisplayValues(1, 12, "월")
         binding.monthPicker.value = 10
         binding.monthPicker.setOnValueChangedListener { numberPicker, i, i2 ->
-            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정되었습니다."
+            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정"
             binding.monthPicker.announceForAccessibility(customMessage)
         }
 
@@ -63,7 +63,7 @@ class DatePickerFrag : Fragment() {
         binding.dayPicker.displayedValues = getDisplayValues(1, 31, "일")
         binding.dayPicker.value = 1
         binding.dayPicker.setOnValueChangedListener { numberPicker, i, i2 ->
-            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정되었습니다."
+            val customMessage = "${binding.yearPicker.value}년 ${binding.monthPicker.value}월 ${binding.dayPicker.value}일로 설정"
             binding.dayPicker.announceForAccessibility(customMessage)
         }
 
@@ -84,7 +84,7 @@ class DatePickerFrag : Fragment() {
 
             datePicker.init(2024, 10, 1) { _, year, monthOfYear, dayOfMonth ->
                 // 사용자 정의 접근성 메시지 출력
-                val customMessage = "${year}년 ${monthOfYear + 1}월 ${dayOfMonth}일로 설정되었습니다."
+                val customMessage = "${year}년 ${monthOfYear + 1}월 ${dayOfMonth}일로 설정."
                 datePicker.announceForAccessibility(customMessage)
             }
 

@@ -136,7 +136,7 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-            <TextView
+         <!--   <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -163,7 +163,7 @@
                 android:background="@color/kakao_gray"
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
-
+-->
 
 
             <TextView
@@ -195,7 +195,7 @@
          android:orientation="vertical"
          app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-            <TextView
+        <!--    <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -213,7 +213,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:background="@color/kakao_gray"
                 android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>-->
 
 
         </LinearLayout>
