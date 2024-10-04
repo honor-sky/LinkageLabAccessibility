@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="10dp"
-            android:text="Bottom Sheet 테스트"
+            android:text="Custom BottomSheet 테스트"
             android:textSize="20sp"
             android:accessibilityHeading="true"/>
     </androidx.appcompat.widget.Toolbar>
@@ -73,7 +73,6 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:text="가게정보 닫기"
-
             android:textColor="@color/kakao_black"
             android:textSize="24sp" />
         <!--  android:contentDescription="화면 하단에 가게정보 페이지가 닫힘"-->

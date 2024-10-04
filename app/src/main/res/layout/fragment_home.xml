@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/purple_500">
+    android:background="@color/purple_200">
 
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_marginTop="30dp"
         android:text="홈 화면"
         android:textColor="@color/white"
+        android:textStyle="bold"
         android:textSize="30sp" />
-
 
 </LinearLayout>

@@ -14,7 +14,7 @@ class ViewpagerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityViewpagerBinding
 
     val frag1 = HomeFragment()
-    val frag2 = RegisterFragment()
+    val frag2 = BookmarkFragment() //RegisterFragment()
     val frag3 = MypageFragment()
     val fragList = arrayOf(frag1, frag2, frag3)
 
@@ -34,22 +34,35 @@ class ViewpagerActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener {
             finish()
         }
+
         binding.leftBtn.setOnClickListener {
             binding.viewpager.currentItem = binding.viewpager.currentItem - 1
 
         }
+
         binding.rightBtn.setOnClickListener {
             binding.viewpager.currentItem = binding.viewpager.currentItem + 1
         }
+
+        binding.dot1.setOnClickListener {
+            binding.viewpager.currentItem = 0
+        }
+
+        binding.dot2.setOnClickListener {
+            binding.viewpager.currentItem = 1
+        }
+
+        binding.dot3.setOnClickListener {
+            binding.viewpager.currentItem = 2
+        }
+
+
         binding.viewpager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-                //val customMessage = "${fragList.size}개의 페이지 중 ${position + 1}번째 페이지"
-                //binding.viewpager.announceForAccessibility(customMessage)
             }
 
             override fun onPageSelected(position: Int) {
-                val customMessage = "${fragList.size}개의 페이지 중 ${position + 1}번째 페이지"
-                binding.viewpager.announceForAccessibility(customMessage)
+                binding.viewpager.announceForAccessibility("${fragList.size}개의 페이지 중 ${position + 1}번째 페이지")
 
                 when(position) {
                     0 -> {

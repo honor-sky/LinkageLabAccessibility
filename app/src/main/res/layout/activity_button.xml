@@ -51,19 +51,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:accessibilityHeading="true"
                 android:text="Button"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="가장 기본적인 버튼입니다."
+                android:text="기본 버튼입니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <Button
                 android:id="@+id/basicBtn"
@@ -81,7 +82,8 @@
                 android:text="비활성화 된 버튼입니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <Button
                 android:id="@+id/basicBtnEnabled"
@@ -100,7 +102,8 @@
                 android:layout_marginTop="30dp"
                 android:text="ImageButton"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
 
             <TextView
@@ -126,7 +129,8 @@
                 android:layout_marginTop="30dp"
                 android:text="ToggleButton"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <ToggleButton
                 android:id="@+id/toggleButton"
@@ -143,7 +147,8 @@
                 android:layout_marginTop="30dp"
                 android:text="RadioButton"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -198,7 +203,8 @@
                 android:layout_marginTop="30dp"
                 android:text="FAB(Floating Action Button)"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -226,7 +232,8 @@
                 android:layout_marginTop="30dp"
                 android:text="Extended FAB"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -244,7 +251,8 @@
                 android:text="기본 컴포넌트 입니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <LinearLayout
                 android:id="@+id/extended_fab1"
@@ -349,7 +357,8 @@
                 android:text="커스텀 컴포넌트 입니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <LinearLayout
                 android:id="@+id/extended_fab1_custom"
@@ -464,7 +473,8 @@
                 android:layout_marginTop="30dp"
                 android:text="Chip"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -518,7 +528,8 @@
                 android:layout_marginTop="30dp"
                 android:text="CheckBox"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -537,7 +548,8 @@
                 android:text="기본 컴포넌트 입니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -586,7 +598,8 @@
                 android:text="커스텀 컴포넌트 입니다.\n선택된 항목에 대하여 한국말로 안내해야 합니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -634,7 +647,8 @@
                 android:layout_marginTop="30dp"
                 android:text="Switch"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -662,7 +676,8 @@
                 android:layout_marginTop="30dp"
                 android:text="Slider"
                 android:textColor="@color/kakao_red"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:accessibilityHeading="true"/>
 
 
             <TextView
@@ -681,7 +696,8 @@
                 android:text="기본 컴포넌트 입니다"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/seekBarBasic"
@@ -699,7 +715,8 @@
                 android:text="커스텀 컴포넌트 입니다.\n값을 세부적으로 조정할 수 있어야 합니다."
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:accessibilityHeading="true"/>
 
             <com.google.android.material.slider.Slider
                 android:id="@+id/seekBarCustom"

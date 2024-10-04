@@ -87,7 +87,8 @@
         android:layout_gravity="end"
         android:text="Option 메뉴"
         android:textColor="@color/kakao_red"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:accessibilityHeading="true"/>
 
     <TextView
         android:id="@+id/option_menu_sub_text"
@@ -120,6 +121,7 @@
         android:textColor="@color/kakao_red"
         android:textSize="25sp"
         android:layout_gravity="center"
+            android:accessibilityHeading="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/context_menu_sub_text"/>
@@ -194,6 +196,7 @@
         android:text="PopUp 메뉴 "
         android:textColor="@color/kakao_red"
         android:textSize="25sp"
+        android:accessibilityHeading="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/popup_menu_sub_text"/>

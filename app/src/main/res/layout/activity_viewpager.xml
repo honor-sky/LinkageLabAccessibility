@@ -83,24 +83,24 @@
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_marginStart="20dp"
-            android:src="@drawable/ic_arrow_back"
-            android:background="@drawable/base_roundsquare_grey"/>
+            android:background="@drawable/base_roundsquare_grey"
+            android:contentDescription="홈 화면 이동"/>
 
         <ImageButton
             android:id="@+id/dot2"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_marginStart="20dp"
-            android:src="@drawable/ic_arrow_back"
-            android:background="@drawable/base_roundsquare_grey"/>
+            android:background="@drawable/base_roundsquare_grey"
+            android:contentDescription="북마크 화면 이동"/>
 
         <ImageButton
             android:id="@+id/dot3"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:layout_marginStart="20dp"
-            android:src="@drawable/ic_arrow_back"
-            android:background="@drawable/base_roundsquare_grey"/>
+            android:background="@drawable/base_roundsquare_grey"
+            android:contentDescription="마이페이지 화면 이동"/>
 
     </LinearLayout>
 

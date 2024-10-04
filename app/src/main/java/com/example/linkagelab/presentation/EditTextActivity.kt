@@ -22,5 +22,6 @@ class EditTextActivity : AppCompatActivity() {
        /* binding.ellipEditText.doAfterTextChanged { it ->
             binding.ellipText.text = binding.ellipEditText.text.toString()
         }*/
+
     }
 }

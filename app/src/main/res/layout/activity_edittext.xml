@@ -62,7 +62,8 @@
             android:layout_marginTop="30dp"
             android:text="EditText (문자열)"
             android:textColor="@color/kakao_red"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:accessibilityHeading="true"/>
 
 
         <EditText
@@ -81,7 +82,8 @@
             android:layout_marginTop="50dp"
             android:text="EditText (전화번호)"
             android:textColor="@color/kakao_red"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
 
         <EditText
             android:id="@+id/editPhoneText"
@@ -97,7 +99,8 @@
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
             android:text="EditText (글자수 10자 제한)"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -111,7 +114,8 @@
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
             android:text="TextView (5자 이상 말줄임)"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -143,7 +147,8 @@
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
             android:text="EditText (여러줄 입력)"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
 
         <EditText
             android:id="@+id/editTextTextMultiLine"
@@ -159,7 +164,8 @@
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
             android:text="EditText (시간)"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
         <EditText
             android:id="@+id/editTextTime"
             android:layout_width="match_parent"
@@ -173,7 +179,8 @@
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
             android:text="EditText (날짜)"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
         <EditText
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
@@ -189,7 +196,8 @@
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
             android:text="EditText (보안문자)"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
@@ -204,7 +212,8 @@
             android:layout_marginTop="50dp"
             android:text="SearchView"
             android:textColor="@color/kakao_red"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:accessibilityHeading="true"/>
 
         <androidx.appcompat.widget.SearchView
             android:layout_width="match_parent"

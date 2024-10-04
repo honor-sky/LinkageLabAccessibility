@@ -35,7 +35,6 @@ class CustomSheetActivity : AppCompatActivity() {
             finish()
         }
 
-        // 커스텀
         binding.textSheetexpandBtnCustom.setOnClickListener {
             binding.bottomSheet1Custom.textBottomSheetLayoutRoot.visibility = View.VISIBLE
             persistenetBottomSheet.state = STATE_COLLAPSED
@@ -54,7 +53,7 @@ class CustomSheetActivity : AppCompatActivity() {
                         bottomSheet.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
                         binding.mainParentContent.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
 
-                        binding.bottomSheet1Custom.handelBar.contentDescription = "가게정보, 전체 보기"
+                        binding.bottomSheet1Custom.handelBar.contentDescription = "가게정보 페이지, 전체 보기"
                         // 두손가락으로 아래에서 위 또는 아래로 스와이프해서 확장, 축소 할 수 있습니다.
 
                         binding.bottomSheet1Custom.handelBar.setOnClickListener {
@@ -68,7 +67,7 @@ class CustomSheetActivity : AppCompatActivity() {
                         // 뒷 배경은 초점 가지 않도록
                         binding.mainParentContent.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS
 
-                        binding.bottomSheet1Custom.handelBar.contentDescription = "가게정보, 요약 보기"
+                        binding.bottomSheet1Custom.handelBar.contentDescription = "가게정보 페이지, 요약 보기"
                         // 두손가락으로 아래에서 위 또는 아래로 스와이프해서 확장, 축소 할 수 있습니다.
 
                         binding.bottomSheet1Custom.handelBar.setOnClickListener {
