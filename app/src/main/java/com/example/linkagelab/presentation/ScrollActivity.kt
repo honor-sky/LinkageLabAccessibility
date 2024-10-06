@@ -74,4 +74,10 @@ class ScrollActivity : AppCompatActivity() {
             binding.horizontalRecyclerViewCustom.smoothScrollToPosition(binding.horizontalRecyclerViewCustom.adapter!!.itemCount)
         }
     }
+
+
+    fun addItem() {
+
+    }
+
 }

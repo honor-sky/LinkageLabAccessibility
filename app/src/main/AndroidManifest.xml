@@ -65,6 +65,10 @@
             android:name=".presentation.ViewpagerActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab"></activity>
+        <activity
+            android:name=".presentation.SearchActivity"
+            android:exported="true"
+            android:theme="@style/Theme.LinkageLab"></activity>
 
         <service
             android:name=".accessibility.MyAccessibilityService"

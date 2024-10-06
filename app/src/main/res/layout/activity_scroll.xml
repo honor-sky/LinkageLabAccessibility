@@ -139,7 +139,39 @@
                 android:orientation="horizontal"
                 app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
-         <!--   <TextView
+            <!-- 멜론뷰 -->
+            <!--<TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:text="커스텀 컴포넌트 입니다."
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:accessibilityHeading="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="컴포넌트 전체에 초점이 가고,\n항목 탐색은 '작업'으로 동작합니다."
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/horizontalRecyclerViewCustom2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="10dp"
+                android:background="@color/kakao_gray"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+
+          <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
@@ -198,9 +230,9 @@
          android:layout_marginHorizontal="10dp"
          android:background="@color/kakao_gray"
          android:orientation="vertical"
-         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/> -->
 
-        <!--    <TextView
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -218,8 +250,29 @@
                 android:layout_marginHorizontal="10dp"
                 android:background="@color/kakao_gray"
                 android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>-->
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/kakao_gray"/>
+
+            <TextView
+                android:id="@+id/moreBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="더보기"
+                android:textStyle="bold"
+                android:textColor="@color/kakao_black"
+                android:textSize="20sp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/kakao_gray"/>
 
         </LinearLayout>
     </ScrollView>

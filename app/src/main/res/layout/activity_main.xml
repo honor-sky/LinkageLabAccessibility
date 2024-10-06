@@ -50,7 +50,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="EditTextView / SearchView"
+                android:text="EditTextView"
+                android:textColor="@color/kakao_black"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/searchViewTestBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="SearchView"
                 android:textColor="@color/kakao_black"
                 android:textSize="20sp" />
 

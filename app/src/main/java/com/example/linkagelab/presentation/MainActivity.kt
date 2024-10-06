@@ -26,21 +26,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-    /*    if(isTalkBackEnabled(this)) {
-            Log.d("AccessibilityService", "isTalkBackEnabled")
-            if(!isAccessibilityServiceEnabled(this, MyAccessibilityService::class.java)) {
-                Log.d("AccessibilityService", "isAccessibilityServiceEnabled")
-                val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-                intent.data = Uri.parse("package:" + "com.example.linkagelab")
-                startActivity(intent)
-            }
-        }
-*/
-
         initListener()
-
-
-
     }
 
 
@@ -49,6 +35,10 @@ class MainActivity : AppCompatActivity() {
     fun initListener() {
         binding.editTextTestBtn.setOnClickListener {
             startActivity(Intent(this, EditTextActivity::class.java))
+        }
+
+        binding.searchViewTestBtn.setOnClickListener {
+            startActivity(Intent(this, SearchActivity::class.java))
         }
 
         binding.buttonTextBtn.setOnClickListener {
