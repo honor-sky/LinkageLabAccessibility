@@ -75,7 +75,7 @@ class MenuActivity : AppCompatActivity(){
             popupMenu.setOnMenuItemClickListener { item ->
                 when(item.itemId) {
                     R.id.home_fragment -> Toast.makeText(this, "홈 메뉴 클릭", Toast.LENGTH_SHORT).show()
-                    R.id.register_fragment -> Toast.makeText(this, "등록하기 메뉴 클릭", Toast.LENGTH_SHORT).show()
+                    R.id.bookmark_fragment -> Toast.makeText(this, "북마크 메뉴 클릭", Toast.LENGTH_SHORT).show()
                     R.id.mypage_fragment -> Toast.makeText(this, "마이페이지 메뉴 클릭", Toast.LENGTH_SHORT).show()
                 }
                 true
@@ -85,11 +85,22 @@ class MenuActivity : AppCompatActivity(){
         }
 
 
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.nav_menu, menu)
+
+        val homeMenuItem = menu?.findItem(R.id.home_fragment)
+        homeMenuItem!!.actionView?.contentDescription = "홈, 버튼"
+
+        val bookmarkMenuItem = menu?.findItem(R.id.bookmark_fragment)
+        bookmarkMenuItem!!.actionView?.contentDescription = "북마크, 버튼"
+
+        val mypageMenuItem = menu?.findItem(R.id.mypage_fragment)
+        mypageMenuItem!!.actionView?.contentDescription = "마이페이지, 버튼"
+
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -101,7 +112,7 @@ class MenuActivity : AppCompatActivity(){
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.home_fragment -> Toast.makeText(this, "홈 메뉴 클릭", Toast.LENGTH_SHORT).show()
-            R.id.register_fragment -> Toast.makeText(this, "등록하기 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.bookmark_fragment -> Toast.makeText(this, "북마크 메뉴 클릭", Toast.LENGTH_SHORT).show()
             R.id.mypage_fragment -> Toast.makeText(this, "마이페이지 메뉴 클릭", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
@@ -113,8 +124,8 @@ class MenuActivity : AppCompatActivity(){
                 Toast.makeText(this, "홈 메뉴 클릭", Toast.LENGTH_SHORT).show()
                 true
             }
-            R.id.register_fragment -> {
-                Toast.makeText(this, "등록하기 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.bookmark_fragment -> {
+                Toast.makeText(this, "북마크 메뉴 클릭", Toast.LENGTH_SHORT).show()
                 true
             }
             R.id.mypage_fragment -> {
