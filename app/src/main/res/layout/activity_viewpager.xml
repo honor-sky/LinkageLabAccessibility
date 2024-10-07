@@ -41,42 +41,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
-
     </androidx.viewpager2.widget.ViewPager2>
-
-
-      <ImageButton
-          android:id="@+id/left_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-          android:layout_marginStart="20dp"
-        android:src="@drawable/ic_arrow_back"
-        android:background="@drawable/base_roundsquare_grey"
-          android:contentDescription="이전 화면 이동"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintStart_toStartOf="parent"
-          app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
-
-    <ImageButton
-        android:id="@+id/right_btn"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="20dp"
-        android:src="@drawable/ic_arrow_right"
-        android:contentDescription="다음 화면 이동"
-        android:background="@drawable/base_roundsquare_grey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <ImageButton
             android:id="@+id/dot1"
@@ -103,6 +77,34 @@
             android:contentDescription="마이페이지 화면 이동"/>
 
     </LinearLayout>
+
+
+
+      <ImageButton
+          android:id="@+id/left_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+          android:layout_marginStart="20dp"
+        android:src="@drawable/ic_arrow_back"
+        android:background="@drawable/base_roundsquare_grey"
+          android:contentDescription="이전 화면 이동"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+    <ImageButton
+        android:id="@+id/right_btn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/ic_arrow_right"
+        android:contentDescription="다음 화면 이동"
+        android:background="@drawable/base_roundsquare_grey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

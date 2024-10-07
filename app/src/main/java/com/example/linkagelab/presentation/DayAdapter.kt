@@ -14,7 +14,10 @@ import java.util.Date
 
 class DayAdapter(val tempYear:Int, val tempMonth:Int ) : RecyclerView.Adapter<DayAdapter.DayViewHolder>() {
 
+    // 날짜 리스트
     lateinit var dayList: MutableList<Date?>
+
+
     val ROW = 5
     val today = Calendar.getInstance()
     private var selectedDate: Date? =  today.time

@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.helper.widget.Carousel.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityScrollBinding
 
@@ -54,7 +55,25 @@ class ScrollActivity : AppCompatActivity() {
             binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
         }
 
-        // 스크롤뷰 전체에 초점 줌 -> 순차 탐색하려면 옆으로 스와이프 or 전체적으로 탐색하면 뫄뫄 하세요~
+
+      /*  binding.verticalRecyclerViewCustom.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                // 다음페이지 존재 여부 확인
+                if(viewmodel.isEnd == true) return
+
+                // 아직 로딩중인지 확인
+                if (viewmodel._isProgress.value == false) { // 아직 로딩중이면 호출 x
+                    // 스크롤이 끝에 도달했는지 확인
+                    if (!binding.verticalRecyclerViewCustom.canScrollVertically(1)) { // 더이상 하단으로 내려갈 수 없음
+                        // 값 더 추가 (10개씩)
+
+                    }
+                }
+
+            }
+        })*/
     }
 
     private fun scrollRecyclerView(direction: Int) {
