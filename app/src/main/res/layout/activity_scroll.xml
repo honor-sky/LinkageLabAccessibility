@@ -37,7 +37,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+       <!--     <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -45,14 +45,13 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:text="여러 아이템을 표시하기 RecyclerView를 사용합니다.\nRecyclerView는 아이템이 많은 경우\n자동으로 스크롤이 적용됩니다."
-                android:textSize="15sp" />
+                android:textSize="15sp" />-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_marginStart="10dp"
-        android:text="가로 스크롤 (RecyclerView 사용)"
+        android:text="가로 RecyclerView"
         android:textColor="@color/kakao_red"
         android:textSize="20sp"
         android:accessibilityHeading="true"/>
@@ -83,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="10dp"
-                android:text="커스텀 컴포넌트 입니다."
+                android:text="커스텀 컴포넌트1 입니다"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -93,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="버튼을 사용해 스크롤을 조절할 수 있어야 합니다."
+                android:text="버튼으로 스크롤를 이동시킬 수 있습니다"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
@@ -144,7 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_marginStart="10dp"
-            android:text="커스텀 컴포넌트 입니다."
+            android:text="커스텀 컴포넌트2 입니다"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -154,16 +153,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="컴포넌트 전체에 초점이 가고,\n항목 탐색은 위아래 스와이프로 동작합니다."
+                android:text="작업 사용으로 항목을 탐색합니다"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <LinearLayout
+                android:id="@+id/horizontalRecyclerViewCustom2Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="10dp"
-                android:contentDescription="재생목록 리스트, 위아래로 스와이프해서 항목을 탐색할 수 있습니다."
+                android:contentDescription="재생목록 리스트"
                 android:importantForAccessibility="yes"
                 android:descendantFocusability="blocksDescendants">
 
@@ -185,7 +185,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_marginStart="10dp"
-        android:text="세로 스크롤 (RecyclerView 사용)"
+        android:text="세로 RecyclerView"
         android:textColor="@color/kakao_red"
         android:textSize="20sp"
                 android:accessibilityHeading="true"/>
@@ -195,7 +195,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="20dp"
-                android:text="기본 컴포넌트 입니다."
+                android:text="기본 컴포넌트 입니다"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold"
@@ -209,17 +209,24 @@
          android:layout_marginHorizontal="10dp"
          android:background="@color/kakao_gray"
          android:orientation="vertical"
-         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/> -->
+         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:text="커스텀 컴포넌트 입니다.\n더보기 버튼을 사용해 목록을 순차적으로 보여줍니다."
+                android:layout_marginTop="25dp"
+                android:text="커스텀 컴포넌트 입니다"
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="더보기 버튼을 사용해 목록을 순차적으로 나타냅니다"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/verticalRecyclerViewCustom"

@@ -5,18 +5,22 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white"
+    android:padding="10dp"
     android:importantForAccessibility="yes">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/base_list_item"/>
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@color/kakao_gray"/>
 
     <TextView
         android:id="@+id/item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
+        android:textSize="18sp"
+        android:maxEms="5"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:textColor="@color/kakao_black"/>
 
 </LinearLayout>

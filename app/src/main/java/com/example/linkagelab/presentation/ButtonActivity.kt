@@ -181,6 +181,7 @@ class ButtonActivity : AppCompatActivity() {
 
 
 
+    @SuppressLint("SuspiciousIndentation")
     fun initListener() {
 
 
@@ -210,6 +211,19 @@ class ButtonActivity : AppCompatActivity() {
 
         }
 
+        // 톡백 켜져 있을 때도 사용
+        binding.seekBarCustom.setOnTouchListener { view, motionEvent ->
+            if (motionEvent.action == android.view.MotionEvent.ACTION_DOWN) {
+                // 슬라이더의 중앙값 계산
+                val touchPosition = motionEvent.x / view.width
+                val newValue = (touchPosition * (binding.seekBarCustom.valueTo - binding.seekBarCustom.valueFrom) + binding.seekBarCustom.valueFrom).toInt()
+
+                // 슬라이더의 값 변경
+                binding.seekBarCustom.value = newValue.toFloat()
+            }
+            true // 이벤트 소비
+        }
+
 
         binding.extendedMainFab.setOnClickListener {
             when (binding.extendedMainFab.isExtended) {
@@ -236,7 +250,7 @@ class ButtonActivity : AppCompatActivity() {
         binding.extendedMainFabCustom.setOnClickListener {
 
             if(isFabExtended) {
-                binding.extendedMainFabCustom.text = "메뉴 더보기"
+                    binding.extendedMainFabCustom.text = "메뉴 더보기"
                     binding.extendedMainFabCustom.shrink()
 
                     isFabExtended = false
@@ -278,19 +292,6 @@ class ButtonActivity : AppCompatActivity() {
                 .setCancelable(false)
                 .show()
         }
-
-
-
     }
 
-    private fun speakValue(message: String) {
-        // AccessibilityManager를 통해 TalkBack 음성 피드백
-        val accessibilityManager = getSystemService(Context.ACCESSIBILITY_SERVICE) as AccessibilityManager
-        if (accessibilityManager.isEnabled) {
-            val speech = android.speech.tts.TextToSpeech(this, null).apply {
-                // TTS를 통해 음성을 출력
-                speak(message, android.speech.tts.TextToSpeech.QUEUE_FLUSH, null, null)
-            }
-        }
-    }
 }

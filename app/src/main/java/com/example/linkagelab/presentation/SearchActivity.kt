@@ -47,7 +47,6 @@ class SearchActivity : AppCompatActivity() {
 
         binding.searchBar.setOnCloseListener {
             // SearchView가 닫힐 때
-            Log.d("SearchView", "SearchView 닫힘")
             adapter.setDate(linkageLabKrew)
             adapter.searchKeyword = ""
             false
