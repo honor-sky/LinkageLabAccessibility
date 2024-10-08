@@ -59,6 +59,10 @@ class CustomSheetActivity : AppCompatActivity() {
                         binding.bottomSheet1Custom.handelBar.setOnClickListener {
                             persistenetBottomSheet.state = STATE_EXPANDED
                         }
+
+                        // 핸들바로 초점 이동
+                        binding.bottomSheet1Custom.handelBar.requestFocus()
+                        binding.bottomSheet1Custom.handelBar.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
                     }
 
                     STATE_EXPANDED -> {

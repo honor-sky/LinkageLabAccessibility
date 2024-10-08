@@ -177,8 +177,6 @@ class ButtonActivity : AppCompatActivity() {
             }
         })
 
-
-
     }
 
 

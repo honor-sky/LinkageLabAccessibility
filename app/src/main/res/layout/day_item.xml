@@ -1,15 +1,27 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_day_layout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/item_day_text"
-        android:layout_width="35dp"
+        android:layout_width="40dp"
         android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_gravity="center"
         android:textSize="19dp"
-        android:textColor="@color/black"
-      />
+        android:textColor="@color/black" />
+
+    <View
+        android:id="@+id/holiday_sign"
+        android:layout_width="35dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:background="@color/kakao_red"
+        android:visibility="gone"/>
     <!--  android:background="@drawable/base_circle" -->
 </LinearLayout>

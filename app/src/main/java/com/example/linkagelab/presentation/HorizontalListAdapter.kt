@@ -4,21 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.linkagelab.databinding.HorizontalItemBinding
-import com.example.linkagelab.databinding.VerticalItemBinding
+import com.example.linkagelab.databinding.MusicItemBinding
 
 class HorizontalListAdapter :  RecyclerView.Adapter<HorizontalListAdapter.MyListViewHolder>() {
 
     var stringList: MutableList<String>? = null
 
-    inner class MyListViewHolder (val binding: HorizontalItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyListViewHolder (val binding:MusicItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: String) {
             binding.item.text = item
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyListViewHolder {
-        return MyListViewHolder(HorizontalItemBinding.inflate(LayoutInflater.from(parent.context),parent, false))
+        return MyListViewHolder(MusicItemBinding.inflate(LayoutInflater.from(parent.context),parent, false))
     }
 
     override fun onBindViewHolder(holder: MyListViewHolder, position: Int) {

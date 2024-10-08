@@ -16,7 +16,7 @@ class DayAdapter(val tempYear:Int, val tempMonth:Int ) : RecyclerView.Adapter<Da
 
     // 날짜 리스트
     lateinit var dayList: MutableList<Date?>
-
+    lateinit var holidayList : MutableList<String>
 
     val ROW = 5
     val today = Calendar.getInstance()
@@ -33,6 +33,17 @@ class DayAdapter(val tempYear:Int, val tempMonth:Int ) : RecyclerView.Adapter<Da
             val selected_calendar = Calendar.getInstance()
             selected_calendar.time = selectedDate
 
+            val dayStrigForHoliday = mutableListOf(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)).joinToString("-")
+
+
+            // 휴일 표시 강조
+            if( holidayList.any { it == dayStrigForHoliday}) {
+                binding.holidaySign.visibility = View.VISIBLE
+            } else {
+                binding.holidaySign.visibility = View.GONE
+            }
+
+
             // 선택된 날짜 강조 표시
             if(selected_calendar.get(Calendar.YEAR) == calendar.get(Calendar.YEAR) &&
                 selected_calendar.get(Calendar.MONTH) + 1 == calendar.get(Calendar.MONTH) + 1&&
@@ -44,6 +55,7 @@ class DayAdapter(val tempYear:Int, val tempMonth:Int ) : RecyclerView.Adapter<Da
             } else {
                 binding.itemDayText.setBackgroundColor(Color.WHITE)
             }
+
 
             //날짜 표시
             binding.itemDayText.text = item.date.toString()
@@ -66,22 +78,45 @@ class DayAdapter(val tempYear:Int, val tempMonth:Int ) : RecyclerView.Adapter<Da
                         else -> {}
                     }
 
-                    if(selectedDate == item) {
+
+                    if(selectedDate == item) { // 선택된 날
+                        // 오늘
                         if(today.get(Calendar.YEAR) == year &&
                             today.get(Calendar.MONTH) + 1 == month &&
                             today.get(Calendar.DAY_OF_MONTH) == day) {
-                            info.text = "오늘, 선택됨, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            // 공휴일인 경우
+                            if( holidayList.any { it == dayStrigForHoliday}) {
+                                info.text = "오늘, 선택됨, 공휴일, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            } else {
+                                info.text = "오늘, 선택됨, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            }
                         } else {
-                            info.text = "선택됨, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            // 공휴일인 경우
+                            if( holidayList.any { it == dayStrigForHoliday}) {
+                                info.text = "선택됨, 공휴일, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            } else {
+                                info.text = "선택됨, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            }
                         }
 
-                    } else {
+                    } else { // 선택 안 된 날
+                        // 오늘
                         if(today.get(Calendar.YEAR) == year &&
                             today.get(Calendar.MONTH) + 1 == month &&
                             today.get(Calendar.DAY_OF_MONTH) == day) {
-                            info.text = "오늘, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+
+                            if( holidayList.any { it == dayStrigForHoliday}) {
+                                info.text = "오늘, 공휴일, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            } else {
+                                info.text = "오늘, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            }
+
                         } else {
-                            info.text = "${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            if( holidayList.any { it == dayStrigForHoliday}) {
+                                info.text = "공휴일, ${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            } else {
+                                info.text = "${year}년 ${month}월 ${day}일 ${dayOfWeek}"
+                            }
                         }
                     }
 
@@ -103,8 +138,6 @@ class DayAdapter(val tempYear:Int, val tempMonth:Int ) : RecyclerView.Adapter<Da
                 // 선택된 날짜의 투명도 변경 (강조)
                 notifyItemChanged(adapterPosition)
             }
-
-
         }
     }
 
@@ -130,6 +163,10 @@ class DayAdapter(val tempYear:Int, val tempMonth:Int ) : RecyclerView.Adapter<Da
     fun setDate(dayList : MutableList<Date?>) {
         this.dayList = dayList
         //notifyDataSetChanged()
+    }
+
+    fun setHoliday(holidayList: MutableList<String>) {
+        this.holidayList = holidayList
     }
 
 

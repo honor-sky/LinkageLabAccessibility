@@ -8,7 +8,7 @@ import com.example.linkagelab.databinding.VerticalItemBinding
 
 class VerticalListAdapter : RecyclerView.Adapter<VerticalListAdapter.MyListViewHolder>() {
 
-    var stringList: MutableList<String>? = null
+    var stringList: MutableList<String> = mutableListOf()
 
     inner class MyListViewHolder (val binding: VerticalItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: String) {
@@ -30,6 +30,11 @@ class VerticalListAdapter : RecyclerView.Adapter<VerticalListAdapter.MyListViewH
 
     fun setData(reviewList: MutableList<String>){
         this.stringList= reviewList
+        notifyDataSetChanged()
+    }
+
+    fun addItems(newItems: MutableList<String>) {
+        stringList = (stringList?.plus(newItems))?.toMutableList() ?: mutableListOf()
         notifyDataSetChanged()
     }
 

@@ -16,10 +16,13 @@ import android.view.MenuItem
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import android.widget.Button
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.ViewCompat.setAccessibilityDelegate
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityMenuBinding
 
@@ -91,7 +94,20 @@ class MenuActivity : AppCompatActivity(){
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.nav_menu, menu)
-
+     /*
+      // 옵션 메뉴 버튼으로 만들기
+        menu?.findItem(R.id.home_fragment)?.actionView?.let { actionView ->
+            actionView.setAccessibilityDelegate( object : View.AccessibilityDelegate() {
+                override fun onInitializeAccessibilityNodeInfo(
+                    host: View,
+                    info: AccessibilityNodeInfo
+                ) {
+                    super.onInitializeAccessibilityNodeInfo(host, info)
+                    info?.className = Button::class.java.name  // 클래스명을 버튼으로 설정
+                }
+            })
+        }*/
+/*
         val homeMenuItem = menu?.findItem(R.id.home_fragment)
         homeMenuItem!!.actionView?.contentDescription = "홈, 버튼"
 
@@ -99,7 +115,7 @@ class MenuActivity : AppCompatActivity(){
         bookmarkMenuItem!!.actionView?.contentDescription = "북마크, 버튼"
 
         val mypageMenuItem = menu?.findItem(R.id.mypage_fragment)
-        mypageMenuItem!!.actionView?.contentDescription = "마이페이지, 버튼"
+        mypageMenuItem!!.actionView?.contentDescription = "마이페이지, 버튼"*/
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -135,6 +151,8 @@ class MenuActivity : AppCompatActivity(){
             else -> super.onContextItemSelected(item)
         }
     }
+
+
 
 
 

@@ -56,7 +56,6 @@
             android:id="@+id/dot1"
             android:layout_width="10dp"
             android:layout_height="10dp"
-            android:layout_marginStart="20dp"
             android:background="@drawable/base_roundsquare_grey"
             android:contentDescription="홈 화면 이동"/>
 

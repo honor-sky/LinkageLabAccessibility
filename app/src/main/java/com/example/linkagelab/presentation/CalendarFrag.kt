@@ -20,6 +20,8 @@ class CalendarFrag : Fragment() {
 
     val dayAdapter =  DayAdapter(2024, 10)
 
+    val holiday  = mutableListOf("2024-10-1","2024-10-3","2024-10-9")
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentCalendarBinding.inflate(inflater, container, false)
@@ -83,6 +85,7 @@ class CalendarFrag : Fragment() {
         binding.monthRecycler.layoutManager = GridLayoutManager(binding.root.context, 7)
 
         dayAdapter.setDate(dayList)
+        dayAdapter.setHoliday(holiday)
         binding.monthRecycler.adapter = dayAdapter
 
     }

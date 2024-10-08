@@ -1,6 +1,7 @@
 package com.example.linkagelab.presentation
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import com.example.linkagelab.databinding.ActivitySearchviewBinding
@@ -35,42 +36,64 @@ class SearchActivity : AppCompatActivity() {
 
     fun initListener() {
 
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
+
+        binding.searchBar.setOnClickListener {
+            adapter.setDate(mutableListOf())
+            adapter.searchKeyword = ""
+        }
+
+        binding.searchBar.setOnCloseListener {
+            // SearchView가 닫힐 때
+            Log.d("SearchView", "SearchView 닫힘")
+            adapter.setDate(linkageLabKrew)
+            adapter.searchKeyword = ""
+            false
+        }
+
+        binding.searchBar.setOnQueryTextFocusChangeListener { view, b ->
+            if(b) { // 포커스 됨
+                if(binding.searchBar.query == "") {
+                    adapter.setDate(mutableListOf())
+                    adapter.searchKeyword = ""
+                }
+
+            } else {
+                if(binding.searchBar.query == "") {
+                    adapter.setDate(linkageLabKrew)
+                    adapter.searchKeyword = ""
+                }
+            }
+        }
+
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
-                    // 검색 결과와 리스트 비교해서 일치하는게 있는지 확인
-
-                }
+                // 포커스 닫히도록
+                binding.searchBar.clearFocus()
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let {
-                    // 입력된 값이 있는 경우
-                    val search_list = linkageLabKrew.filter { it.contains(newText) }
+
+                if(newText == "") {
+                    adapter.setDate(mutableListOf())
+                    adapter.searchKeyword = ""
+                } else {
+                    val search_list = linkageLabKrew.filter { it.contains(newText!!) }
 
                     if(search_list != null) {
-
                         // 몇개의 결과중 몇개의 결과가 있습니다.
                         adapter.setDate(search_list.toMutableList())
-                        adapter.searchKeyword = newText
+                        adapter.searchKeyword = newText!!
 
-                        binding.searchBar.announceForAccessibility("${linkageLabKrew.size}개의 항목 중 ${search_list.size}개의 결과가 검색되었습니다.")
-                    } else {
-
-                        // 검색 결과가 없습니다
-                        binding.searchBar.announceForAccessibility("검색 결과가 없습니다.")
+                        binding.searchBar.announceForAccessibility("${search_list.size}개의 결과 제안")
                     }
-
-                } ?: run {
-                    // 입력된 값 없는 경우
-                    adapter.setDate(linkageLabKrew)
-                    adapter.searchKeyword = ""
                 }
+
                 return false
             }
         })
-
-
     }
 }
