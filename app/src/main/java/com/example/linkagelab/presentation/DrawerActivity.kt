@@ -85,13 +85,13 @@ class DrawerActivity : AppCompatActivity() {
 
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_home -> setFragment(TAG_HOME, HomeFragment())
-                R.id.nav_bookmark -> setFragment(TAG_BOOKMARK, RegisterFragment())
-                R.id.nav_mypage -> setFragment(TAG_MYPAGE, MypageFragment())
+                R.id.home_btn -> setFragment(TAG_HOME, HomeFragment())
+                R.id.bookmark_btn -> setFragment(TAG_BOOKMARK, BookmarkFragment())
+                R.id.mypage_btn -> setFragment(TAG_MYPAGE, MypageFragment())
             }
             menuItem.isChecked = true
-            // 아이템 선택 후 Drawer 닫기
-            binding.drawerLayout.closeDrawer(GravityCompat.START)
+
+            binding.drawerLayout.closeDrawer(GravityCompat.START) // 아이템 선택 후 Drawer 닫기
             true
         }
 
@@ -102,10 +102,4 @@ class DrawerActivity : AppCompatActivity() {
     }
 
 
-
-
-/*    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }*/
 }

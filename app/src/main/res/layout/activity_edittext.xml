@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:padding="20dp"
-            android:text="EditText, SearchView 테스트"
+            android:text="EditText 테스트"
             android:accessibilityHeading="true"/>
     </androidx.appcompat.widget.Toolbar>
 
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:textColor="@color/kakao_red"
-            android:text="EditText (비밀번호 입력, 글자수 10자 제한)"
+            android:text="EditText (글자수 10자 제한)"
             android:textSize="20sp"
             android:accessibilityHeading="true"/>
         <EditText
@@ -172,7 +172,7 @@
             android:id="@+id/editTextDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="예) 20241006"
+            android:hint="예) 2024.10.06"
             android:inputType="date" />
 
         <TextView

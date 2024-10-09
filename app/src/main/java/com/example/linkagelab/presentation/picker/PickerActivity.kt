@@ -1,4 +1,4 @@
-package com.example.linkagelab.presentation
+package com.example.linkagelab.presentation.picker
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,6 @@ import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityPickerBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.Tab
-import com.google.android.material.tabs.TabLayoutMediator
 
 class PickerActivity : AppCompatActivity() {
 

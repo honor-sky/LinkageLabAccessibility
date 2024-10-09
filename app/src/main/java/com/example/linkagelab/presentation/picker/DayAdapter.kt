@@ -1,7 +1,6 @@
-package com.example.linkagelab.presentation
+package com.example.linkagelab.presentation.picker
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

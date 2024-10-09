@@ -1,4 +1,4 @@
-package com.example.linkagelab.presentation
+package com.example.linkagelab.presentation.recycler
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

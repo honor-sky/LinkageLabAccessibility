@@ -6,4 +6,4 @@
     android:notificationTimeout="100"
     android:canPerformGestures="true"
     android:canRetrieveWindowContent="true" />
-<!-- android:packageNames="com.example.linkagelab.presentation.PickerActivity"-->
+<!-- android:packageNames="com.example.linkagelab.presentation.picker.PickerActivity"-->

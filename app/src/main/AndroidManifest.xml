@@ -38,11 +38,11 @@
             android:exported="true"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
-            android:name=".presentation.PickerActivity"
+            android:name=".presentation.picker.PickerActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
-            android:name=".presentation.ScrollActivity"
+            android:name=".presentation.recycler.ScrollActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
@@ -50,7 +50,7 @@
             android:exported="true"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
-            android:name=".presentation.ProgressBarActivity"
+            android:name=".presentation.BarActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity

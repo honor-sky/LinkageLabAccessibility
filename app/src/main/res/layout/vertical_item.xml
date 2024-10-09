@@ -6,10 +6,6 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/kakao_black"/>
 
     <TextView
         android:id="@+id/item"

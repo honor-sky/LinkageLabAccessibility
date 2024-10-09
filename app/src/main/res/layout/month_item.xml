@@ -31,7 +31,6 @@
         android:layout_height="60dp"
         android:layout_weight="1"
         android:padding="16dp"
-        android:text="2024년 9월 "
         android:textSize="18sp"
         android:textColor="@color/black"
         android:textAlignment="center">

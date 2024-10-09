@@ -1,22 +1,17 @@
-package com.example.linkagelab.presentation
+package com.example.linkagelab.presentation.recycler
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityNodeInfo
-import android.widget.ArrayAdapter
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.helper.widget.Carousel.Adapter
 import androidx.core.view.ViewCompat
-import androidx.core.view.ViewCompat.performAccessibilityAction
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityScrollBinding
+import com.example.linkagelab.presentation.HorizontalListAdapter
 
 class ScrollActivity : AppCompatActivity() {
 
@@ -24,7 +19,7 @@ class ScrollActivity : AppCompatActivity() {
 
     val country = arrayListOf("캐나다", "독일", "호주", "프랑스", "한국", "일본", "중국", "콩고", "브라질", "이집트")
     val number = (1..10).map { it.toString() }.toMutableList()
-    val music = arrayListOf("Happy","내 이름 맑음","Supernova", "한 페이지가 될 수 있게","녹아내려요","소나기","클락션","고민중독")
+    val music = arrayListOf("노래1","노래2","노래3","노래4","노래5","노래6","노래7","노래8","노래9","노래10")
     val linkageLabKrew = mutableListOf("올리","하퍼","미아","이든","칸","아마라","레스더","웨인","리암","웬디","조셉","카일라","맥스","폴라","델리",
         "로웰","마리","월드","엘리자","헤이즐","제임스","제니","카이","드웨이","민디","찰리","콘라드","히로","제이콥","제니퍼","카오","키미","라일라")
 
@@ -36,7 +31,6 @@ class ScrollActivity : AppCompatActivity() {
     lateinit var horizontalMusicAdapter : HorizontalListAdapter
 
     var currentMusicIdx = 0
-
     var displayedItemsCount = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +54,10 @@ class ScrollActivity : AppCompatActivity() {
 
         verticalAdapter.setData(country)
         //verticalCustomAdapter.setData(linkageLabKrew)
-        loadMoreItems()
+        // 첫 아이템 추가
+        val newItems = linkageLabKrew.drop(displayedItemsCount).take(5).toMutableList() // 다음 5개 아이템 가져오기
+        verticalCustomAdapter.addItems(newItems)
+        displayedItemsCount += newItems.size
 
         horizontalNumberAdapter.setData(music)
         horizontalMusicAdapter.setData(music)
@@ -81,14 +78,14 @@ class ScrollActivity : AppCompatActivity() {
 
         binding.leftBtn.setOnClickListener {
             scrollRecyclerView(-1)
-            binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 왼쪽으로 이동했습니다"
+            //binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 왼쪽으로 이동했습니다"
             binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
         }
 
         binding.rightBtn.setOnClickListener {
             scrollRecyclerView(1)
-            binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 오른쪽으로 이동했습니다"
-            binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+            //binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 오른쪽으로 이동했습니다"
+            //binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
         }
 
         binding.verticalRecyclerViewCustom.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -108,59 +105,59 @@ class ScrollActivity : AppCompatActivity() {
             loadMoreItems()
         }
 
-        // 작업 추가
+
         ViewCompat.addAccessibilityAction(
             binding.horizontalRecyclerViewCustom2Layout,
             "다음 항목"
         ) { _, _ ->
+
+            val item = horizontalMusicAdapter.stringList?.get(currentMusicIdx)
+
+            // 접근성 이벤트로 음성 출력
+            binding.horizontalRecyclerViewCustom2.contentDescription = "${item}, 총 ${horizontalMusicAdapter.itemCount}개의 항목 중 ${currentMusicIdx + 1}번째 항목"
+            binding.horizontalRecyclerViewCustom2.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+
+
             if (currentMusicIdx < horizontalMusicAdapter.itemCount - 1) {
-
                 binding.horizontalRecyclerViewCustom2.smoothScrollToPosition(currentMusicIdx)
-
-                val viewHolder = binding.horizontalRecyclerViewCustom2.findViewHolderForAdapterPosition(currentMusicIdx)
-                if (viewHolder != null) {
-
-                    val itemView = viewHolder.itemView
-                    val musicName = itemView.findViewById<TextView>(R.id.item)
-                    // 항목 음성 출력
-                    val accessibilityEvent = AccessibilityEvent.obtain().apply {
-                        eventType = AccessibilityEvent.TYPE_ANNOUNCEMENT
-                        text.add("${musicName.text}, 총 ${horizontalMusicAdapter.itemCount}개의 항목 중 ${currentMusicIdx}번째 항목") // 읽고 싶은 텍스트 설정
-                    }
-
-                    itemView.parent.requestSendAccessibilityEvent(itemView, accessibilityEvent)
-                }
                 currentMusicIdx++
+
+
+            } else {
+                currentMusicIdx = horizontalMusicAdapter.itemCount - 1
+                //binding.horizontalRecyclerViewCustom2.contentDescription = "마지막 항목 입니다."
+                //binding.horizontalRecyclerViewCustom2.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
             }
             true
         }
 
+        // '이전 항목' 작업에서 smoothScrollToPosition을 호출하고 스크롤 완료 후에 음성 출력
         ViewCompat.addAccessibilityAction(
             binding.horizontalRecyclerViewCustom2Layout,
             "이전 항목"
         ) { _, _ ->
+
+            val item = horizontalMusicAdapter.stringList?.get(currentMusicIdx)
+
+            // 접근성 이벤트로 음성 출력
+            binding.horizontalRecyclerViewCustom2.contentDescription = "${item}, 총 ${horizontalMusicAdapter.itemCount}개의 항목 중 ${currentMusicIdx + 1}번째 항목"
+            binding.horizontalRecyclerViewCustom2.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+
             if (currentMusicIdx > 0) {
-
+                // 이전 항목으로 스크롤
                 binding.horizontalRecyclerViewCustom2.smoothScrollToPosition(currentMusicIdx)
-
-
-                val viewHolder = binding.horizontalRecyclerViewCustom2.findViewHolderForAdapterPosition(currentMusicIdx)
-                if (viewHolder != null) {
-
-                    val itemView = viewHolder.itemView
-                    val musicName = itemView.findViewById<TextView>(R.id.item)
-                    // 항목 음성 출력
-                    val accessibilityEvent = AccessibilityEvent.obtain().apply {
-                        eventType = AccessibilityEvent.TYPE_ANNOUNCEMENT
-                        text.add("${musicName.text}, 총 ${horizontalMusicAdapter.itemCount}개의 항목 중 ${currentMusicIdx}번째 항목") // 읽고 싶은 텍스트 설정
-                    }
-                    itemView.parent.requestSendAccessibilityEvent(itemView, accessibilityEvent)
-                }
                 currentMusicIdx--
+
+            } else {
+                currentMusicIdx = 0
+                //binding.horizontalRecyclerViewCustom2.contentDescription = "첫번째 항목 입니다."
+                //binding.horizontalRecyclerViewCustom2.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
             }
             true
         }
     }
+
+
 
 
     private fun scrollRecyclerView(direction: Int) {
@@ -168,24 +165,34 @@ class ScrollActivity : AppCompatActivity() {
         val layoutManager = binding.horizontalRecyclerViewCustom.layoutManager as LinearLayoutManager
         val currentPosition = layoutManager.findFirstVisibleItemPosition()
 
-        // 이동할 위치 계산 (5개 항목 단위로 이동)
-        val targetPosition = currentPosition + direction * 5
+        // 이동할 위치 계산 (3개 항목 단위로 이동)
+        var targetPosition = currentPosition + direction * 3
 
         // 스크롤 이동
         if (targetPosition in 0 until binding.horizontalRecyclerViewCustom.adapter!!.itemCount) {
-
             binding.horizontalRecyclerViewCustom.smoothScrollToPosition(targetPosition)
+
+            // 현재 어떤 컴포넌트가 가장 앞에 있는지 안내
+            binding.horizontalRecyclerViewCustom.contentDescription = "${targetPosition}번째 항목으로 스크롤 이동"
+            binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
 
         } else if(targetPosition < 0) {
 
+            targetPosition = 1
             binding.horizontalRecyclerViewCustom.smoothScrollToPosition(0)
+            // 현재 어떤 컴포넌트가 가장 앞에 있는지 안내
+            binding.horizontalRecyclerViewCustom.contentDescription = "항목 리스트의 처음에 도달"
+            binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
 
         } else if(targetPosition > binding.horizontalRecyclerViewCustom.adapter!!.itemCount) {
-
+            targetPosition = binding.horizontalRecyclerViewCustom.adapter!!.itemCount
             binding.horizontalRecyclerViewCustom.smoothScrollToPosition(binding.horizontalRecyclerViewCustom.adapter!!.itemCount)
+
+            // 현재 어떤 컴포넌트가 가장 앞에 있는지 안내
+            binding.horizontalRecyclerViewCustom.contentDescription = "항목 리스트의 마지막에 도달"
+            binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
         }
 
-        // 현재 어떤 컴포넌트가 가장 앞에 있는지 안내
 
     }
 
@@ -195,10 +202,23 @@ class ScrollActivity : AppCompatActivity() {
         val newItems = linkageLabKrew.drop(displayedItemsCount).take(5).toMutableList() // 다음 5개 아이템 가져오기
         verticalCustomAdapter.addItems(newItems) // 어댑터에 추가
 
-        // 새로 생긴 아이템의 가장 첫 항목으로 포커스
-        //binding.verticalRecyclerViewCustom.findViewHolderForAdapterPosition(displayedItemsCount)?.itemView?.requestFocus()
+        binding.verticalRecyclerViewCustom.post {
 
-        displayedItemsCount += newItems.size // 표시된 아이템 수 증가
-        binding.moreBtn.visibility = if (displayedItemsCount < linkageLabKrew.size) View.VISIBLE else View.GONE // 더 이상 아이템이 없으면 버튼 숨기기
+            val viewHolder =
+                binding.verticalRecyclerViewCustom.findViewHolderForAdapterPosition(displayedItemsCount)
+            if (viewHolder != null) {
+                val itemView = viewHolder.itemView
+
+                itemView.requestFocus()
+                itemView.announceForAccessibility("아래로 항목 추가됨")
+                itemView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED)
+            }
+
+            displayedItemsCount += newItems.size
+            binding.moreBtn.visibility = if (displayedItemsCount < linkageLabKrew.size - 5) View.VISIBLE else View.GONE // 더 이상 아이템이 없으면 버튼 숨기기
+
+        }
+
+
     }
 }

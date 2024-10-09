@@ -1,25 +1,17 @@
-package com.example.linkagelab.presentation
+package com.example.linkagelab.presentation.picker
 
-import android.content.Context.ACCESSIBILITY_SERVICE
 import android.content.res.Resources
-import android.os.Build
 import android.os.Bundle
-import android.text.Editable
 import android.text.InputType
-import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityManager
 import android.view.accessibility.AccessibilityNodeInfo
-import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
 import android.widget.NumberPicker
 import androidx.fragment.app.Fragment
-import com.example.linkagelab.R
 import com.example.linkagelab.databinding.FragmentDatePickerBinding
 
 

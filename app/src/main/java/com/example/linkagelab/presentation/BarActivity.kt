@@ -11,11 +11,10 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class ProgressBarActivity : AppCompatActivity() {
+class BarActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBarBinding
 

@@ -4,17 +4,15 @@ import android.accessibilityservice.AccessibilityService
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
-import android.util.Log
-import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.linkagelab.accessibility.MyAccessibilityService
 
 import com.example.linkagelab.databinding.ActivityMainBinding
+import com.example.linkagelab.presentation.picker.PickerActivity
+import com.example.linkagelab.presentation.recycler.ScrollActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.ToastTestBtn.setOnClickListener {
-            startActivity(Intent(this, ProgressBarActivity::class.java))
+            startActivity(Intent(this, BarActivity::class.java))
         }
 
         binding.bottomSheetTestBtn.setOnClickListener {

@@ -36,35 +36,10 @@ class MenuActivity : AppCompatActivity(){
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         registerForContextMenu(binding.contextMenuBasic)
-
-        //setAccessibility()
         initListener()
 
     }
-
-
-/*    fun setAccessibility() {
-        binding.topAppBar.navigationContentDescription = "뒤로가기"
-        binding.contextMenuCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
-            @RequiresApi(Build.VERSION_CODES.R)
-            override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
-                return when (action) {
-
-                    AccessibilityNodeInfo.ACTION_LONG_CLICK -> {
-                       // context menu 열기
-                        Toast.makeText(this@MenuActivity, "두 손가락으로 두 번 탭 감지됨", Toast.LENGTH_SHORT).show()
-
-                        return false
-                    }
-
-                    else -> super.performAccessibilityAction(host, action, args)
-                }
-            }
-        })
-    }*/
 
     fun initListener() {
 
@@ -77,9 +52,9 @@ class MenuActivity : AppCompatActivity(){
 
             popupMenu.setOnMenuItemClickListener { item ->
                 when(item.itemId) {
-                    R.id.home_fragment -> Toast.makeText(this, "홈 메뉴 클릭", Toast.LENGTH_SHORT).show()
-                    R.id.bookmark_fragment -> Toast.makeText(this, "북마크 메뉴 클릭", Toast.LENGTH_SHORT).show()
-                    R.id.mypage_fragment -> Toast.makeText(this, "마이페이지 메뉴 클릭", Toast.LENGTH_SHORT).show()
+                    R.id.first_item -> Toast.makeText(this, "첫번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
+                    R.id.second_item -> Toast.makeText(this, "두번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
+                    R.id.third_item -> Toast.makeText(this, "세번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
                 }
                 true
             }
@@ -94,28 +69,6 @@ class MenuActivity : AppCompatActivity(){
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.nav_menu, menu)
-     /*
-      // 옵션 메뉴 버튼으로 만들기
-        menu?.findItem(R.id.home_fragment)?.actionView?.let { actionView ->
-            actionView.setAccessibilityDelegate( object : View.AccessibilityDelegate() {
-                override fun onInitializeAccessibilityNodeInfo(
-                    host: View,
-                    info: AccessibilityNodeInfo
-                ) {
-                    super.onInitializeAccessibilityNodeInfo(host, info)
-                    info?.className = Button::class.java.name  // 클래스명을 버튼으로 설정
-                }
-            })
-        }*/
-/*
-        val homeMenuItem = menu?.findItem(R.id.home_fragment)
-        homeMenuItem!!.actionView?.contentDescription = "홈, 버튼"
-
-        val bookmarkMenuItem = menu?.findItem(R.id.bookmark_fragment)
-        bookmarkMenuItem!!.actionView?.contentDescription = "북마크, 버튼"
-
-        val mypageMenuItem = menu?.findItem(R.id.mypage_fragment)
-        mypageMenuItem!!.actionView?.contentDescription = "마이페이지, 버튼"*/
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -127,25 +80,25 @@ class MenuActivity : AppCompatActivity(){
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
-            R.id.home_fragment -> Toast.makeText(this, "홈 메뉴 클릭", Toast.LENGTH_SHORT).show()
-            R.id.bookmark_fragment -> Toast.makeText(this, "북마크 메뉴 클릭", Toast.LENGTH_SHORT).show()
-            R.id.mypage_fragment -> Toast.makeText(this, "마이페이지 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.first_item -> Toast.makeText(this, "첫번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.second_item -> Toast.makeText(this, "두번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.third_item -> Toast.makeText(this, "세번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
         }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.home_fragment -> {
-                Toast.makeText(this, "홈 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.first_item -> {
+                Toast.makeText(this, "첫번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
                 true
             }
-            R.id.bookmark_fragment -> {
-                Toast.makeText(this, "북마크 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.second_item -> {
+                Toast.makeText(this, "두번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
                 true
             }
-            R.id.mypage_fragment -> {
-                Toast.makeText(this, "마이페이지 메뉴 클릭", Toast.LENGTH_SHORT).show()
+            R.id.third_item -> {
+                Toast.makeText(this, "세번째 메뉴 클릭", Toast.LENGTH_SHORT).show()
                 true
             }
             else -> super.onContextItemSelected(item)

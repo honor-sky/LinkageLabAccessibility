@@ -33,28 +33,20 @@ class SheetActivity : AppCompatActivity() {
         // 맵화면에 바텀시트 동작 달음
         //binding.mainContent.setBottomSheetBehavior(persistenetBottomSheet)
 
-   /*     binding.bottomSheetLayout.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
-            override fun onInitializeAccessibilityNodeInfo(
-                host: View,
-                info: AccessibilityNodeInfo
-            ) {
-                super.onInitializeAccessibilityNodeInfo(host, info)
-                when(persistenetBottomSheet.state) {
-                    STATE_COLLAPSED ->  info?.text = "바텀시트가 열렸습니다. 손가락으로 위아래로 스와이프해 조절하세요."
-                    STATE_HALF_EXPANDED -> info?.text = "바텀시트가 절반 확장되었습니다. 두 손가락으로 위아래로 스와이프해 조절하세요."
-                    STATE_EXPANDED -> info?.text = "바텀시트가 완전히 확장되었습니다. 두 손가락으로 아래로 스와이프하면 닫힙니다. "
-                }
 
-            }
-        })*/
 
     }
 
 
     fun initListener() {
+
+        binding.backBtn.setOnClickListener {
+            finish()
+        }
+
         // 텍스트 시트
         binding.textSheetexpandBtn.setOnClickListener {
-            binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.GONE
+            //binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.GONE
             binding.bottomSheet1.textBottomSheetLayoutRoot.visibility = View.VISIBLE
 
             persistenetBottomSheet.state = STATE_COLLAPSED
@@ -68,6 +60,7 @@ class SheetActivity : AppCompatActivity() {
 
 
         // 버튼 시트
+        /*
         binding.buttonSheetexpandBtn.setOnClickListener {
             binding.bottomSheet1.textBottomSheetLayoutRoot.visibility = View.GONE
             binding.bottomSheet2.buttonBottomSheetLayoutRoot.visibility = View.VISIBLE
@@ -79,13 +72,7 @@ class SheetActivity : AppCompatActivity() {
             persistenetBottomSheet.state = STATE_HIDDEN
         }
 
-
-
-        binding.backBtn.setOnClickListener {
-            finish()
-        }
-
-        binding.bottomSheet2.shareBtn.setOnClickListener {
+       binding.bottomSheet2.shareBtn.setOnClickListener {
             Toast.makeText(this, "공유하기 버튼 클릭", Toast.LENGTH_LONG).show()
 
         }
@@ -108,7 +95,7 @@ class SheetActivity : AppCompatActivity() {
 
         binding.bottomSheet2.deleteBtn.setOnClickListener {
             Toast.makeText(this, "삭제하기 버튼 클릭", Toast.LENGTH_LONG).show()
-        }
+        }*/
 
     }
 
