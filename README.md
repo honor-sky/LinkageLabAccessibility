@@ -45,5 +45,5 @@
 
 
 - layout 파일 경로 : app > src > res > layout 
-- Activuty/Fragment 파일 경로: app > src > main > java/com/example/linkagelab > presentation 
+- Activuty/Fragment 파일 경로: app > src > main > java > com > example > linkagelab > presentation 
 - 아이콘, 이미지 파일 경로 : app > src > res > drawable
