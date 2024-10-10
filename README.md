@@ -26,7 +26,10 @@
 |  메인 화면 |   MainActivity.kt   |   activity_main.xml  |
 |  Basic, Image, Toggle, Radio, Checkbox, FAB, Chip, Switch, Slider |   ButtonActivity.kt   |   activity_button.xml  |
 |  EditText  |   EditTextActivity.kt   |  activity_edittext.xml  |
-|  TimePicker, DatePicker, Calendar, Tab  |   PickerActivity.kt, TimPickerFrag.kt, TimePickerFrag.kt, DatePickerFrag.kt, CalendarFrag.kt, DayAdapter.kt   |  activity_picker.xml, fragment_time_picker.xml, fragment_date_picker.xml, fragment_calendar.xml, day_item.xml, month_item.xml   |
+|  Tab  |   PickerActivity.kt   |  activity_picker.xml  |
+|  TimePicker  |   PickerActivity.kt, TimPickerFrag.kt,  |  activity_picker.xml, fragment_time_picker.xml |
+|  DatePickerTab  |   PickerActivity.kt, DatePickerFrag.kt  |  activity_picker.xml, fragment_date_picker.xml  |
+|  Calendar  |   PickerActivity.kt, CalendarFrag.kt, DayAdapter.kt  |  activity_picker.xml, fragment_calendar.xml, day_item.xml, month_item.xml  |
 |  Bottom Sheet  |  SheetActivity.kt, CustomSheetActivity.kt    |    activity_sheet.xml,  activity_sheet_custom.xml, text_bottom_sheet.xml, text_bottom_sheet_custom.xml  |
 |  Drawer Navigation  |   DrawerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |    activity_drawer.xml, drawer_header.xml, drawer_main.xml, drawer_main_content.xml, fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml  |
 | Option Menu, Context Menu, Popup Menu  |   MenuActivity.kt   |   activity_menu  |
