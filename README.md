@@ -38,5 +38,5 @@
 |    |      |     |
 | Viewpager |   activity_viewpager.xml   |  ViewpagerActivity.kt   |
 
-- layout 파일 : app >
-- Activuty/Fragment 파일 : app > 
+- layout 파일 : app > src / 
+- Activuty/Fragment 파일 : app > src > main/java/com/example/linkagelab > presentation
