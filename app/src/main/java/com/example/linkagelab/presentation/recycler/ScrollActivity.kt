@@ -23,7 +23,6 @@ class ScrollActivity : AppCompatActivity() {
     val linkageLabKrew = mutableListOf("올리","하퍼","미아","이든","칸","아마라","레스더","웨인","리암","웬디","조셉","카일라","맥스","폴라","델리",
         "로웰","마리","월드","엘리자","헤이즐","제임스","제니","카이","드웨이","민디","찰리","콘라드","히로","제이콥","제니퍼","카오","키미","라일라")
 
-
     lateinit var verticalAdapter : VerticalListAdapter
     lateinit var verticalCustomAdapter : VerticalListAdapter
 
@@ -48,23 +47,19 @@ class ScrollActivity : AppCompatActivity() {
 
         verticalAdapter = VerticalListAdapter()
         verticalCustomAdapter = VerticalListAdapter()
-
         horizontalNumberAdapter = HorizontalListAdapter()
         horizontalMusicAdapter  = HorizontalListAdapter()
 
         verticalAdapter.setData(country)
-        //verticalCustomAdapter.setData(linkageLabKrew)
-        // 첫 아이템 추가
+        horizontalNumberAdapter.setData(music)
+        horizontalMusicAdapter.setData(music)
+        // 더보기 목록 - 첫 아이템 추가
         val newItems = linkageLabKrew.drop(displayedItemsCount).take(5).toMutableList() // 다음 5개 아이템 가져오기
         verticalCustomAdapter.addItems(newItems)
         displayedItemsCount += newItems.size
 
-        horizontalNumberAdapter.setData(music)
-        horizontalMusicAdapter.setData(music)
-
         binding.verticalRecyclerView.adapter = verticalAdapter
         binding.verticalRecyclerViewCustom.adapter = verticalCustomAdapter
-
         binding.horizontalRecyclerViewBasic.adapter = horizontalNumberAdapter
         binding.horizontalRecyclerViewCustom.adapter = horizontalNumberAdapter
         binding.horizontalRecyclerViewCustom2.adapter = horizontalNumberAdapter
@@ -78,14 +73,15 @@ class ScrollActivity : AppCompatActivity() {
 
         binding.leftBtn.setOnClickListener {
             scrollRecyclerView(-1)
-            //binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 왼쪽으로 이동했습니다"
             binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
         }
 
         binding.rightBtn.setOnClickListener {
             scrollRecyclerView(1)
-            //binding.horizontalRecyclerViewCustom.contentDescription = "스크롤이 오른쪽으로 이동했습니다"
-            //binding.horizontalRecyclerViewCustom.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+        }
+
+        binding.moreBtn.setOnClickListener {
+            loadMoreItems()
         }
 
         binding.verticalRecyclerViewCustom.addOnScrollListener(object : RecyclerView.OnScrollListener() {
@@ -99,12 +95,6 @@ class ScrollActivity : AppCompatActivity() {
                 }
             }
         })
-
-        // "더보기" 버튼 클릭 리스너
-        binding.moreBtn.setOnClickListener {
-            loadMoreItems()
-        }
-
 
         ViewCompat.addAccessibilityAction(
             binding.horizontalRecyclerViewCustom2Layout,

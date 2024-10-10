@@ -20,9 +20,7 @@ import com.example.linkagelab.databinding.ActivityDrawerCustomBinding
 
 class CustomDrawerActivity : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityDrawerCustomBinding
-
 
     companion object {
         private const val TAG_HOME = "home_fragment"
@@ -36,20 +34,19 @@ class CustomDrawerActivity : AppCompatActivity() {
         binding = ActivityDrawerCustomBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // appBar
         supportActionBar?.setHomeButtonEnabled(true)
-        // HomeButton을 노출 시킴
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
+        binding.appBarMain.drawerBrn.contentDescription = "탐색창, 열기, 버튼"
 
-
+        // 초기 화면
         if (savedInstanceState == null) {
             setFragment(TAG_HOME, HomeFragment())
         }
 
-        binding.appBarMain.drawerBrn.contentDescription = "탐색창, 열기, 버튼"
 
         initListener()
-
 
     }
 
@@ -100,27 +97,10 @@ class CustomDrawerActivity : AppCompatActivity() {
             binding.drawerLayout.closeDrawer(GravityCompat.START)
         }
 
-        /*
-        binding.navView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.menu_home -> setFragment(TAG_HOME, HomeFragment())
-                R.id.menu_bookmark -> setFragment(TAG_BOOKMARK, BookmarkFragment())
-                R.id.menu_mypage -> setFragment(TAG_MYPAGE, MypageFragment())
-            }
-            menuItem.isChecked = true
-
-            binding.drawerLayout.closeDrawer(GravityCompat.START) // 아이템 선택 후 Drawer 닫기
-            true
-        }
-
-         */
-
-
     }
 
     fun setFragment(tag : String, fragment : Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.nav_host_fragment_content_main, fragment).commitAllowingStateLoss()
     }
-
 
 }

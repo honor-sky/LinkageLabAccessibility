@@ -184,7 +184,6 @@ class ButtonActivity : AppCompatActivity() {
     @SuppressLint("SuspiciousIndentation")
     fun initListener() {
 
-
         binding.plusBtn.setOnClickListener {
             if( binding.seekBarCustom.value == binding.seekBarCustom.valueTo) {
                 binding.seekBarCustom.contentDescription = "현재 최댓값입니다, 값, ${binding.seekBarCustom.value}"
