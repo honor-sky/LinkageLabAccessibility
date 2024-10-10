@@ -39,9 +39,9 @@
 |  Custom Drawer Navigation  |   DrawerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |    activity_drawer_custom.xml, drawer_main.xml, drawer_main_content.xml, fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml  |
 | Option Menu, Context Menu, Popup Menu  |   MenuActivity.kt   |   activity_menu  |
 | ProgressBar, RatingBar, ToastBar, SnackBar, AlertDialog  |  BarActivity.kt    |   activity_bar  |
-| RecyclerViw(sroll)  |  ScrollActivity.kt, HorizontalListAdapter.kt, VerticalListAdapter.kt   |   activity_scroll.xml, music_item.xml, vertical_item.xml  |
+| RecyclerViw(scroll)  |  ScrollActivity.kt, HorizontalListAdapter.kt, VerticalListAdapter.kt   |   activity_scroll.xml, music_item.xml, vertical_item.xml  |
 | Viewpager |  ViewpagerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |   activity_viewpager.xml,  fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml    |
-| Suggestion 기능 (SearchView) |  SearchActivity.kt, NicknameAdapter.kt   |  activity_searchview  |
+| SearchView (Suggestion 기능) |  SearchActivity.kt, NicknameAdapter.kt   |  activity_searchview  |
 
 
 - layout 파일 경로 : app > src > res > layout 
