@@ -19,24 +19,22 @@
 
 ## Foldering
 - 각 컴포넌트에 대응하는 코드 파일을 확인할 수 있습니다.
-- layout은 화면 UI 코드, Activuty는 동작 관련 코드입니다. 
+- layout은 화면 UI 코드, Activuty/Fragment는 동작 관련 코드입니다. 
 
-|  Componant | Activuty (.kt) |  Layout (.xml) | 
+|  Componant | Activuty/Fragment (.kt) |  Layout (.xml) | 
 | :----------- | :------------: | :------------: |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-|    |      |     |
-| Viewpager |   activity_viewpager.xml   |  ViewpagerActivity.kt   |
+|  메인 화면 |   MainActivity.kt   |   activity_main.xml  |
+|  Basic, Image, Toggle, Radio, Checkbox, FAB, Chip, Switch, Slider |   ButtonActivity.kt   |   activity_button.xml  |
+|  EditText  |   EditTextActivity.kt   |  activity_edittext.xml  |
+|  TimePicker, DatePicker, Calendar, Tab  |   PickerActivity.kt, TimPickerFrag.kt, TimePickerFrag.kt, DatePickerFrag.kt, CalendarFrag.kt, DayAdapter.kt   |  activity_picker.xml, fragment_time_picker.xml, fragment_date_picker.xml, fragment_calendar.xml, day_item.xml, month_item.xml   |
+|  Bottom Sheet  |  SheetActivity.kt, CustomSheetActivity.kt    |    activity_sheet.xml,  activity_sheet_custom.xml, text_bottom_sheet.xml, text_bottom_sheet_custom.xml  |
+|  Drawer Navigation  |   DrawerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |    activity_drawer.xml, drawer_header.xml, drawer_main.xml, drawer_main_content.xml, fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml  |
+| Option Menu, Context Menu, Popup Menu  |   MenuActivity.kt   |   activity_menu  |
+| ProgressBar, RatingBar, ToastBar, SnackBar, AlertDialog  |  BarActivity.kt    |   activity_bar  |
+| RecyclerViw(sroll)  |  ScrollActivity.kt, HorizontalListAdapter.kt, VerticalListAdapter.kt   |   activity_scroll.xml, music_item.xml, vertical_item.xml  |
+| Viewpager |  ViewpagerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |   activity_viewpager.xml,  fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml    |
+| Suggestion 기능 (SearchView) |  SearchActivity.kt, NicknameAdapter.kt   |  activity_searchview  |
 
-- layout 파일 : app > src / 
-- Activuty/Fragment 파일 : app > src > main/java/com/example/linkagelab > presentation
+
+- layout 파일 경로 : app > src > layout
+- Activuty/Fragment 파일 경로: app > src > main > java/com/example/linkagelab > presentation
