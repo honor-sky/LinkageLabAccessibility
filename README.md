@@ -28,10 +28,12 @@
 |  EditText  |   EditTextActivity.kt   |  activity_edittext.xml  |
 |  Tab  |   PickerActivity.kt   |  activity_picker.xml  |
 |  TimePicker  |   PickerActivity.kt, TimPickerFrag.kt,  |  activity_picker.xml, fragment_time_picker.xml |
-|  DatePickerTab  |   PickerActivity.kt, DatePickerFrag.kt  |  activity_picker.xml, fragment_date_picker.xml  |
+|  DatePicker  |   PickerActivity.kt, DatePickerFrag.kt  |  activity_picker.xml, fragment_date_picker.xml  |
 |  Calendar  |   PickerActivity.kt, CalendarFrag.kt, DayAdapter.kt  |  activity_picker.xml, fragment_calendar.xml, day_item.xml, month_item.xml  |
-|  Bottom Sheet  |  SheetActivity.kt, CustomSheetActivity.kt    |    activity_sheet.xml,  activity_sheet_custom.xml, text_bottom_sheet.xml, text_bottom_sheet_custom.xml  |
+|  Bottom Sheet  |  SheetActivity.kt   |    activity_sheet.xml, text_bottom_sheet.xml  |
+|  Custom Bottom Sheet  |  CustomSheetActivity.kt    |   activity_sheet_custom.xml, text_bottom_sheet_custom.xml  |
 |  Drawer Navigation  |   DrawerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |    activity_drawer.xml, drawer_header.xml, drawer_main.xml, drawer_main_content.xml, fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml  |
+|  Custom Drawer Navigation  |   DrawerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |    activity_drawer_custom.xml, drawer_header.xml, drawer_main.xml, drawer_main_content.xml, fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml  |
 | Option Menu, Context Menu, Popup Menu  |   MenuActivity.kt   |   activity_menu  |
 | ProgressBar, RatingBar, ToastBar, SnackBar, AlertDialog  |  BarActivity.kt    |   activity_bar  |
 | RecyclerViw(sroll)  |  ScrollActivity.kt, HorizontalListAdapter.kt, VerticalListAdapter.kt   |   activity_scroll.xml, music_item.xml, vertical_item.xml  |
