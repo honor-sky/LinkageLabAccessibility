@@ -17,62 +17,72 @@
         <activity
             android:name=".presentation.DrawerActivity"
             android:exported="true"
-            android:label="@string/title_activity_main2"
+            android:label="DrawerActivity"
             android:theme="@style/Theme.LinkageLab.NoActionBar" />
         <activity
             android:name=".presentation.CustomDrawerActivity"
             android:exported="true"
-            android:label="@string/title_activity_main2"
+            android:label="CustomDrawerActivity"
             android:theme="@style/Theme.LinkageLab.NoActionBar" />
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
+            android:label="MainActivity"
             android:theme="@style/Theme.LinkageLab">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".presentation.EditTextActivity"
             android:exported="true"
+            android:label="EditTextActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.ButtonActivity"
             android:exported="true"
+            android:label="ButtonActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.picker.PickerActivity"
             android:exported="true"
+            android:label="PickerActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.recycler.ScrollActivity"
             android:exported="true"
+            android:label="ScrollActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.SheetActivity"
             android:exported="true"
+            android:label="SheetActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.BarActivity"
             android:exported="true"
+            android:label="BarActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.MenuActivity"
             android:exported="true"
+            android:label="MenuActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.CustomSheetActivity"
             android:exported="true"
+            android:label="CustomSheetActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.ViewpagerActivity"
             android:exported="true"
+            android:label="ViewpagerActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
         <activity
             android:name=".presentation.SearchActivity"
             android:exported="true"
+            android:label=".presentation.SearchActivity"
             android:theme="@style/Theme.LinkageLab"></activity>
 
         <service
