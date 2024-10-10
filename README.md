@@ -1,4 +1,4 @@
-# Componant Accessibility Insight
+# LinkageLab - 기본 컴포넌트 개발 & 접근성 개선 과제
 
 ## Intro
 - 안드로이드 모바일 개발에서 자주 사용되는 컴포넌트를 개발해 접근성이 지켜졌는지 확인합니다 (기본 컴포넌트)
