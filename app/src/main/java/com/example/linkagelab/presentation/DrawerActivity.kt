@@ -58,7 +58,7 @@ class DrawerActivity : AppCompatActivity() {
             binding.drawerLayout.openDrawer(GravityCompat.START)
         }
 
-        binding.navView.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
+       /* binding.navView.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
                 super.onInitializeAccessibilityNodeInfo(host, info)
                 info?.text = "탐색창이 열림, 두손가락으로 오른쪽에서 왼쪽으로 밀어서 닫을 수 있습니다."
@@ -66,9 +66,9 @@ class DrawerActivity : AppCompatActivity() {
 
             }
         })
+*/
 
-
-        binding.drawerLayout.addDrawerListener(object : DrawerListener {
+     /*   binding.drawerLayout.addDrawerListener(object : DrawerListener {
             override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
             }
 
@@ -81,7 +81,7 @@ class DrawerActivity : AppCompatActivity() {
 
             override fun onDrawerStateChanged(newState: Int) {
             }
-        });
+        });*/
 
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {

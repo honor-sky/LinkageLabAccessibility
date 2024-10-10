@@ -7,22 +7,16 @@
         <item
             android:id="@+id/home_btn"
             android:icon="@drawable/ic_home"
-            android:title="홈 페이지"
-            android:importantForAccessibility="yes"
-            android:contentDescription="홈 페이지, 버튼"/>
+            android:title="홈 페이지" />
 
         <item
             android:id="@+id/bookmark_btn"
             android:icon="@drawable/ic_bookmark"
-            android:title="북마크 페이지"
-            android:importantForAccessibility="yes"
-            android:contentDescription="북마크 페이지, 버튼"/>
+            android:title="북마크 페이지" />
 
         <item
             android:id="@+id/mypage_btn"
             android:icon="@drawable/ic_person"
-            android:title="마이 페이지"
-            android:importantForAccessibility="yes"
-            android:contentDescription="마이 페이지, 버튼"/>
+            android:title="마이 페이지" />
     </group>
 </menu>

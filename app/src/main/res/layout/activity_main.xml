@@ -99,10 +99,7 @@
                 android:layout_marginTop="20dp"
                 android:text="BottomSheet"
                 android:textColor="@color/kakao_black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn5" />
+                android:textSize="20sp" />
 
 
             <Button
@@ -112,23 +109,26 @@
                 android:layout_marginTop="20dp"
                 android:text="CustomBottomSheet"
                 android:textColor="@color/kakao_black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn5" />
+                android:textSize="20sp" />
 
 
             <Button
-                android:id="@+id/sideSheetTestBtn"
+            android:id="@+id/drawerTestBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Navigation Drawer"
+            android:textColor="@color/kakao_black"
+            android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/csstomDrawerTestBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Navigation Drawer"
+                android:text="Custom Navigation Drawer"
                 android:textColor="@color/kakao_black"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn5" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/ToastTestBtn"

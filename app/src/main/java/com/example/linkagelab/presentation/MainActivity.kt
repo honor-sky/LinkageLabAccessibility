@@ -59,9 +59,13 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, CustomSheetActivity::class.java))
         }
 
-        binding.sideSheetTestBtn.setOnClickListener {
+        binding.drawerTestBtn.setOnClickListener {
             startActivity(Intent(this, DrawerActivity::class.java))
 
+        }
+
+        binding.csstomDrawerTestBtn.setOnClickListener {
+            startActivity(Intent(this, CustomDrawerActivity::class.java))
         }
 
         binding.scrollTestBtn.setOnClickListener {

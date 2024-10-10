@@ -20,6 +20,11 @@
             android:label="@string/title_activity_main2"
             android:theme="@style/Theme.LinkageLab.NoActionBar" />
         <activity
+            android:name=".presentation.CustomDrawerActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.LinkageLab.NoActionBar" />
+        <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.LinkageLab">
