@@ -63,6 +63,7 @@
                 android:textColor="@color/kakao_black"
                 android:textSize="20sp" />
 
+
             <Button
                 android:id="@+id/buttonTextBtn"
                 android:layout_width="match_parent"

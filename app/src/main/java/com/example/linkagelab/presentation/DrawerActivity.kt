@@ -1,14 +1,8 @@
 package com.example.linkagelab.presentation
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityNodeInfo
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout.DrawerListener
 import androidx.fragment.app.Fragment
 import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivityDrawerBinding

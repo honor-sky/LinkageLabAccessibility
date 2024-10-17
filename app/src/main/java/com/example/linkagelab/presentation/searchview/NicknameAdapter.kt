@@ -13,7 +13,7 @@ import com.example.linkagelab.R
 import com.example.linkagelab.databinding.NicknameItemBinding
 
 
-class NicknameAdapter : RecyclerView.Adapter<NicknameAdapter.NicknameViewHolder>() {
+class NicknameAdapter(val saveWord : (String) -> (Unit)) : RecyclerView.Adapter<NicknameAdapter.NicknameViewHolder>() {
 
     lateinit var kakaoKrewList: MutableList<String>
     var searchKeyword = ""
@@ -42,6 +42,11 @@ class NicknameAdapter : RecyclerView.Adapter<NicknameAdapter.NicknameViewHolder>
 
                 binding.nicknameTextView.setBackgroundResource(R.color.white)
 
+            }
+
+
+            binding.nicknameTextView.setOnClickListener {
+                saveWord(item)
             }
         }
     }
