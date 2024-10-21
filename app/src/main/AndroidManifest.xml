@@ -27,7 +27,6 @@
         <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
-            android:label="MainActivity"
             android:theme="@style/Theme.LinkageLab">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
