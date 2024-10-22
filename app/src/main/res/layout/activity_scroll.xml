@@ -37,16 +37,6 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-       <!--     <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:paddingHorizontal="15dp"
-                android:layout_gravity="center"
-                android:textAlignment="center"
-                android:text="여러 아이템을 표시하기 RecyclerView를 사용합니다.\nRecyclerView는 아이템이 많은 경우\n자동으로 스크롤이 적용됩니다."
-                android:textSize="15sp" />-->
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
