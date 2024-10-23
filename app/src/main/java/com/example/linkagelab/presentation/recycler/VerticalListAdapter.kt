@@ -1,5 +1,7 @@
 package com.example.linkagelab.presentation.recycler
 
+import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -14,10 +16,36 @@ class VerticalListAdapter : RecyclerView.Adapter<VerticalListAdapter.MyListViewH
     inner class MyListViewHolder (val binding: ContentItemBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: BrunchContent) {
             binding.contentTitle.text = item.title
+            //binding.contentTitle.ellipsize = TextUtils.TruncateAt.END
             binding.contentDetail.text = item.content
 
-            binding.contentTitle.contentDescription = (if(item.title.length > 20) "${item.title.subSequence(0,20)} 말줄임" else item.title).toString()
-            binding.contentDetail.contentDescription = (if(item.content.length > 50) "${item.content.subSequence(0,50)} 말줄임" else item.content).toString()
+
+            // 말줄임 발생하면, 줄여진것 제외하고 설정
+            binding.contentTitle.post {
+                if (binding.contentTitle.layout != null) {
+                    if(binding.contentTitle.layout.getEllipsisCount(binding.contentTitle.getLineCount() - 1) > 0) {
+                        binding.contentTitle.contentDescription = "${item.title.substring(
+                            0,
+                            item.title.length - binding.contentTitle.layout.getEllipsisCount(binding.contentTitle.getLineCount() - 1)
+                        )} 말줄임"
+                    } else {
+                        binding.contentTitle.contentDescription = item.title
+                    }
+                }
+            }
+            binding.contentDetail.post{
+                if (binding.contentDetail.layout != null) {
+                    if(binding.contentDetail.layout.getEllipsisCount(binding.contentDetail.getLineCount() - 1) > 0) {
+                        binding.contentDetail.contentDescription = "${item.content.substring(
+                            0,
+                            item.content.length - binding.contentDetail.layout.getEllipsisCount(binding.contentDetail.getLineCount() - 1)
+                        )} 말줄임"
+                    } else {
+                        binding.contentDetail.contentDescription = item.content
+                    }
+                }
+            }
+
         }
     }
 

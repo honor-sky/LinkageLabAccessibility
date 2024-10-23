@@ -63,7 +63,7 @@
 
         <EditText
             android:id="@+id/searchEditbar"
-            android:layout_width="320dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="5dp"
             android:background="@null"

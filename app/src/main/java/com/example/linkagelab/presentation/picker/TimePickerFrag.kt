@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.accessibility.AccessibilityNodeInfo
 import android.widget.EditText
 import android.widget.NumberPicker
 import android.widget.TimePicker
@@ -16,6 +17,13 @@ class TimePickerFrag : Fragment() {
 
     private var _binding: FragmentTimePickerBinding? = null
     private val binding get() = _binding!!
+
+    private
+    val VIRTUAL_VIEW_ID_INCREMENT: Int = 1
+    private
+    val VIRTUAL_VIEW_ID_INPUT: Int = 2
+    private
+    val VIRTUAL_VIEW_ID_DECREMENT: Int = 3
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentTimePickerBinding.inflate(inflater, container, false)
@@ -116,6 +124,41 @@ class TimePickerFrag : Fragment() {
             displayValues.add("${value}${suffix}")
         }
         return displayValues.toTypedArray()
+    }
+
+    fun createAccessibilityNodeInfo(virtualViewId: Int): AccessibilityNodeInfo {
+        when (virtualViewId) {
+            View.NO_ID -> return createAccessibilityNodeInfoForNumberPicker(
+                mScrollX, mScrollY,
+                mScrollX + (mRight - mLeft), mScrollY + (mBottom - mTop)
+            )
+
+            VIRTUAL_VIEW_ID_DECREMENT -> return createAccessibilityNodeInfoForVirtualButton(
+                VIRTUAL_VIEW_ID_DECREMENT,
+                getVirtualDecrementButtonText(), mScrollX, mScrollY,
+                mScrollX + (mRight - mLeft),
+                mTopSelectionDividerTop + mSelectionDividerHeight
+            )
+
+            VIRTUAL_VIEW_ID_INPUT -> return createAccessibiltyNodeInfoForInputText(
+                mScrollX,
+                mTopSelectionDividerTop + mSelectionDividerHeight,
+                mScrollX + (mRight - mLeft),
+                mBottomSelectionDividerBottom - mSelectionDividerHeight
+            )
+
+            VIRTUAL_VIEW_ID_INCREMENT -> return createAccessibilityNodeInfoForVirtualButton(
+                VIRTUAL_VIEW_ID_INCREMENT,
+                getVirtualIncrementButtonText(), mScrollX,
+                mBottomSelectionDividerBottom - mSelectionDividerHeight,
+                mScrollX + (mRight - mLeft), mScrollY + (mBottom - mTop)
+            )
+        }
+        return super.createAccessibilityNodeInfo(virtualViewId)
+    }
+
+    fun createAccessibilityNodeInfoForNumberPicker(left : Int, top : Int, right : Int, bottom : Int) {
+
     }
 
 

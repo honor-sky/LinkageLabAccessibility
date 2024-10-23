@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white"
-    android:backgroundTint="@color/white">
+    android:importantForAccessibility="yes">
 
     <TextView
         android:id="@+id/contentTitle"
