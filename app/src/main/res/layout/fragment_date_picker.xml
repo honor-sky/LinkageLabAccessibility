@@ -58,15 +58,18 @@
     <NumberPicker
         android:id="@+id/yearPicker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"/>
     <NumberPicker
         android:id="@+id/monthPicker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"/>
     <NumberPicker
         android:id="@+id/dayPicker"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"/>
     </LinearLayout>
 
 
