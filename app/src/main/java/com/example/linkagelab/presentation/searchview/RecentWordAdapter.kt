@@ -78,4 +78,6 @@ class RecentWordAdapter(val searchWord : (String) -> (Unit), val removeWord : (S
     override fun getItemCount(): Int {
         return recentSearchedList!!.size
     }
+
+
 }

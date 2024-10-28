@@ -1,24 +1,26 @@
 package com.example.linkagelab.presentation
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.ViewGroup
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
-import androidx.appcompat.R
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.SearchView
-import androidx.appcompat.widget.SearchView.SearchAutoComplete
+import androidx.recyclerview.widget.RecyclerView
 import com.example.linkagelab.databinding.ActivitySearchviewBinding
 import com.example.linkagelab.presentation.searchview.RecentWordAdapter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class SearchActivity : AppCompatActivity() {
@@ -53,15 +55,21 @@ class SearchActivity : AppCompatActivity() {
     fun initAdapter() {
         adapter = NicknameAdapter(
             { word ->
-                saveRecentWord(word)
-            Toast.makeText(this, "$word 선택", Toast.LENGTH_SHORT).show()},
+                //saveRecentWord(word)
+            //Toast.makeText(this, "$word 선택", Toast.LENGTH_SHORT).show()
+                },
         )
         adapter.setDate(linkageLabKrew)
-        binding.krewLiat.adapter = adapter
+        binding.krewList.adapter = adapter
 
         recentdapter = RecentWordAdapter(
             { word ->
+
+                binding.searchEditbar.setText(word)
                 searchWord(word)
+
+                binding.searchBar.requestFocus()
+
             },
             { word ->
                 removeRecentWord(word)
@@ -78,7 +86,7 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.searchEditbar.setOnFocusChangeListener { view, hasFocus ->
+/*        binding.searchEditbar.setOnFocusChangeListener { view, hasFocus ->
             if (hasFocus == true){
                 binding.deleteBtn.visibility = View.VISIBLE
 
@@ -88,7 +96,7 @@ class SearchActivity : AppCompatActivity() {
                 // 최근 검색어 나타남
                 binding.recentText.visibility = View.GONE
                 binding.recentList.visibility = View.GONE
-                binding.krewLiat.visibility = View.VISIBLE
+                binding.krewList.visibility = View.VISIBLE
 
             } else {
                 binding.deleteBtn.visibility = View.GONE
@@ -99,16 +107,24 @@ class SearchActivity : AppCompatActivity() {
                 // 최근 검색어 나타남
                 binding.recentText.visibility = View.VISIBLE
                 binding.recentList.visibility = View.VISIBLE
-                binding.krewLiat.visibility = View.GONE
+               // binding.krewList.visibility = View.GONE
           }
-        }
+        }*/
 
 
         binding.deleteBtn.setOnClickListener {
-            binding.searchEditbar.text = null
+
+           binding.searchEditbar.text = null
+            adapter.setDate(linkageLabKrew)
             adapter.searchKeyword = ""
-            binding.searchEditbar.clearFocus()
-            binding.searchBar.clearFocus()
+
+            // 최근 검색어 나타남
+            binding.recentText.visibility = View.VISIBLE
+            binding.recentList.visibility = View.VISIBLE
+            binding.deleteBtn.visibility = View.GONE
+
+            binding.searchBar.requestFocus()
+
         }
 
 
@@ -120,17 +136,46 @@ class SearchActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(newText: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                binding.deleteBtn.visibility = View.VISIBLE
                 val keyword = newText.toString()
                 searchWord(keyword)
             }
         })
 
+        binding.searchEditbar.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+
+            var handled = false
+
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                saveRecentWord(v.text.toString())
+
+                binding.searchBar.requestFocus()
+
+                // 키보드 내리기
+                val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputMethodManager.hideSoftInputFromWindow(binding.searchEditbar.windowToken, 0)
+
+                binding.recentText.visibility = View.VISIBLE
+                binding.recentList.visibility = View.VISIBLE
+
+                handled = true
+
+            }
+
+            handled
+        })
 
     }
 
     fun initAccessibility() {
 
         binding.searchBar.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
+            override fun onInitializeAccessibilityNodeInfo(host: View, info: AccessibilityNodeInfo) {
+                super.onInitializeAccessibilityNodeInfo(host, info)
+                // 기본 접근성 행동을 유지
+                info.addAction(AccessibilityNodeInfo.AccessibilityAction.ACTION_ACCESSIBILITY_FOCUS)
+            }
+
             override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
                 return when (action) {
                     AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS -> {
@@ -157,7 +202,7 @@ class SearchActivity : AppCompatActivity() {
         // 최근 검색어 사라짐
         binding.recentText.visibility = View.GONE
         binding.recentList.visibility = View.GONE
-        binding.krewLiat.visibility = View.VISIBLE
+        binding.krewList.visibility = View.VISIBLE
 
         if(keyword == "") {
             adapter.setDate(mutableListOf())
@@ -214,6 +259,7 @@ class SearchActivity : AppCompatActivity() {
 
 
     }
+
 
 
 
