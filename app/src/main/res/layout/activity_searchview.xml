@@ -53,7 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-        android:padding="5dp"
+
         android:orientation="horizontal"
         android:importantForAccessibility="yes"
         android:focusable="true"
@@ -73,7 +73,8 @@
             android:imeOptions="actionDone"
             android:singleLine="true"
             android:importantForAccessibility="no"
-            android:hint="크루 닉네임을 입력해주세요 예) 올리"/>
+            android:hint="크루 닉네임을 입력해주세요 예) 올리"
+            android:textSize="15sp"/>
 
         <ImageButton
             android:id="@+id/delete_btn"
