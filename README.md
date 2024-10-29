@@ -39,14 +39,13 @@
 |  Custom Drawer Navigation  |   DrawerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |    activity_drawer_custom.xml, drawer_main.xml, drawer_main_content.xml, fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml  |  |
 | Option Menu, Context Menu, Popup Menu  |   MenuActivity.kt   |   activity_menu  | app > src > res > menu > nav_menu.xml  |
 | ProgressBar, RatingBar, ToastBar, SnackBar, AlertDialog  |  BarActivity.kt    |   activity_bar  |  |
-| RecyclerViw(scroll)  |  ScrollActivity.kt, HorizontalListAdapter.kt, VerticalListAdapter.kt   |   activity_scroll.xml, music_item.xml, vertical_item.xml  |  |
+| RecyclerViw(scroll)  |  ScrollActivity.kt, HorizontalListAdapter.kt, VerticalListAdapter.kt, BrunchContent.kt   |   activity_scroll.xml, music_item.xml, content_item.xml  |  |
 | Viewpager |  ViewpagerActivity.kt, HomeFragment.kt, BookmarkFragment.kt, MypageFragment.kt    |   activity_viewpager.xml,  fragment_home.xml, fragment_bookmark.xml, fragment_mypage.xml    |  |
-| SearchView (Suggestion 기능) |  SearchActivity.kt, NicknameAdapter.kt   |  activity_searchview  |  |
+| SearchView (Suggestion 기능) |  SearchActivity.kt, NicknameAdapter.kt, RecentWordAdapter.kt   |  activity_searchview.xml, nickname_item.xml, recentword_item.xml |  |
 
 
 - layout 파일 경로 : app > src > res > layout 
 - Activuty/Fragment 파일 경로: app > src > main > java > com > example > linkagelab > presentation 
 - 아이콘, 이미지 파일 경로 : app > src > res > drawable
 
-## 문서 (추후 pdf 문서 삽입 에정)
 
