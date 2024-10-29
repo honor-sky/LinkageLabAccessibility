@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.text.SpannableString
 import android.text.Spanned
 import android.text.style.BackgroundColorSpan
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.linkagelab.databinding.RecentwordItemBinding
 
 
-class RecentWordAdapter(val searchWord : (String) -> (Unit), val removeWord : (String) -> (Unit)): RecyclerView.Adapter<RecentWordAdapter.RecentWordViewHolder>() {
+class RecentWordAdapter(val searchWord : (String) -> (Unit), val removeWord : (String, Int) -> (Unit)): RecyclerView.Adapter<RecentWordAdapter.RecentWordViewHolder>() {
 
     var recentSearchedList: MutableList<String>? = null
 
@@ -41,8 +42,8 @@ class RecentWordAdapter(val searchWord : (String) -> (Unit), val removeWord : (S
                 }
             })
 
-            binding.deleteBtn.contentDescription =  "최근 검색어 삭제, 버튼, $item"
-            ViewCompat.setAccessibilityDelegate(binding.deleteBtn, object : AccessibilityDelegateCompat() {
+            binding.removeBtn.contentDescription =  "최근 검색어 삭제, 버튼, $item"
+            ViewCompat.setAccessibilityDelegate(binding.removeBtn, object : AccessibilityDelegateCompat() {
                 override fun onInitializeAccessibilityNodeInfo(
                     v: View,
                     info: AccessibilityNodeInfoCompat
@@ -51,10 +52,10 @@ class RecentWordAdapter(val searchWord : (String) -> (Unit), val removeWord : (S
                     info.roleDescription = null
                 }
             })
-            binding.deleteBtn.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
+            binding.removeBtn.sendAccessibilityEvent(AccessibilityEvent.TYPE_ANNOUNCEMENT)
 
-            binding.deleteBtn.setOnClickListener {
-                removeWord(item)
+            binding.removeBtn.setOnClickListener {
+                removeWord(item, adapterPosition)
             }
         }
     }
@@ -66,6 +67,8 @@ class RecentWordAdapter(val searchWord : (String) -> (Unit), val removeWord : (S
 
     override fun onBindViewHolder(holder: RecentWordViewHolder, position: Int) {
         holder.bind(recentSearchedList!![position])
+        holder.binding.recentWordItem.requestFocus()
+
     }
 
 

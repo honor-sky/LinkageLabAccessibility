@@ -5,22 +5,29 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.view.accessibility.AccessibilityEvent
 import android.view.accessibility.AccessibilityNodeInfo
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.linkagelab.R
 import com.example.linkagelab.databinding.ActivitySearchviewBinding
 import com.example.linkagelab.presentation.searchview.RecentWordAdapter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 
 class SearchActivity : AppCompatActivity() {
@@ -67,12 +74,11 @@ class SearchActivity : AppCompatActivity() {
 
                 binding.searchEditbar.setText(word)
                 searchWord(word)
-
                 binding.searchBar.requestFocus()
 
             },
-            { word ->
-                removeRecentWord(word)
+            { word, currentIdx ->
+                removeRecentWord(word, currentIdx)
             })
 
         binding.recentList.adapter = recentdapter
@@ -86,32 +92,6 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
 
-/*        binding.searchEditbar.setOnFocusChangeListener { view, hasFocus ->
-            if (hasFocus == true){
-                binding.deleteBtn.visibility = View.VISIBLE
-
-                adapter.setDate(mutableListOf())
-                adapter.searchKeyword = ""
-
-                // 최근 검색어 나타남
-                binding.recentText.visibility = View.GONE
-                binding.recentList.visibility = View.GONE
-                binding.krewList.visibility = View.VISIBLE
-
-            } else {
-                binding.deleteBtn.visibility = View.GONE
-
-                adapter.setDate(linkageLabKrew)
-                adapter.searchKeyword = ""
-
-                // 최근 검색어 나타남
-                binding.recentText.visibility = View.VISIBLE
-                binding.recentList.visibility = View.VISIBLE
-               // binding.krewList.visibility = View.GONE
-          }
-        }*/
-
-
         binding.deleteBtn.setOnClickListener {
 
            binding.searchEditbar.text = null
@@ -123,7 +103,11 @@ class SearchActivity : AppCompatActivity() {
             binding.recentList.visibility = View.VISIBLE
             binding.deleteBtn.visibility = View.GONE
 
-            binding.searchBar.requestFocus()
+
+            binding.searchBar.post {
+                binding.root.clearFocus()
+                binding.searchBar.requestFocus()
+            }
 
         }
 
@@ -225,7 +209,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     fun saveRecentWord(item : String) {
-        recentSearchedList!!.put(item, 1)
+        recentSearchedList!!.put(item, recentSearchedList.size.toInt())
 
         val json = Gson().toJson(recentSearchedList)
         prefs.edit().putString("recentWordData", json).apply()
@@ -233,11 +217,31 @@ class SearchActivity : AppCompatActivity() {
         setRecentWord()
     }
 
-    fun removeRecentWord(item : String) {
+    fun removeRecentWord(item : String, currentIdx : Int) {
+
+        val newPosition = if(currentIdx  > 0 ) currentIdx - 1 else -1
+
         recentSearchedList!!.remove(item)
 
         val json = Gson().toJson(recentSearchedList)
         prefs.edit().putString("recentWordData", json).apply()
+
+        Log.d("newViewHolder","size : ${recentSearchedList.size}")
+
+        if(recentSearchedList.size == 0) {
+            // 최근검색어가 더이상 없는 경우
+            // 초점 이동
+            binding.root.clearFocus()
+            binding.searchBar.requestFocus()
+
+        } else {
+
+            if(currentIdx == recentSearchedList.size && recentSearchedList.size > 0) {
+                val newViewHolder = binding.recentList.findViewHolderForAdapterPosition(newPosition)
+                //val item = newViewHolder?.itemView?.findViewById<ImageButton>(R.id.removeBtn)
+                newViewHolder?.itemView?.requestFocus()
+            }
+        }
 
         setRecentWord()
     }
@@ -256,11 +260,6 @@ class SearchActivity : AppCompatActivity() {
 
         // 어댑터 데이터 다시 셋팅
         recentdapter.setDate(newPreSearchedList)
-
-
     }
-
-
-
 
 }

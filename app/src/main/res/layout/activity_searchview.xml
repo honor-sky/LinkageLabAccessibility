@@ -53,7 +53,6 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="10dp"
-
         android:orientation="horizontal"
         android:importantForAccessibility="yes"
         android:focusable="true"
@@ -99,6 +98,7 @@
         android:text="최근검색어"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:importantForAccessibility="yes"
         app:layout_constraintTop_toBottomOf="@+id/searchBar"
         app:layout_constraintStart_toStartOf="parent" />
 
