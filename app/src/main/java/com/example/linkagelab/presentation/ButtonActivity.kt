@@ -102,6 +102,7 @@ class ButtonActivity : AppCompatActivity() {
             }
         })
 
+
         binding.checkBox3Custom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
             @RequiresApi(Build.VERSION_CODES.R)
             override fun performAccessibilityAction(host: View, action: Int, args: Bundle?): Boolean {
@@ -134,7 +135,6 @@ class ButtonActivity : AppCompatActivity() {
                 }
             }
         })
-
 
 
         binding.seekBarCustom.setAccessibilityDelegate(object : View.AccessibilityDelegate() {
@@ -172,7 +172,8 @@ class ButtonActivity : AppCompatActivity() {
 
                         true
                     }
-                    else -> super.performAccessibilityAction(host, action, args)
+                   else -> super.performAccessibilityAction(host, action, args)
+
                 }
             }
         })

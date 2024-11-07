@@ -246,6 +246,7 @@ class SearchActivity : AppCompatActivity() {
         setRecentWord()
     }
 
+
     fun setRecentWord() {
 
         val json = prefs.getString("recentWordData", null)
